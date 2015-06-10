@@ -17,6 +17,5 @@ Opinions are my own. Code snippets are opensource.
 Built with [Jekyll](http://jekyllrb.com/).
 <br>Hosted on [Github Pages](https://pages.github.com/).
 <br>Based on my port of [Cactus](http://cactusformac.com/)'s default theme for Jekyll.
-
-Feel free to [fork](https://github.com/nickbalestra/nickbalestra.github.io), change, modify and re-use it it.
+<br>Feel free to [fork](https://github.com/nickbalestra/nickbalestra.github.io), change, modify and re-use it.
 {% include footer.html %}
