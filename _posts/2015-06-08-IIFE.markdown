@@ -22,7 +22,7 @@ Function expressions can be named or anonymous, and so do IIFEs
 (function(){ /* code */ })(); // Anonymous IIFE
 ```
 
-Named function expressions are generally more preferable especially for [debugging](https://developer.chrome.com/devtools/docs/javascript-debugging#call-stack-panel).
+Named function expressions are generally more preferable especially for [debugging](https://developer.chrome.com/devtools/docs/javascript-debugging#call-stack-panel), and no, it won't pollute your global scope.
 
 * * *
 
