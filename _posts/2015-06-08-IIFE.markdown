@@ -1,0 +1,52 @@
+---
+title: IIFE
+date: 2015-06-08
+description: Immediately-Invoked Function Expression
+---
+
+##**IIFE**, which stands for Immediately Invoked Function Expression, is a common JavaScript design pattern aimed to protect a module's scope from the environment in which it is placed.
+
+* * *
+
+There are two ways of writing such pattern, each perfectly valid, so just pick your favorite.
+
+```javascript
+(function(){ /* code */ }()); // Crockford recommends this
+(function(){ /* code */ })(); // But this one works just fine
+```
+
+Function expressions can be named or anonymous, and so do IIFEs
+
+```javascript
+(function IIFE(){ /* code */ })(); // Named IIFE
+(function(){ /* code */ })(); // Anonymous IIFE
+```
+
+Named function expressions are generally more preferable especially for [debugging](https://developer.chrome.com/devtools/docs/javascript-debugging#call-stack-panel).
+
+* * *
+
+### Why the parentheses wrap
+
+> [Crockford doesn't like parens on the IIFE's outside — because they "look like dog balls"](https://twitter.com/paul_irish/status/176187448420864000)
+
+Altough we can argue on the easthetics of the pattern in his various forms, the immediately invoked function expression need to be wrapped inside parens to avoid the parser to trow an error by thinking it encountered an anonymous function declaration instead.
+
+```javascript
+// Function expression VS Function declaration
+var fn = function(){}; // Expression
+function fn(){}; // Declaration
+```
+### Benefits
+
+The main benefit of the IIFE pattern is local scoping and that's why it is used by most popular libraries (jQuery, Backbone.js, etc).
+
+Another small benefit rely in the ability to pass common global objects (like window, document, jQuery, etc) to an IIFE's in order to reference them locally from within the IFEE's local scope. This reduce the number of scope lookups and increase performances.
+
+```javascript
+(function IIFE((window, document, $){
+  // ...
+}(window, document, window.jQuery));
+```
+
+For more details on the IIFE pattern read [Ben Alman's original post](http://benalman.com/news/2010/11/immediately-invoked-function-expression/).
