@@ -21,10 +21,11 @@ To set up your blog using jekyll and github pages just follow the next steps. Yo
 ### Step 1: Fork a theme
 Many great and free themes can be found on [jekyllthemes.org](http://jekyllthemes.org/).
 
-- [mediator](https://github.com/dirkfabisch/mediator) - A medium inspired Jekyll blog theme.
+- [Kactus](https://github.com/nickbalestra/kactus) - A port of Cactus’s  default theme. *The one I use for this site*.
+- [Mediator](https://github.com/dirkfabisch/mediator) - A medium inspired Jekyll blog theme.
 - [Pixyll](https://github.com/johnotander/pixyll) - A simple Jekyll theme that emphasizes content
 - [Kasper](https://github.com/rosario/kasper) - A port of Ghost’s Casper default theme.<br><br>
-Just pick the theme you prefere and fork it (or feel free to [fork this blog](https://github.com/nickbalestra/nickbalestra.github.io): based on my port of the default [Cactus for Mac](http://cactusformac.com/) theme).<br><br>
+Just pick the theme you prefere and fork it.<br><br>
 
 
 ### Step 2: Rename your repository
