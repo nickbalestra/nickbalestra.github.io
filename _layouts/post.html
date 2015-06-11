@@ -1,6 +1,6 @@
 ---
 layout: default
-disqus: false
+disqus: true
 readmore: true
 ---
 
@@ -18,7 +18,7 @@ readmore: true
         <img class="avatar" src="/assets/images/profile.png">
         <div>
             <span class="dark">Nick Balestra</span>
-            <span>Software engineer</span>
+            <span>Software engineer, Design driven</span>
         </div>
     </a>
 
@@ -26,6 +26,11 @@ readmore: true
         {% include share.html %}
     </section>
 </footer>
+
+<!-- Disqus comments -->
+{% if page.disqus %}
+    {% include disqus.html %}
+{% endif %}
 
 {% if page.readmore %}
     <ul id="post-list" class="archive readmore">
@@ -38,8 +43,5 @@ readmore: true
     </ul>
 {% endif %}
 
-<!-- Disqus comments -->
-{% if page.disqus %}
-    {% include disqus.html %}
-{% endif %}
+
 

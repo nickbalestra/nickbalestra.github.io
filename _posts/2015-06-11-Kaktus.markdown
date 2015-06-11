@@ -1,0 +1,32 @@
+---
+title: Kaktus
+date: 2015-06-11
+description: A theme for Jekyll
+---
+
+##[Cactus](http://cactusformac.com/) is a fast, easy and free static site generator, kinda like Jekyll and made to run on your mac. It features a good, simple and modern template. I really like Cactus default simple theme and I wanted to port it to Jekyll. The result is [Kaktus](https://github.com/nickbalestra/kactus).
+
+* * *
+
+Here's a list of what Kasper currently includes:
+
+* Pagination
+* Rss feed
+* Google Analytics Tracking code
+* Code Syntax Highlight
+* Author's profile with picture header
+* Twitter/Facebook share buttons
+* Archive posts list under each post
+* Disqus comments
+<br><br>
+
+## Screenshots
+
+Here you can find a couple of screenshots.
+
+![index page](https://raw.githubusercontent.com/nickbalestra/kactus/master/assets/images/Kactus-theme-index.png)
+![post page](https://raw.githubusercontent.com/nickbalestra/kactus/master/assets/images/Kactus-theme-post.png)
+
+* * *
+
+Feel free to fork the repository, the source code is on [github](https://github.com/nickbalestra/kactus).
