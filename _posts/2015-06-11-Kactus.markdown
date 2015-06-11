@@ -8,7 +8,7 @@ description: A theme for Jekyll
 
 * * *
 
-Here's a list of what Kasper currently includes:
+Here's a list of what kactus currently includes:
 
 * Pagination
 * Rss feed
