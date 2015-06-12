@@ -17,18 +17,18 @@ Treat this post as a summary/note on [Kyle Simpson’s](https://twitter.com/geti
 
 So, I mentioned that javascript is a compiled language, but what does this mean? Shortly, just before execution, the source code is sent by the engine trough a compiler, in which, during an early phase called lexing (or tokenizing), scope get defined. This doesn’t just tell us what’s in a name, but also remember us that lexical scope is based on where variables and blocks of scope have been authored in the source code. In other words, lexical scope is defined by you during author time and frozen by the lexer during compilation. Let’s show this with the help of a little example:
 
-```javascript
+{% highlight javascript linenos %}
 var a = ‘something’;
-```
+{% endhighlight %}
 
 As the compiler encounter the variable declaration for *a* (var a) it asks scope to see if the variable a already exists for that particular scope. If so, it just ignore it and move forward, otherwise it asks scope to declare (create) *a* new variable named *a* for that scope.
 
 ##Engine meets scope
 When engine executes the code that the compiler produced it will see our above example’s code to be something like:
 
-```javascript
+{% highlight javascript linenos %}
 a = ‘something’;
-```
+{% endhighlight %}
 
 Spot the difference? Yes, the var keyword is missing, this is because variables declaration was already handled by compiler, and engine will, therefore, proceed to the assignment. To do so, it will first do a scope LHS (left-hand side) look-up for variable *a*. As Kyle suggests in his book the conversation between Engine and Scope could sounds like:
 
@@ -44,6 +44,7 @@ At this point, we can all infer what scope is. Scope is where to look for things
 
 1. If you are running in ES5 strict mode: engine would throw a ReferenceError as you would logically imagine,
 2. otherwise global scope will just create a variable with that name in the global scope and hand it back to the engine. We can imagine global scope’s reply to sounds like:
+<br><br>
 
 > **Global Scope**: No engine, there wasn’t one before, but I was helpful and created one for you. Here it is.
 
@@ -53,7 +54,7 @@ Think of scopes as strictly nested bubbles, not like Venn diagrams where the bub
 
 What create a scope then? Although not completely true the common wisdom is that javascript has function-based scope only. Meaning that each declared function create its own scope. Let’s take the following example:
 
-```javascript
+{% highlight javascript linenos %}
 var a = 1;
 function foo() {
     var a = 10;
@@ -61,49 +62,49 @@ function foo() {
 }
 console.log(a); // 1
 foo();          // 10
-```
+{% endhighlight %}
 
 Scope of *foo* is nested inside global scope, hiding what gets defined inside of it from the outer world. In such cases we can also speak of ‘shadowing *a*’. Scope-based hiding techniques can be useful to build the API for a module/object, where you should expose only what is minimally necessary, and “hide” everything else, following the software design principle called “[Principle of Least Privilege](http://en.wikipedia.org/wiki/Principle_of_least_privilege)”, also known as “Least Authority” or “Least Exposure.
 
 What are then the mechanics that create block-level scope? *with* and *try/catch* and coming up in ES6 *const* and *let*. I’ll give here some more details about the latest one mentioned: *let*. The *let* keyword can be used for variable declaration instead of *var*, and in fact attaches the variable declaration to the scope of whatever block (usually a { .. } pair) it’s contained in. In other words, *let* implicitly hijacks any block’s scope for its variable declaration.
 
-```javascript
+{% highlight javascript linenos %}
 {
     let foo = 10;
     console.log( foo ); // 10
 }
 
 console.log( foo ); // ReferenceError
-```
+{% endhighlight %}
 
 *let* also come packed with a special behavior when used inside a for loop header:
 
-```javascript
+{% highlight javascript linenos %}
 for (let i = 0; i < 5; i++) {
     console.log( i ); // 0 1 2 3 4
 }
 
 console.log( i ); // ReferenceError
-```
+{% endhighlight %}
 
 This is very useful not only for avoiding collisions and scope-pollution but also for closures as we’ll see later as *let* will do its binding on every iteration of the loop.
 
 ##Hoisting
 First, let see hoisting in action
 
-```javascript
+{% highlight javascript linenos %}
 foo(); // ‘hello hoisting’
 
 function foo() {
     console.log(‘hello hoisting’);
 }
-```
+{% endhighlight %}
 
 As you can see we can invoke *foo* before it has been declared and the code will run just as if the opposite happened. Well, by now something should start ringing a bell, wasn’t this indeed happening during compilation? Right! During a compilation, every declaration (of variables or function) get added to the relative scope. Function declaration hoisting differs from variables as the content of the function get hoisted too. That’s it. I’ve read so many posts about hosting and many seemed to refer to something more or less mystical, you know, when variables declaration are moved on the top following some unknown reason…
 
 Remember that functions declaration and not function expression are hoisted, and that functions are hoisted first, and then variables:
 
-```javascript
+{% highlight javascript linenos %}
 foo(); // 3
 
 var foo;
@@ -117,18 +118,20 @@ foo = function() {
 function foo() {
     console.log( 3 );
 }
-```
+{% endhighlight %}
+
 
 Also, notice how function declaration can override each other (instead, if we were going to declare multiple times var foo nothing will have happened). This should be pretty straightforward as variables declaration just create a variable in a specific scope with their name only while function declaration also bring with them their content.
 
 However, declarations made with let will *not* hoist to the entire scope of the block they appear in. Such declarations will not observable “exist” in the block until the declaration statement.
 
-```javascript
+{% highlight javascript linenos %}
 {
    console.log( foo ); // ReferenceError!
    let foo = 10;
 }
-```
+{% endhighlight %}
+
 
 ##Closures
 In his book Kyle gives a very straightforward definition for what a closure is:
@@ -137,7 +140,7 @@ In his book Kyle gives a very straightforward definition for what a closure is:
 
 If you think about lexical scope, this is so straight forward, cause scope is defined on author time and set in stone during compilation, therefore it have nothing to do with runtime and the call-stack(different will be if javascript will have been based on dynamic scope, but perhaps I will write a post about *‘this’* in the near future…). This mean that a function *bar* defined inside a function *foo* will have access to the outer scope of *foo*, also if being returned within it and invoked outside of *foo*, or in other words, outside of its scope,yes, its lexical scope! If it sounds complex, this latest example will make it clearer.
 
-```javascript
+{% highlight javascript linenos %}
 function foo() {  // 'scope of foo' aka lexical scope for bar
    var memory = 'hello closure';
    return function bar() {
@@ -149,7 +152,8 @@ var memory = null,
     baz = foo();
 
 baz(); // 'hello closure'
-```
+{% endhighlight %}
+
 
 Thanks to [Bojan](https://twitter.com/bojanpopic), [Stian](https://twitter.com/stipsan) and [Ryan](https://twitter.com/ryanvannin) for reviews and feedbacks.
 

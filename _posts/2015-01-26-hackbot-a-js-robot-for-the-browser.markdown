@@ -30,11 +30,12 @@ Robots receive messages from a chat source, and dispatch them to matching listen
 
 #####How to create a robot
 
-```javascript
+{% highlight javascript linenos %}
 robot = new Robot();  // Create a Robot object
 robot.load();         // load scripts defined in script.js
 robot.run();          // start the robot adapter
-```
+{% endhighlight %}
+
 > Hackbot says: Bite my shiny metal ass!<br>
 > Loading scripts at ../hackbot/scripts/<br>
 > Starting adapter<br>
@@ -44,14 +45,15 @@ robot.run();          // start the robot adapter
 #####Under the hood
 The created robot object will looks like:
 
-```javascript
+{% highlight javascript linenos %}
 {
     name: "Hackbot",
     listeners: Array,
     adapter: Adapter Object,
     brain: Brain Object
 }
-```
+{% endhighlight %}
+
 Through its prototype chain a robot has access to the following methods:
 
 
@@ -97,17 +99,18 @@ Listeners receive messages from the chat source and decide if they want to act o
 #####Under the hood
 Shortly, when robots receive a message (via an adapter), will invoke the listener via its call method passing the message as argument:
 
-```javascript
+{% highlight javascript linenos %}
 listener.call(message)
-```
+{% endhighlight %}
+
 
 Inside that call function, if the listener’s regex match the message text, the listener’s callback function will be invoked passing a new response as argument:
 
-```javascript
+{% highlight javascript linenos %}
 if (match) {
     callback(new Response(robot, message, match));
 ... }
-```
+{% endhighlight %}
 See [annotated documentation of the listener](http://nickbalestra.github.io/hackbot/listener.html) for more details
 
 <br>
@@ -118,7 +121,7 @@ Messages and responses are data structures used to carry data around the applica
 #####Under the hood
 A message object, has the following properties:
 
-```javascript
+{% highlight javascript linenos %}
 {
     user: User Object,
     text: 'Hello world',
@@ -126,17 +129,17 @@ A message object, has the following properties:
     createdAt: date,
     done: false || true
 }
-```
+{% endhighlight %}
 
 Through its prototype chain a message has access to a match method to determines if the message matches a given regex, and is used by the listener’s matcher method when invoked trough its call method as we saw above. The Response object wrap the message and contain some useful properties, it look something like:
 
-```javascript
+{% highlight javascript linenos %}
 {
     message: Message Object,
     match: Array (containing the regex matchings if any),
     envelope: Object (containing user and message)
 }
-```
+{% endhighlight %}
 
 Through the prototype chain, the response object has access to the following methods: send, emote, reply, random and finish.
 Check the full annotated documentation of Message and Response for further details.
@@ -170,9 +173,9 @@ Response.random() is a simple method that return a random value out of an array.
 #####How to add help commands to a script
 To add some help to a script that can be called by typing the help command in the chat, use the help method:
 
-```javascript
+{% highlight javascript linenos %}
 robot.help("Hello", "Make Hackbot saying Hello");
-```
+{% endhighlight %}
 If in the chat somebody type help, robot will respond as follow:
 
 > **Hackbot**: < Hello > — Make Hackbot saying Hello
@@ -206,11 +209,11 @@ In order to take advantage of some functional utilities similar to what the unde
 
 If you want to take advantage of the underscorish.js library when creating your own scripts, just define the relative dependency following the require.js syntax as follow:
 
-```javascript
+{% highlight javascript linenos %}
 define([‘underscorish’], function (_) {
     ...your script code here...
 }
-```
+{% endhighlight %}
 
 For more details, please check the [underscorish annotated documentation](http://nickbalestra.github.io/hackbot/underscorish.html).
 
@@ -229,18 +232,19 @@ See [annotated documentation of the brain](http://nickbalestra.github.io/hackbot
 ####Scripts
 Similar to brain, I had to find a way for Hackbot to know what scripts to load. In order to achieve this, two things has been slightly changed. First the load() method for the robot:
 
-```javascript
+{% highlight javascript linenos %}
 robot.load(path)
-```
+{% endhighlight %}
 
 We saw this earlier when I showed how to create a robot. Path is a string (i.e: ‘/newScriptFolder’). If nothing is passed to the method, the default will be ‘../hackbot/scripts/’ as found in the github repository structure. It’s important to know that in the defined directory a file named scripts.js must be present. In that file, all scripts that Hackbot should load must be listed and the corresponding files must exist in the same directory. Then it’s just a matter of calling the load() method:
 
-```javascript
+{% highlight javascript linenos %}
 define({
     'aName' : 'scriptFilename'
 });
 // This will load scriptFilename.js
-```
+{% endhighlight %}
+
 See [annotated documentation of the scripts](http://nickbalestra.github.io/hackbot/scripts.html) for more details
 
 ####Adapter

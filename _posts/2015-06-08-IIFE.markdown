@@ -10,17 +10,17 @@ description: Immediately-Invoked Function Expression
 
 There are two ways of writing such pattern, each perfectly valid, so just pick your favorite.
 
-```javascript
-(function(){ /* code */ }()); // Crockford recommends this
-(function(){ /* code */ })(); // But this one works just fine
-```
+{% highlight javascript linenos %}
+(function(){ /* code */ }()); // Crockford's way
+(function(){ /* code */ })(); // But this is also fine
+{% endhighlight %}
 
 Function expressions can be named or anonymous, and so do IIFEs
 
-```javascript
+{% highlight javascript linenos %}
 (function IIFE(){ /* code */ })(); // Named IIFE
 (function(){ /* code */ })(); // Anonymous IIFE
-```
+{% endhighlight %}
 
 Named function expressions are generally more preferable especially for [debugging](https://developer.chrome.com/devtools/docs/javascript-debugging#call-stack-panel), and no, it won't pollute your global scope.
 
@@ -32,21 +32,21 @@ Named function expressions are generally more preferable especially for [debuggi
 
 Altough we can argue on the easthetics of the pattern in his various forms, the immediately invoked function expression need to be wrapped inside parens to avoid the parser to trow an error by thinking it encountered an anonymous function declaration instead.
 
-```javascript
+{% highlight javascript linenos %}
 // Function expression VS Function declaration
 var fn = function(){}; // Expression
 function fn(){}; // Declaration
-```
+{% endhighlight %}
 ### Benefits
 
 The main benefit of the IIFE pattern is local scoping and that's why it is used by most popular libraries (jQuery, Backbone.js, etc).
 
 Another small benefit rely in the ability to pass common global objects (like window, document, jQuery, etc) to an IIFE's in order to reference them locally from within the IFEE's local scope. This reduce the number of scope lookups and increase performances.
 
-```javascript
+{% highlight javascript linenos %}
 (function IIFE((window, document, $){
   // ...
 }(window, document, window.jQuery));
-```
+{% endhighlight %}
 
 For more details on the IIFE pattern read [Ben Alman's original post](http://benalman.com/news/2010/11/immediately-invoked-function-expression/).

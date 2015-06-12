@@ -34,9 +34,10 @@ Rename the repository you just forked as ```username.github.io``` where username
 ### Step 3 - Enjoy
 There is no step 3, your new blog is now live and reachable at the following address:
 
-```
+{% highlight javascript linenos %}
 http://username.github.io
-```
+{% endhighlight %}
+
 
 ##### Settings
 To setup your blog, edit the ```_config.yml``` file.
@@ -48,14 +49,15 @@ To publish a new article just add a new markdown file in the _posts directory, i
 ##### Testing locally
 First make sure to have Jekyll installed.
 
-```
+{% highlight javascript linenos %}
 $ gem install jekyll
-```
+{% endhighlight %}
+
 and then you can simply run it from the terminal
 
-```
+{% highlight javascript linenos %}
 jekyll serve
-```
+{% endhighlight %}
 
 For more details check the [documentation](http://jekyllrb.com/docs/home/).
 Alternatively, you could [install Jekyll via Github's own bundle](https://help.github.com/articles/using-jekyll-with-pages/). This will allow you to ensure that your computer most closely matches the GitHub Pages settings.

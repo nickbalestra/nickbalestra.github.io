@@ -10,7 +10,7 @@ description: When non-boolean values are coerced to booleans
 
 ### Falsy
 
-```javascript
+{% highlight javascript linenos %}
 Boolean("")  // Empty string
 Boolean(0)
 Boolean(-0)
@@ -18,13 +18,13 @@ Boolean(NaN)
 Boolean(null)
 Boolean(undefined)
 Boolean(false)
-```
+{% endhighlight %}
 
 Every other value will become true when coerced to a boolean, and therofore can be assumed to be truthy.
 
 ### Truthy
 
-```javascript
+{% highlight javascript linenos %}
 Boolean("hello")
 Boolean(true)
 Boolean(17)
@@ -33,7 +33,7 @@ Boolean({}) // Empty objects as well
 Boolean([ 17, "hello", true ]) // Any array
 Boolean([]) // Empty arrays as well
 Boolean( function foo(){...} ) // Functions
-```
+{% endhighlight %}
 
 ***
 

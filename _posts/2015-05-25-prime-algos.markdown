@@ -12,12 +12,12 @@ Lets quickly walk through some basic integer factorization algorithms.
 ### Trial division
 The first among those algorithms, most laborious, but easiest to understand is the trial divison.
 
-```
-Given an integer n (where n refers to "the integer to be factored"), trial division consists of systematically testing whether n is divisible by any smaller number
-```
+> Given an integer n (where n refers to "the integer to be factored"), trial division consists of systematically testing whether n is divisible by any smaller number
+
+
 If n is not divisible by any smaller number, then n is a prime. Lets put this algorithm into code:
 
-```javascript
+{% highlight javascript linenos %}
 var isPrime = function(n){
   var divisor;
   for(divisor = 2; divisor < n; divisor++) {
@@ -27,12 +27,12 @@ var isPrime = function(n){
   }
   return true;
 };
-```
+{% endhighlight %}
 
 Furthermore, the trial factors need go no further than √n because, if n is divisible by some number p, then n = p × q and if q were smaller than p, n would have earlier been detected as being divisible by q or a prime factor of q.
 We could then rewrite an optimised version of the isPrime function based on the trial division in the following way:
 
-```javascript
+{% highlight javascript linenos %}
 var isPrime = function(n){
   var divisor;
   for(divisor = 2; divisor <= Math.sqrt(n); divisor++) {
@@ -42,7 +42,8 @@ var isPrime = function(n){
   }
   return true;
 };
-```
+{% endhighlight %}
+
 Understandably this algorythm can be pretty resource intensive. A better approach could be to sieve a set of numbers using one of the many sieve algorithms available, like for example the:
 
 * * *
@@ -60,7 +61,7 @@ The algorythm can be braken down into the following steps:
 
 Assuming we already have a list of consecutive integers from 2 through n, we could put the sieving into the following code:
 
-```javascript
+{% highlight javascript linenos %}
 var sieve = function(list, p) {
 
   var sieved = list;
@@ -92,7 +93,7 @@ var sieve = function(list, p) {
   }
 
 };
-```
+{% endhighlight %}
 Again, as the original algorithm suggest there are few optimization that could be done:
 
 - As a refinement, it is sufficient to mark the numbers in step 3 starting from p^2, as all the smaller multiples of p will have already been marked at that point. This means that the algorithm is allowed to terminate in step 4 when p^2 is greater than n.
@@ -100,7 +101,7 @@ Again, as the original algorithm suggest there are few optimization that could b
 
 and here the refined code:
 
-```javascript
+{% highlight javascript linenos %}
 var sieve = function(oddList, p) {
   var sieved = oddList;
   p = p || 3;
@@ -125,7 +126,7 @@ var sieve = function(oddList, p) {
   }
 
 };
-```
+{% endhighlight %}
 
 
 

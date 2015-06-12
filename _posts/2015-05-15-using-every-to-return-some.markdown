@@ -17,19 +17,16 @@ It accept a collection and an iterator as a test function. It should return true
 ### Some()
 Similarly to every(), it accept a collection and a test iterator, and, as the name suggest:
 
-```text
-It should return true if at least one element of the collection pass the test.
-```
+> It should return true if at least one element of the collection pass the test.
+
 
 We can slightly rephrase that definition into something like:
 
-```text
-some() should return true if not every element of the collection fail the test
-```
+> some() should return true if not every element of the collection fail the test
 
 Can you see now how every() made it through that some() definition? Let's pseudo code this further:
 
-```javascript
+{% highlight javascript linenos %}
 some = function(collection, test) {
         // not every element of the collection
         return !every(collection, function(item){
@@ -38,7 +35,7 @@ some = function(collection, test) {
         });
     });
 }
-```
+{% endhighlight %}
 
 If you have every() at you disposal and you need to get some() this is definitely a short and smart way to get there (For a slighltly longer solution use reduce() instead).
 
