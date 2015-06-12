@@ -15,6 +15,8 @@ There are two ways of writing such pattern, each perfectly valid, so just pick y
 (function(){ /* code */ })(); // But this is also fine
 {% endhighlight %}
 
+> [Crockford doesn't like parens on the IIFE's outside — because they "look like dog balls"](https://twitter.com/paul_irish/status/176187448420864000)
+
 Function expressions can be named or anonymous, and so do IIFEs
 
 {% highlight javascript linenos %}
@@ -28,9 +30,7 @@ Named function expressions are generally more preferable especially for [debuggi
 
 ### Why the parentheses wrap
 
-> [Crockford doesn't like parens on the IIFE's outside — because they "look like dog balls"](https://twitter.com/paul_irish/status/176187448420864000)
-
-Altough we can argue on the easthetics of the pattern in his various forms, the immediately invoked function expression need to be wrapped inside parens to avoid the parser to trow an error by thinking it encountered an anonymous function declaration instead.
+An immediately invoked function expression need to be wrapped inside parens to avoid the parser to trow an error by thinking it encountered an anonymous function declaration instead.
 
 {% highlight javascript linenos %}
 // Function expression VS Function declaration
