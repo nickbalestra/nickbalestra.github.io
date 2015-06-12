@@ -3,12 +3,9 @@ title: About
 permalink: about/
 profile: true
 ---
+Pivoting from being a product designer with a passion for code into a software engineer with a passion for design.
 
-My Name is Nick.
-
-I mainly write for myself as a way to foster my learnings and understandings. I'm pivoting from being a product designer with a passion for code into a software engineer with a passion for design.
-
-Opinions are my own. Code snippets are opensource.
+Opinions are my own. Code snippets are open source.
 
 ***
 
