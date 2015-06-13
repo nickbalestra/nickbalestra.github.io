@@ -1,5 +1,5 @@
 ---
-title: JS Functional Programming libraries
+title: JS Functional Programming Libraries
 date: 2015-06-13
 description: From underscore to lodash and Ramda, from chaining to composition and auto-currying
 ---
