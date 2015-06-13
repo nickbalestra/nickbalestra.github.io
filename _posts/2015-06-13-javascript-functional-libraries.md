@@ -215,7 +215,10 @@ _.chain(movies)
 R.min(R.flatten(R.pluck('ratings', R.filter(isRecommended, movies))));
 // → 7.2
 
-// Or, alternatively using compose:
+// Or, alternatively using Ramda compose.
+// Although if we are relying on ramda functions that
+// auto-curry is much better to write function composition
+// the math way ( f(g(h())) ), as we just did in the snippet above
 R.compose(
     R.min(),
     R.flatten(),
