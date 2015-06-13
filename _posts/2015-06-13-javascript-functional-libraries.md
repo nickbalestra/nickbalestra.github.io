@@ -130,7 +130,7 @@ We can call a function with:
 - with too many, exceding the function's arity (*arguments.length>function.length*) with the result that the arguments in excess normally get ignored.
 
 <br>
-A curried function is function that may be invoked with fewer arguments then its original arity, returning a function ready to be invoked with the remaining ones.
+A curried function is a function that may be invoked with fewer arguments then its original arity, returning a function ready to be invoked with the remaining ones.
 
 Given a sum3 function, that when invoked with 3 arguments will return their sum, we can create its curried version as follows:
 
