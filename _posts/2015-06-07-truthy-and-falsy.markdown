@@ -1,5 +1,5 @@
 ---
-title: Truthy and falsy
+title: Truthy and falsy values
 date: 2015-06-07
 description: When non-boolean values are coerced to booleans
 ---

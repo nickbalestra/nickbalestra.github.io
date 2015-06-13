@@ -1,5 +1,5 @@
 ---
-title: IIFE
+title: The IIFE pattern
 date: 2015-06-08
 description: Immediately-Invoked Function Expression
 ---

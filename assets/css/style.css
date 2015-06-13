@@ -185,6 +185,10 @@ a,
 ul 	{ margin:0; padding:0; }
 li	{ list-style-type:circle; list-style-position:inside; }
 
+ol li {
+  list-style-type: decimal;
+}
+
 /* Line Height */
 #post-body, p { line-height:1.7; }
 

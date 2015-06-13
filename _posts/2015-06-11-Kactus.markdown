@@ -1,5 +1,5 @@
 ---
-title: Kactus
+title: Kactus for Jekyll
 date: 2015-06-11
 description: A theme for Jekyll
 ---

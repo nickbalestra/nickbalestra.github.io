@@ -1,5 +1,5 @@
 ---
-title: Javascript’s lexical scope, hoisting and closures without mystery
+title: JavaScript’s lexical scope, hoisting and closures without mystery
 date: 2015-01-17
 description: Understanding the Javascript language mechanics
 ---
