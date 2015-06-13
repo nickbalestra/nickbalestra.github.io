@@ -87,7 +87,7 @@ _.chain(movies)
 
 #### Composition
 
-If \_.chain seems well known and commonly used, fewer may be aware of an underscore hidden gem: compose. Compose is as close as we can get to function composition within underbar, by allowing us to returns the composition of a list of functions, where each function consumes the return value of the function that follows.
+If \_.chain seems well known and commonly used, fewer may be aware of an underscore hidden gem: compose. Compose is as close as we can get to function composition within underscore, by allowing us to returns the composition of a list of functions, where each function consumes the return value of the function that follows.
 
 In math terms, composing the functions f(), g(), and h() produces f(g(h())).
 
