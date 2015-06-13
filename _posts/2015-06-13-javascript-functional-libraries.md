@@ -225,8 +225,6 @@ R.compose(
 // → 7.2
 {% endhighlight %}
 
-***
-
 We now know why we should care about some functional libraries, how to do chaining, composition and currying with them. For more info check their respective documentations:
 
 - [Underscore on DevDocs.io](http://devdocs.io/underscore/)
