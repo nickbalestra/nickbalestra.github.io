@@ -227,12 +227,13 @@ R.compose(
 
 ***
 
-In this post we looked at few different flavours of JavaScript functional libraries together with some nice to know methods for each of them.
-
-We now know why we should care, how to do chaining, composition and currying with them. For more info check their respective documentations:
+We now know why we should care about some functional libraries, how to do chaining, composition and currying with them. For more info check their respective documentations:
 
 - [Underscore on DevDocs.io](http://devdocs.io/underscore/)
 - [lodash on DevDocs.io](http://devdocs.io/lodash/)
 - [Ramda docs](http://ramdajs.com/docs/)
 
+***
+
+Is worth mentioning that there is a version of lodash that comes packed with functionFirst dataLast APIs and auto-currying. Curious? Check [lodash-fp](https://github.com/lodash/lodash-fp)
 
