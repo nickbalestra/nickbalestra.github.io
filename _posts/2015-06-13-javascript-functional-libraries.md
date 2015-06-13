@@ -196,7 +196,35 @@ var recommendedMovies = function(movies) {
 var recommendedMovies = R.filter(isRecommended);
 {% endhighlight %}
 
+
 Because every ramda function automatically curry, omitting to pass the collection argument to R.filter return us the curryed function so that we are ready to go.
+
+Other previusly encountered code re-factored with Ramda:
+
+{% highlight javascript linenos %}
+// Underscore/lodash style:
+_.chain(movies)
+  .filter(isRecommended)
+  .pluck('ratings')
+  .flatten()
+  .min()
+  .value()
+// → 7.2
+
+// Ramda style:
+R.min(R.flatten(R.pluck('ratings', R.filter(isRecommended, movies))));
+// → 7.2
+
+// Or, alternatively using compose:
+R.compose(
+    R.min(),
+    R.flatten(),
+    R.pluck('ratings'),
+    R.filter(isRecommended)
+)(movies);
+// → 7.2
+{% endhighlight %}
+
 ***
 
 In this post we looked at few different flavours of JavaScript functional libraries together with some nice to know methods for each of them.
