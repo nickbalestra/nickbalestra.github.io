@@ -162,7 +162,7 @@ probably need to know about Ramda.
 
 ## Ramda
 
-> [Ramda](http://ramdajs.com/) is practical functional library for Javascript programmers.
+> [Ramda](http://ramdajs.com/) is a practical functional library for Javascript programmers.
 
 Ramda is not a drop-in replacement for underscore or lodash, as it has a more focused goal. It's a library designed specifically for a functional programming style, one that makes it easy to create functional pipelines, one that never mutates user data.
 
