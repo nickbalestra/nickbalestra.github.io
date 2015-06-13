@@ -6,13 +6,13 @@ description: From underscore to lodash and Ramda, from chaining to composition a
 
 ##In computer science, Functional Programming (“FP”) is a programming paradigm—a style of building the structure and elements of computer programs—that treats computation as the evaluation of mathematical functions and avoids changing-state and mutable data.
 
-Shortly, FP is a coding style based on the following two best practices, that together form the concept of fuction's purity:
+Shortly, FP is a coding style based on the following two best practices, which together form the concept of functions purity:
 
 1. **Immutability** and
 2. **Statelessness**
 <br><br>
 
-In JavaScript, we have plenty of libraries with a functional flavour to choose from. While each has it's own set of goals, in the following paragraphs we'll see which are the ones we should all know about and why.
+In JavaScript, we have plenty of libraries to choose from with a functional flavor. While each has its set of goals, in the following paragraphs we'll see which are the ones we should all know about and why.
 
 ***
 
@@ -43,9 +43,9 @@ As of today, **lodash is the most dependended-upon package on npm** while **unde
 
 ### Things worth knowing about underscore
 #### Chaining
-Underscore come with a chain method. It allow us to use _.chain() to wrap a collection and then call other underscore functions on it before finally calling _.value() to unwrap the final result.
+Underscore come with a chain method. It allows us to use _.chain() to wrap a collection and then call other underscore functions on it before finally calling _.value() to unwrap the final result.
 
-Taking a movies collection :
+Taking a movies collection:
 
 {% highlight javascript linenos %}
 var movies = [
@@ -73,7 +73,7 @@ var isRecommended = function (movie) {
 };
 {% endhighlight %}
 
-We can now create a complex operation by simply chaining together underscore functions. For example, to discover the lowest rating ever given to a recomended movie:
+We can now create a complex operation by simply chaining together underscore functions. For example, to discover the lowest rating ever given to a recommended movie:
 
 {% highlight javascript linenos %}
 _.chain(movies)
@@ -103,7 +103,7 @@ var exclaim  = function(statement){
 };
 {% endhighlight %}
 
-We can now compose them in order to create a more powerful function out of the two:
+We can now \_.compose them to create a more powerful function out of the two:
 
 {% highlight javascript linenos %}
 var welcome = _.compose(greet, exclaim);
@@ -115,24 +115,24 @@ welcome('there')
 ### Things worth knowing about lodash
 #### Composition left
 
-Lodash is born as a fork of underscore, therefore everything we just saw can also be achieved with lodash. For example we may like compose but it may feel weird for its right to left math derived invocation. Lodash [still permit that mathematical approach](https://lodash.com/docs#flowRight) but also features a left to right version of the method that is not called composeLeft but simply [_.flow](https://lodash.com/docs#flow).
+Lodash is born as a fork of underscore. Therefore, everything we just saw can also be achieved with lodash. For example, we may like compose but it may feel weird for its right to left math derived invocation. Lodash [still permits that mathematical approach](https://lodash.com/docs#flowRight) but also features a left-to-right version of the method simply called [_.flow](https://lodash.com/docs#flow).
 
-Lodash, being sort of underscore gen2 offer better performances thanks to advanced code optimizations. It can be seen as a drop-in replacement for underscore, and it won't be hard to replace the first with the latter.
+Lodash, representing underscore gen2 offer better performances thanks to advanced code optimizations. It can act as a drop-in replacement for underscore, and it won't be hard to replace the first with the latter.
 
-Among the extra perks that comes with lodash one is definitely worth exploring:
+Among the extra perks that come with lodash one is worth exploring:
 
 #### Currying
 
-In JavaScript a function takes a number of arguments, and returns a value.
+In JavaScript a function takes some arguments and returns a value.
 We can call a function with:
 
-- fewer paramaters then the function's arity (*arguments.length<function.length*), most probably with odd results, or
+- fewer parameters then the function's arity (*arguments.length<function.length*), most probably with odd results, or
 - with too many, exceding the function's arity (*arguments.length>function.length*) with the result that the arguments in excess normally get ignored.
 
 <br>
-A curried function is a function that may be invoked with fewer arguments then its original arity, returning a function ready to be invoked with the remaining ones.
+A curried function is a function that may be invoked with fewer arguments than its original arity, returning a function ready to be invoked with the remaining ones.
 
-Given a sum3 function, that when invoked with 3 arguments will return their sum, we can create its curried version as follows:
+Given a sum3 function, that when invoked with three arguments will return their sum, we can create its curried version as follows:
 
 {% highlight javascript linenos %}
 var sum3 = function(a, b, c) {
@@ -169,20 +169,20 @@ Ramda is not a drop-in replacement for underscore or lodash, as it has a more fo
 ### Things worth knowing about Ramda
 #### Function first, data last API
 
-The parameters to Ramda functions are arranged to make it convenient for currying as the data to be operated on is generally supplied last.
+The parameters to Ramda functions are arranged to make it convenient for currying as the data to be operated on is supplied last.
 
-lodash map vs rampda map functions
+lodash map vs. rampda map functions
 {% highlight javascript linenos %}
 // lodash
 _.map(collection, iteratee)
 
-// ramda
+// Ramda
 R.map(iteratee, collection)
 {% endhighlight %}
 
 #### Auto-currying
 
-Ramda functions are automatically curried. This allows you to easily build up new functions from old ones simply by not supplying the final parameters. This coupled with the function first, data last API make ramda not just functional purer, but definitely purely awesome.
+Ramda functions are automatically curried. Currying allows you to easily build up new functions from old ones simply by not supplying the final parameters. This coupled with the function first, data last API make ramda not just functional purer, but also purely awesome.
 
 Let's then rebuild part of the underscore/lodash code we saw earlier with ramda instead.
 
@@ -199,7 +199,7 @@ var recommendedMovies = R.filter(isRecommended);
 
 Because every ramda function automatically curry, omitting to pass the collection argument to R.filter return us the curryed function so that we are ready to go.
 
-Other previusly encountered code re-factored with Ramda:
+Other previously encountered code re-factored with Ramda:
 
 {% highlight javascript linenos %}
 // Underscore/lodash style:
@@ -225,7 +225,7 @@ R.compose(
 // → 7.2
 {% endhighlight %}
 
-We now know why we should care about some functional libraries, how to do chaining, composition and currying with them. For more info check their respective documentations:
+We now know why we should care about some functional libraries, how to do chaining, composition and currying with them. For more info check their respective documentation:
 
 - [Underscore on DevDocs.io](http://devdocs.io/underscore/)
 - [lodash on DevDocs.io](http://devdocs.io/lodash/)
