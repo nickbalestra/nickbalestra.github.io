@@ -202,7 +202,7 @@ Because every ramda function automatically curry, omitting to pass the collectio
 Other previously encountered code re-factored with Ramda:
 
 {% highlight javascript linenos %}
-// Underscore/lodash style:
+// Underscore:
 _.chain(movies)
   .filter(isRecommended)
   .pluck('ratings')
@@ -211,21 +211,24 @@ _.chain(movies)
   .value()
 // → 7.2
 
-// Ramda style:
-R.min(R.flatten(R.pluck('ratings', R.filter(isRecommended, movies))));
+// lodash:
+_(movies)
+  .filter(isRecommended)
+  .pluck('ratings')
+  .flatten()
+  .min()
 // → 7.2
 
-// Or, alternatively using Ramda compose.
-// Although if we are relying on ramda functions that
-// auto-curry is much better to write function composition
-// the math way ( f(g(h())) ), as we just did in the snippet above
-R.compose(
-    R.min(),
-    R.flatten(),
+// Ramda:
+R.pipe(
+    R.filter(isRecommended),
     R.pluck('ratings'),
-    R.filter(isRecommended)
+    R.flatten(),
+    R.min()
 )(movies);
 // → 7.2
+// A similar reusable result could be also
+// achieved with lodash \_.flow
 {% endhighlight %}
 
 We now know why we should care about some functional libraries, how to do chaining, composition and currying with them. For more info check their respective documentation:
