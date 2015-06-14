@@ -227,6 +227,7 @@ R.pipe(
   R.min()
 )(movies);
 // → 7.2
+// Spot something? Yes pipe return us a function.
 // A similar reusable result could be also
 // achieved using lodash _.flow
 {% endhighlight %}
