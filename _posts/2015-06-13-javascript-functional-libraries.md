@@ -221,10 +221,10 @@ _(movies)
 
 // Ramda:
 R.pipe(
-    R.filter(isRecommended),
-    R.pluck('ratings'),
-    R.flatten(),
-    R.min()
+  R.filter(isRecommended),
+  R.pluck('ratings'),
+  R.flatten(),
+  R.min()
 )(movies);
 // → 7.2
 // A similar reusable result could be also
