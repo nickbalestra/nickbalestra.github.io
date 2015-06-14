@@ -43,7 +43,7 @@ As of today, **lodash is the most dependended-upon package on npm** while **unde
 
 ### Things worth knowing about underscore
 #### Chaining
-Underscore come with a chain method. It allows us to use _.chain() to wrap a collection and then call other underscore functions on it before finally calling _.value() to unwrap the final result.
+Underscore comes with a chain method. It allows us to use _.chain() to wrap a collection and then call other underscore functions on it before finally calling _.value() to unwrap the final result.
 
 Taking a movies collection:
 
