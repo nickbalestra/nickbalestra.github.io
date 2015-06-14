@@ -228,7 +228,7 @@ R.pipe(
 )(movies);
 // → 7.2
 // A similar reusable result could be also
-// achieved with lodash \_.flow
+// achieved using lodash _.flow
 {% endhighlight %}
 
 We now know why we should care about some functional libraries, how to do chaining, composition and currying with them. For more info check their respective documentation:
