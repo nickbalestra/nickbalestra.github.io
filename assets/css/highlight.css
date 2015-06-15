@@ -74,7 +74,8 @@
 .s + .si,
 .si + .nx,
 .si + .s,
-.nx + .si {
+.nx + .si,
+.s2, .s1 {
   color: #6ED300; }
 
 /* Lighter, following dots like ".states.add etc" */
@@ -133,7 +134,3 @@
     overflow-x: auto;
     word-wrap: normal;
   }
-
-
-
-
