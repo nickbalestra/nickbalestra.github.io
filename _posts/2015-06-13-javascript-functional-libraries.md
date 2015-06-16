@@ -228,17 +228,58 @@ R.pipe(
 )(movies);
 // → 7.2
 // Spot something? Yes pipe return a function.
-// A similar reusable result could be also
-// achieved using lodash _.flow
 {% endhighlight %}
+
+***
+
+Is worth mentioning that there is a version of lodash that comes packed with functionFirst dataLast APIs and auto-currying, called **lodash-fp**. Let's see how that could be beneficial, for example within a composition (flow) taken from the example we just saw:
+
+{% highlight javascript linenos %}
+// lodash flow
+// passing anonimous functions
+_.flow(
+  function(list){return _.filter(list, isRecommended);},
+  function(list){return _.pluck(list, 'ratings');},
+  _.flatten,
+  _.min)(movies)
+
+// lodash flow
+// passing named functions
+var customfilter = function(list){return _.filter(list, isRecommended);};
+var custompluck = function(list){return _.pluck(list, 'ratings');};
+
+_.flow(
+  customfilter,
+  custompluck,
+  _.flatten,
+  _.min)(movies)
+
+// lodash flow
+// passing curried functions
+var curriedfilter = _.curry(_.filter)(_,isRecommended, null)
+var curriedpluck = _.curry(_.pluck)(_, 'ratings')
+
+_.flow(
+  curriedfilter,
+  curriedpluck,
+  _.flatten,
+  _.min)(movies)
+
+// lodash-fp flow
+// Function-first + Auto-curry awesomeness in action
+_.flow(
+  _.filter(isRecommended),
+  _.pluck('ratings'),
+  _.flatten,
+  _.min
+)(movies);
+{% endhighlight %}
+
 
 We now know why we should care about some functional libraries, how to do chaining, composition and currying with them. For more info check their respective documentation:
 
 - [Underscore on DevDocs.io](http://devdocs.io/underscore/)
 - [lodash on DevDocs.io](http://devdocs.io/lodash/)
 - [Ramda docs](http://ramdajs.com/docs/)
-
-***
-
-Is worth mentioning that there is a version of lodash that comes packed with functionFirst dataLast APIs and auto-currying. Curious? Check [lodash-fp](https://github.com/lodash/lodash-fp)
+- [lodash-fp](https://github.com/lodash/lodash-fp)
 
