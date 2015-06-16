@@ -230,7 +230,6 @@ R.pipe(
 // Spot something? Yes pipe return a function.
 {% endhighlight %}
 
-***
 
 Is worth mentioning that there is a version of lodash that comes packed with functionFirst dataLast APIs and auto-currying, called **lodash-fp**. Let's see how that could be beneficial, for example within a composition (flow) taken from the example we just saw:
 
