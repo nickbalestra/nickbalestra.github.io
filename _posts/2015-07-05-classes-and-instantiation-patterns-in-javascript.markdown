@@ -28,25 +28,25 @@ It does just what is suppose to do:
 {% highlight javascript linenos %}
 var FunctionalPattern = function(){
   // Create a new object
-  var istance = {};
+  var instance = {};
 
   // Add methods to it
-  istance.aMethod = function(){};
-  istance.anotherMethod = function(){};
+  instance.aMethod = function(){};
+  instance.anotherMethod = function(){};
 
   // Return the new decorated object
-  return istance;
+  return instance;
 };
 
-// Istantiation Pattern:
-var istance = FunctionalPattern();
+// Instantiation Pattern:
+var instance = FunctionalPattern();
 {% endhighlight %}
 
 
 
 #### Pros & Cons
 
-The functional pattern have the advantage of returning methods that where defined within the constructor's lexical scope, therefore creating closures (and making the object constrution pretty clear).
+The functional pattern have the advantage of returning methods that were defined within the constructor's lexical scope, therefore creating closures (and making the object constrution pretty clear).
 The very same principle that give the functional pattern the closure advantage also define its drawback. As the methods are declared within the the lexical scope of the constructor, instantiating a class via the functional pattern will result in duplicating all its methods, meaning new functions stored in new spots in memory.
 
 * * *
@@ -58,24 +58,24 @@ Born as an effort to limit the drawbacks of the functional pattern, it moves the
 {% highlight javascript linenos %}
 var FunctionalSharedPattern = function(){
   // Create a new object
-  var istance = {};
+  var instance = {};
 
   // Add methods to it
-  istance.aMethod = functionalSharedMethods.aMethod;
-  istance.anotherMethod = functionalSharedMethods.anotherMethod;
+  instance.aMethod = functionalSharedMethods.aMethod;
+  instance.anotherMethod = functionalSharedMethods.anotherMethod;
 
   // Return the new decorated object
-  return istance;
+  return instance;
 };
 
-// shared methods where each istance will point to
+// shared methods where each instance will point to
 var functionalSharedMethods = {
   aMethod: function(){},
   anotherMethod: function(){},
 };
 
-// Istantiation Pattern:
-var istance = FunctionalSharedPattern();
+// Instantiation Pattern:
+var instance = FunctionalSharedPattern();
 {% endhighlight %}
 
 ...definitely a WET solution.
@@ -89,37 +89,37 @@ With the help of a little helper we could refactor the functional-shared pattern
 {% highlight javascript linenos %}
 var FunctionalSharedPattern = function(){
   // Create a new object
-  var istance = {};
+  var instance = {};
 
   // Add methods to it
-  extend(istance, functionalSharedMethods);
+  extend(instance, functionalSharedMethods);
 
   // Return the new decorated object
-  return istance;
+  return instance;
 };
 
-// shared methods where each istance will point to
+// shared methods where each instance will point to
 var functionalSharedMethods = {
   aMethod: function(){},
   anotherMethod: function(){},
 };
 
 // Basic Extend Helper
-function extend(istance, methods) {
+function extend(instance, methods) {
   for (var key in methods) {
-    if(!istance.hasOwnProperty(key))
-    istance[key] = methods[key];
+    if(!instance.hasOwnProperty(key))
+    instance[key] = methods[key];
   }
 }
 
-// Istantiation Pattern:
-var istance = FunctionalSharedPattern();
+// Instantiation Pattern:
+var instance = FunctionalSharedPattern();
 {% endhighlight %}
 
 #### Pros & Cons
 
 The functional-shared pattern solve the cons we saw in the functional pattern.
-But, it still have a big drawback: the pointers in each istance are created during the istantiation only, meaning that if we add or edit shared methods those won't be available to our instances unless we update them (i.e. by invoking the extend helper again on each of our instances.).
+But, it still have a big drawback: the pointers in each instance are created during the instantiation only, meaning that if we add or edit shared methods those won't be available to our instances unless we update them (i.e. by invoking the extend helper again on each of our instances.).
 
 * * *
 
@@ -130,20 +130,20 @@ By now you probably noticing a trend in how this blog post is structured, we are
 {% highlight javascript linenos %}
 var PrototypalPattern = function(){
   // Create a new object
-  var istance = Object.create(PrototypalPattern.prototype);
+  var instance = Object.create(PrototypalPattern.prototype);
 
   // Methods will be added to the prototype
 
   // Return the new decorated object
-  return istance;
+  return instance;
 };
 
 // PrototypalPattern will delegate to its prototype for methods lookup
 PrototypalPattern.prototype.aMethod = function(){};
 PrototypalPattern.prototype.anotherMethod = function(){};
 
-// Istantiation Pattern:
-var istance = PrototypalPattern();
+// Instantiation Pattern:
+var instance = PrototypalPattern();
 {% endhighlight %}
 
 #### Pros & Cons
@@ -166,11 +166,16 @@ var PseudoclassicalPattern = function(){
   this.anotherMethod = function(){};
 }
 
-// Istantiation Pattern:
-var istance = new PseudoclassicalPattern();
+// Instantiation Pattern:
+var instance = new PseudoclassicalPattern();
 {% endhighlight %}
 
 * * *
 
 ## Final thoughts and performance
 The clear question we should all ask our self is: which pattern should we use? As for everything the answer is: it depends. It depends on the codebase you are working on and which pattern is most used there, in that case will be a good idea to stick to that. For example the Pseudoclassical is the preferred pattern in MVC’s such as backbone. Another interesting aspect to take into consideration when deciding which pattern to use could be related to performance, but this is a subject for a another blog post...
+
+**Thanks to**:<br>
+[Hack Reactor](http://www.hackreactor.com/) for being awesome.<br>
+[Charles Crame](https://twitter.com/cpcrame) for helping in proof reading this post.<br>
+[Ryan Atkinson](http://www.ryanatkinson.io/author/ryan/) for his inspirational blog.<br>
