@@ -6,7 +6,7 @@ description: Functional, Functional-shared, Prototypal and Pseudoclassical
 
 ##Any construct that is capable of producing a fleet of similar instances conforming to some interface can be called a Class.
 
-Without entering into the debate about the OOp aspects of the javaScript Language specific to Classes, and if classes/instances truely exists in js, let's just rely on the above definition, and explore the different patterns available to us for defining Classes and instantiating them.
+Without entering into the debate about the OOp aspects of the javaScript language specific to Classes, and if classes/instances truely exists in js, let's just rely on the above definition, and explore the different patterns available to us for defining Classes and instantiating them.
 
 * * *
 
@@ -47,13 +47,13 @@ var istance = FunctionalPattern();
 #### Pros & Cons
 
 The functional pattern have the advantage of returning methods that where defined within the constructor's lexical scope, therefore creating closures (and making the object constrution pretty clear).
-The very same principle that give the functional pattern the closure advantage also define its drawback. As the methods are defined within the the lexical scope of the constructor, instantiating a class via the functional pattern will result in duplicating all its methods, meaning new functions stored in new spots in memory.
+The very same principle that give the functional pattern the closure advantage also define its drawback. As the methods are declared within the the lexical scope of the constructor, instantiating a class via the functional pattern will result in duplicating all its methods, meaning new functions stored in new spots in memory.
 
 * * *
 
 ### The Functional-shared pattern
 
-Born as an effort to limit the drawbacks of the functional pattern, it moves the methods declaration outside the lexical scope of the class and extending it methods by reference, in this way each istance will have pointers to the same functions without duplicating them:
+Born as an effort to limit the drawbacks of the functional pattern, it moves the methods declaration outside the lexical scope of the class, extending it methods by reference. In this way each istance will have pointers to the same functions without duplicating them:
 
 {% highlight javascript linenos %}
 var FunctionalSharedPattern = function(){
@@ -119,7 +119,7 @@ var istance = FunctionalSharedPattern();
 #### Pros & Cons
 
 The functional-shared pattern solve the cons we saw in the functional pattern.
-But still have a big draback: the pointers in each istance are created during the istantiation only, meaning that if we add or edit shared methods those won't be available to our instances unless we update them (i.e. by running the extend again on each of our instances.).
+But, it still have a big drawback: the pointers in each istance are created during the istantiation only, meaning that if we add or edit shared methods those won't be available to our instances unless we update them (i.e. by invoking the extend helper again on each of our instances.).
 
 * * *
 
@@ -148,7 +148,7 @@ var istance = PrototypalPattern();
 
 #### Pros & Cons
 
-There are'n much drawbacks with this Pattern, as it solve all our issues we encountered sofar. So, maybe there is not a better way, but there may be a sweeter way...
+There are'n much drawbacks with this Pattern, as it solve all our issues we encountered sofar. So, maybe there is not a better way, but just a sweeter way...
 
 * * *
 
