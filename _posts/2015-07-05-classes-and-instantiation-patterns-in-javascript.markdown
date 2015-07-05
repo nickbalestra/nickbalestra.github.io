@@ -170,5 +170,7 @@ var PseudoclassicalPattern = function(){
 var istance = new PseudoclassicalPattern();
 {% endhighlight %}
 
+* * *
+
 ## Final thoughts and performance
 The clear question we should all ask our self is: which pattern should we use? As for everything the answer is: it depends. It depends on the codebase you are working on and which pattern is most used there, in that case will be a good idea to stick to that. For example the Pseudoclassical is the preferred pattern in MVC’s such as backbone. Another interesting aspect to take into consideration when deciding which pattern to use could be related to performance, but this is a subject for a another blog post...
