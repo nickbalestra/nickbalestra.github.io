@@ -1,7 +1,7 @@
 ---
 title: Prefix Tree Data Structure
 date: 2015-07-05
-description: Storing sequences for a fast look-up
+description: Storing sequences with a fast look-up
 ---
 
 ##A prefix tree, or [trie](https://en.wikipedia.org/wiki/Trie) is a data structure for storing strings or sequences in a way that allows for a fast look-up.
