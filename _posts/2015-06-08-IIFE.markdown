@@ -30,7 +30,7 @@ Named function expressions are generally more preferable especially for [debuggi
 
 ### Why the parentheses wrap
 
-An immediately invoked function expression need to be wrapped inside parens to avoid the parser to trow an error by thinking it encountered an anonymous function declaration instead.
+An immediately invoked function expression need to be wrapped inside parens to avoid the parser to throw an error by thinking it encountered an anonymous function declaration instead.
 
 {% highlight javascript linenos %}
 // Function expression VS Function declaration
@@ -41,7 +41,7 @@ function fn(){}; // Declaration
 
 The main benefit of the IIFE pattern is local scoping and that's why it is used by most popular libraries (jQuery, Backbone.js, etc).
 
-Another small benefit rely in the ability to pass common global objects (like window, document, jQuery, etc) to an IIFE's in order to reference them locally from within the IFEE's local scope. This reduce the number of scope lookups and increase performances.
+Another small benefit relies on the ability to pass common global objects (like window, document, jQuery, etc) to an IIFE in order to reference them locally from within the IFEE's local scope. This reduce the number of scope lookups and increase performances.
 
 {% highlight javascript linenos %}
 (function IIFE((window, document, $){
