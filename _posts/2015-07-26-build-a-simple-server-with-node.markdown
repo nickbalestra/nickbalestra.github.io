@@ -1,5 +1,5 @@
 ---
-title: Building a simple API server with node
+title: Building a simple server with node
 date: 2015-07-26
 description: Vanilla node, router and utils.
 ---
