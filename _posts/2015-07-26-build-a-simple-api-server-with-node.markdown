@@ -72,13 +72,13 @@ Before being able to work on the ping endpoint handler we need to put together s
 
 ### Utils
 
-At a very besic level we won't need many helpers, is enough to have:
+At a very besic level we don't need much, is enough to have:
 
 **respond()** to build and send the http response.<br>
 **fetchData()** to grab the data passed within each request (we won't take advantage of it throughout this post, but is definitely a must have).<br>
 **actionDispatcher()** to check for requests methods supported inside each endpointHandler and dispatch the request accordingly.
 
-Inside the utils file we can also define some headers to be used within our responses, allowing us to define CORS headers and any other header property we may need. As we are setting up an API server let's specify into our headers json as the content type:
+Inside the utils file we can also define some headers to be used within our responses, allowing us to define CORS headers and any other header property we may need. As we are at it, and we are building an API server let's add json as the content type of our headers:
 
 {% highlight javascript linenos %}
 var headers = {
@@ -119,9 +119,9 @@ exports.actionDispatcher = function(actionsHash){
 
 ### The endPoint handlers
 
-Now we should have everything we may need to easily create the endPointHandlers with the logic and definition for each endpoint of our API. In our example we said to want to have a '/ping' endpoint that will respond only to GET requests with a simple pong response.
+Now we should have everything we need to easily create the endPointHandlers with the logic and definition for each endpoint of our API. For our example server we said that we want to have a unique endpoint ('/ping') that will respond only to GET requests.
 
-Let's require our freshly backed utils, to support us handling both the requests and responses as well as the actions hash like a boss. The actions Hash is where we will define the logic for each http method we may want to support/allow for the given endpoint. Here the ping endpoint handler definition:
+Let's require our freshly backed utils, to support us handling both the requests and responses as well as the actions hash like a boss. The actions hash is where we will define the logic for each http method we may want to support/allow for the given endpoint. Here the final ping endpoint handler definition:
 
 {% highlight javascript linenos %}
 var utils = require('../utils');
@@ -149,7 +149,7 @@ utils.js<br>
 &nbsp;&nbsp;/endPointHandlers<br>
 &nbsp;&nbsp;&nbsp;&nbsp;ping.js<br>
 
-We should be able to CD into the root folder, run it and ping it via curl:
+Boom!, we should now be able to CD into the root folder, run it and ping it via curl:
 
 {% highlight javascript linenos %}
 nodemon server.js
