@@ -23,7 +23,7 @@ That's mostly about it as Node isn’t really much more than that.
 ## The Architecture
 
 ### A basic server
-The first thing that we need is to have a live server up and running listening for requests on a specific address:port. In other words we just need an address to expose our public API for the external world to communicate and interact with. For this we'll need to rely on the node http module. After loading it we can then create a server via its createServer() method. createServer() accept a function as parameter and automatically add it to the 'request' event (registering it as a listener). Yes, right.. I'll show you the code:
+The first thing that we need is to have a live server up and running listening for requests on a specific address:port. In other words we just need an address to expose our public API for the external world to communicate and interact with. For this we'll need to rely on the node http module. After loading it we can then create a server via its createServer() method. createServer() accept a function as parameter and automatically add it to the 'request' event (registering it as a listener). Yes, right.. enough said, here is the code:
 
 {% highlight javascript linenos %}
 var http = require("http");
