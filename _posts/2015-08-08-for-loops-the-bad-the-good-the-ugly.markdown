@@ -17,7 +17,7 @@ for (var i = 0, len = nums.length; i < len; i++) {
 }
 {% endhighlight %}
 
-We all know him: it's a pain to type and a risk for our scoped i's (Unless we rely on ES6 and use 'let' within the for signature when declaring the index variable). The for loop , also known as the 'for semicolon' loop, is definitely the most common used control flow for* looping in js
+We all know him: it's a pain to type, a risk for our is (Unless we rely on ES6 and use 'let' within the for signature when declaring the index variable) and a scope polluter in general. The for loop , also known as the 'for semicolon' loop, is definitely the most common used control flow for* looping in js
 
 ***
 
