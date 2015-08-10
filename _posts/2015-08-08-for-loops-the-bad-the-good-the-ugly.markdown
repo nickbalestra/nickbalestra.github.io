@@ -17,7 +17,7 @@ for (var i = 0, len = nums.length; i < len; i++) {
 }
 {% endhighlight %}
 
-We all know him: it's a pain to type, a risk for our is (Unless we rely on ES6 and use 'let' within the for signature when declaring the index variable) and a scope polluter in general. The for loop , also known as the 'for semicolon' loop, is definitely the most common used control flow for* looping in js
+We all know him: it's a pain to type, a risk for our i's (Unless we rely on ES6 and use 'let' within the for signature when declaring the index variable) and a scope polluter in general. The for loop , also known as the 'for semicolon' loop, is definitely the most common used control flow for looping in js
 
 ***
 
@@ -29,11 +29,11 @@ nums.forEach(function(number){
 })
 {% endhighlight %}
 
-When I said that "There are 2+1 ways to do for* loops in javaScript" I was referring to forEach(). This higher-order-function-way of looping is available on almost any js environment as a native Array method (and it comes together with some awesome bros like reduce()).
+When I said that "there are 2+1 ways to do for* loops in javaScript" I was referring to forEach(). This higher-order-function-way of looping is available on almost any js environment as a native Array method (and it comes together with some awesome bros like map() and reduce()).
 
 Why is it The Good? First it relieves us from The Bad's pains, Second it brings moar awesomeness to the table.
 
-The lexical scoping work to our advantage when looping using higher order functions. Because the inner function lives inside the environment of the outer one, it can access its closure scope. The bodies of such inner functions can then access the variables around them. They can play a role similar to the {} blocks used in regular loops and conditional statements, with an important difference: variables declared inside inner functions do not end up in the environment of the outer function. And that is usually a good thing.
+When looping using higher order functions the lexical scope work to our advantage . Because the inner function lives inside the environment of the outer one, it can access its closure scope. The bodies of such inner functions can then access the variables around them. They can play a role similar to the {} blocks used in regular loops and conditional statements, with an important difference: variables declared inside inner functions do not end up in the environment of the outer function. And that is usually a good thing.
 
 For those reasons you will never be trapped by the infamous async loop nightmare, aka:
 
@@ -57,7 +57,7 @@ nums.forEach(function(number, i){
 // -> 1 2 3
 {% endhighlight %}
 
-Lastly by being more expressive it represents our intent to iterate through each element of an array, allowing us to abstract over actions, not just values.This allow us to properly name such intent instead of having to rely on meaningless indexes:
+Lastly, by being more expressive it represents our intent to iterate through each element of an array, allowing us to abstract over actions, not just values.This allow us to properly name such intent instead of having to rely on meaningless indexes:
 
 {% highlight javascript linenos %}
 nums.forEach(function(number){
@@ -77,7 +77,7 @@ for (var number in nums) {
 }
 {% endhighlight %}
 
-For in is ugly, not because how it looks, it actually look quite cleaner then it's counter part for semicolon, although we can easily spot all the negative aspects we just encountered earlier, like lack of expressiveness and scope pollution. For in can be ugly-evil too as it will loop through prototypal properties as well. This is ok if your intent is explicitly to loop trough the prototypal chain properties as well, but that's rarely the case. The underscore method allKeys does just that, as its name clearly communicate.
+For in is ugly, not because how it looks, it actually look quite cleaner then it's counter part for semicolon, although we can easily spot all the negative aspects we just encountered earlier, like lack of expressiveness and scope pollution. For in, can be ugly-evil too as it will loop through prototypal properties as well. This is ok if your intent is explicitly to loop trough the prototypal chain properties as well, but that's rarely the case. The underscore method allKeys does just that, as its name clearly communicate.
 
 {% highlight javascript linenos %}
 _.allKeys = function(object){
@@ -96,4 +96,4 @@ Another way to avoid using The Ugly for in loop to iterate trough your objects k
 
 It's always worth knowing with who are we dealing with: the bad the good or the ugly. We should also always strive, wherever possible for the good, meaning relying on a functional library like underscore, lodash or ramda. [Read more about functional libraries](http://nick.balestra.ch/2015/javascript-functional-libraries/) and why you should care.
 
-You can also implement you own little higher order function to iterate through lists and collections if you believe that a whole library will just be an overkill dependency. If that's the case I strongly suggest you to just implement your own each() and reduce() functions, as everything else, like map() filter() etc can be implemented on top of those two extremely powerful workhorses.
+You can also implement your own little higher order function to iterate through lists and collections if you believe that a whole library will just be an overkill dependency. If that's the case I strongly suggest you to just implement your own each() and reduce() functions, as everything else, like map() filter() etc can be implemented on top of those two extremely powerful workhorses.
