@@ -17,7 +17,7 @@ for (var i = 0, len = nums.length; i < len; i++) {
 }
 {% endhighlight %}
 
-We all know him: it's a pain to type, a risk for our i's (Unless we rely on ES6 and use 'let' within the for signature when declaring the index variable) and a scope polluter in general. The for loop , also known as the 'for semicolon' loop, is definitely the most common used control flow for looping in js
+We all know him: it's a pain to type, a risk for our i's (unless we rely on ES6 and use 'let' within the for signature when declaring the index variable) and a scope polluter in general. The for loop , also known as the 'for semicolon' loop, is definitely the most common used control flow for looping in js
 
 ***
 
@@ -77,7 +77,7 @@ for (var number in nums) {
 }
 {% endhighlight %}
 
-For in is ugly, not because how it looks, it actually look quite cleaner then it's counter part for semicolon, although we can easily spot all the negative aspects we just encountered earlier, like lack of expressiveness and scope pollution. For in, can be ugly-evil too as it will loop through prototypal properties as well. This is ok if your intent is explicitly to loop trough the prototypal chain properties as well, but that's rarely the case. The underscore method allKeys does just that, as its name clearly communicate.
+For in is the ugly one. I bet you can now easily spot all the negative aspects we just encountered earlier for its counterpart for semicolon, like lack of expressiveness and scope pollution. For in is ugly-evil too as it will loop through prototypal properties as well. This is ok if your intent is explicitly to loop trough the prototypal chain properties as well, but that's rarely the case. The underscore method allKeys does just that, as its name clearly communicate...
 
 {% highlight javascript linenos %}
 _.allKeys = function(object){
@@ -89,7 +89,7 @@ _.allKeys = function(object){
 }
 {% endhighlight %}
 
-Another way to avoid using The Ugly for in loop to iterate trough your objects key/value pairs is by using Object.keys(obj) to build an array of its own properties and than use that with the Bad for semicolon loop...cause bad is better then ugly.
+Another way to avoid using The Ugly for in loop to iterate trough your objects key/value pairs is by using Object.keys(obj) to build an array of its own properties and than use that array with the Bad for semicolon loop...cause bad is better then ugly.
 
 ***
 ##Final thoughts
