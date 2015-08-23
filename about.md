@@ -3,7 +3,7 @@ title: About
 permalink: about/
 profile: true
 ---
-Pivoting from being a product designer with a passion for code into a software engineer with a passion for design.
+I am a software engineer, with a background in product and user experience design. I enjoy thinking about user experience as much as solving difficult technical problems.
 
 Opinions are my own. Code snippets are open source.
 
