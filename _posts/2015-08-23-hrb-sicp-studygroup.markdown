@@ -30,15 +30,13 @@ Similarly to the node REPL, you can also run the the MIT/GNU Scheme directly fro
 sudo ln -s /Applications/MIT\:GNU\ Scheme.app/Contents/Resources/mit-scheme /usr/bin/scheme
 {% endhighlight %}
 
-#### Add the library path to your profile:
+#### Add the library path to your bash profile:
 
 {% highlight javascript linenos %}
 export MITSCHEME_LIBRARY_PATH="/Applications/MIT\:GNU\ Scheme.app/Contents/Resources"
-{% endhighlight %}
 
-#### Add it as environmental variable as well:
-
-{% highlight javascript linenos %}
+// Optionally you can also add the
+// following environmental variable:
 export MIT_SCHEME_EXE="/usr/local/scheme"
 {% endhighlight %}
 
