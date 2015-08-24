@@ -1,14 +1,14 @@
 ---
-title: "HRB SICP Study group"
+title: "HRB SICP Study group - Getting started with Lisp"
 date: 2015-08-23
-description:  "Up and running with the MIT/GNU Schema environment on the command line"
+description:  "Running the MIT/GNU Scheme environment on the command line on macOS"
 ---
 
-##The source of the exhilaration associated with computer programming is the continual unfolding within the mind and on the computer of mechanisms expressed as programs and the explosion of perception they generate. If art interprets our dreams, the computer executes them in the guise of programs! ~ *Alan J. Perlis, MIT/SICP Forword*.
+##The HRB SICP Study group stand for Hackreactor Remote Beta Structure and Interpretation of Computer Programs Study group.
 
-The HRB SICP Study group stand for Hackreactor Remote Beta Structure and Interpretation of Computer Programs - Study group.
+The group is intended to be a very long term study group.
 
-The group is intended to be a very long term study group. Together with other peers at [HackReactor](http://www.hackreactor.com/remote-beta) we plan on continuing to finish [SICP](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/) and push forward behind it after finishing HR's advanced software engineering immersive program.
+Together with other peers at [HackReactor](http://www.hackreactor.com/remote-beta) we plan on continuing to finish [SICP](http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-001-structure-and-interpretation-of-computer-programs-spring-2005/) and push forward behind it after finishing HR's advanced software engineering immersive program.
 
 ![alt MIT/GNU Scheme Logo](/assets/images/hrb-sicp-logo.png)
 
