@@ -12,6 +12,12 @@ The group is intended to be a very long term study group. Together with other pe
 
 ![alt MIT/GNU Scheme Logo](/assets/images/hrb-sicp-logo.png)
 
+Scheme is a dialect of Lisp that try to bring together the power and elegance of Lisp
+and Algol. From Lisp it borrow metalinguistic power that derives from the simple syntax, the
+uniform representation of programs as data objects, and the garbage-collected heap-allocated data.
+From Algol it borrow lexical scoping and block structure, which are gifts from the pioneers of
+programming-language design who were on the Algol committee.
+
 To set up the MIT/GNU Scheme environment just follow the next steps.
 You'll be up and running in seconds.
 
