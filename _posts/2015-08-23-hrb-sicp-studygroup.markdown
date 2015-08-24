@@ -1,7 +1,7 @@
 ---
 title: "HRB SICP Study group"
 date: 2015-08-23
-description:  "A study group on 'Structure and Interpretation of Computer Programs'"
+description:  "Up and running with the MIT/GNU Schema environment on the command line"
 ---
 
 ##The source of the exhilaration associated with computer programming is the continual unfolding within the mind and on the computer of mechanisms expressed as programs and the explosion of perception they generate. If art interprets our dreams, the computer executes them in the guise of programs! ~ *Alan J. Perlis, MIT/SICP Forword*.
