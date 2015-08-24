@@ -46,8 +46,7 @@ Done! Just reload your terminal, and run
 scheme
 {% endhighlight %}
 
-Now you should be ready start writing
-your first awesome Scheme Scripts.
+You can now write your first awesome Scheme Scripts.
 
 {% highlight javascript linenos %}
 (display "Hello World")
