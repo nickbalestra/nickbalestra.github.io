@@ -78,3 +78,4 @@ Macros are very powerful ways to extend the syntax of a language. Learn more abo
 
 - [Sweet.js official documentation](http://sweetjs.org/doc/main/sweet.html) - By Mozilla
 - [Rule based macros? That's sweet.js!](http://lukesavage.me/technical/2015/08/29/sweetjs-and-rule-based-macros/) - By Luke Savage
+- [Holy macro-roni!](http://gregrv.github.io/eqex/2015/08/29/holy-macro-roni.html) - By Greg Varias
