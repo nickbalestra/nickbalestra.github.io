@@ -11,8 +11,8 @@ Still, there's no good reason to pick Acorn over Esprima. So why did I pick it?
 
 * * *
 
-## Speed 
-Speed sometime can be a relative thing, let say you are aiming to specifically parse comments: in that case being able to invoke functions on each comment as its found (both single line or block) may definitely increase the speed of the overal process, as you don't need to wait for the Abstract Syntax Treet to be genereated in orded to massage those comments data. And this is what acorn offer over esprima.
+## Speed
+Speed sometime can be a relative thing. Immagine you are aiming to specifically parse comments. In that case, being able to invoke a function over the comment itself as the parser encounter it, will definitely increase the speed of the overal process. You wont't need to wait for the Abstract Syntax Treet to be genereated in orded to massage the wished data. And this is what acorn offer over esprima.
 
 The acorn onComment option can be passed in the form of a function, so that whenever a comment is encountered the function will be called with the following parameters:
 
@@ -22,7 +22,8 @@ The acorn onComment option can be passed in the form of a function, so that when
 - end: Character offset of the end of the comment.
 - If the locations options is on, the {line, column} locations of the comment’s start and end are passed as two additional parameters.
 
-Plus, if you want to fall back to how esprima works with comments, pass an array for this option instead, amd each found comment is pushed to it as object in Esprima format:
+<br>
+Plus, if you want to fall back to how esprima works in relation to comments, pass an array for this option instead, and each found comment is pushed to it as object in Esprima format:
 
 {% highlight javascript linenos %}
 {
@@ -44,7 +45,7 @@ Plus, if you want to fall back to how esprima works with comments, pass an array
 ***
 ## Final thoughts
 
-Speed is important, but sometime the specific context you are working in can have a big impact on speed thanks to some little extra features, as it is in the case of acorn, if you need to parse comments. Secondary, documentation may play a big part of the decision, and in this direction both have a very similar API, and both documentations are very well written.
+Speed is important, but sometime the specific context you are working in can have a big impact on speed because to some very specific feature, as it is in the case of acorn, if you need to parse comments.
 
 - [Acorn](http://marijnhaverbeke.nl/blog/acorn.html)
 - [Esprima](http://esprima.org/)
