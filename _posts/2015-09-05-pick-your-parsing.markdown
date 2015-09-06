@@ -1,18 +1,19 @@
 ---
 title: "Pick your parsing"
 date: 2015-09-05
-description:  "Why I went with acorn ever esprima"
+description:  "Why I went with Acorn over Esprima"
 ---
 
 
-##[Acorn](https://github.com/marijnh/acorn) is a tiny, fast JavaScript parser, written completely in JavaScript, it produces a well-documented, widely used [AST format](https://developer.mozilla.org/en-US/docs/SpiderMonkey/Parser_API) as esprima does. Acorn is really fast. Just like Esprima. Acorn is tiny. About half as big as Esprima, in lines of code.
+##[Acorn](https://github.com/marijnh/acorn) is a tiny, fast JavaScript parser, written completely in JavaScript, it produces a well-documented, widely used [AST format](https://developer.mozilla.org/en-US/docs/SpiderMonkey/Parser_API) excactly as [Esprima](https://github.com/jquery/esprima) does. Acorn is really fast. Just like Esprima. Acorn is tiny. About half as big as Esprima, in lines of code.
 
-Still, there's no good reason to pick Acorn over Esprima. So why did I pick it?
+Still, there's no good reason to pick Acorn over Esprima.
+So why did I pick it?
 
 * * *
 
 ## Speed
-Speed sometime can be a relative thing. Immagine you are aiming to specifically parse comments. In that case, being able to invoke a function over the comment itself as the parser encounter it, will definitely increase the speed of the overal process. You wont't need to wait for the Abstract Syntax Treet to be genereated in orded to massage the wished data. And this is what acorn offer over esprima.
+Speed sometime can be a relative thing. Imagine you are aiming to specifically parse comments. In that case, being able to invoke a function over the comment itself as the parser encounter it, will definitely increase the speed of the overal process. You wont't need to wait for the Abstract Syntax Treet to be genereated in orded to massage the wished data. And this is what acorn offer over esprima.
 
 The acorn onComment option can be passed in the form of a function, so that whenever a comment is encountered the function will be called with the following parameters:
 
