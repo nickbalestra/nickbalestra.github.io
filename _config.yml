@@ -6,7 +6,7 @@ meta_description: "Nick Balestra's blog"
 markdown: redcarpet
 highlighter: pygments
 
-paginate: 20
+paginate: 50
 baseurl: /
 domain_name: 'http://nick.balestra.ch'
 google_analytics: 'UA-62842593-1'
