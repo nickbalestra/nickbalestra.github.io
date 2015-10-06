@@ -109,7 +109,7 @@ var getElementsByClassName = (className,  node = document.body) => {
 
 To run and test ES6 code on chrome make sure you switch on the harmony setting. To do so, just enter in your chrome address bar the folloing url: [chrome://flags/#enable-javascript-harmony](chrome://flags/#enable-javascript-harmony).
 
-**Note** that defaults are not yet supported in chrome, therefore you won't be able to fully test this ES6 refactored solution out of the box. Use may want to use the [babel](http://babeljs.io) transpiler.
+**Note** that defaults are not yet supported in chrome, therefore you won't be able to fully test this ES6 refactored solution out of the box. Because of that, I strongly encourage you to use the [babel](http://babeljs.io) transpiler.
 
 
 
