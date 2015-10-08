@@ -23,8 +23,8 @@ var getElementsByClassName = function(className, node){
   if (node.classList.contains(className)) {
     results.push(node);
   }
-  _.each(node.childNodes, function(node) {
-    results = results.concat(getElementsByClassName(className, node));
+  _.each(node.childNodes, function(childNode) {
+    results = results.concat(getElementsByClassName(className, childNode));
   });
 
   return results;
@@ -46,8 +46,8 @@ var getElementsByClassName = (className, node) => {
   if (node.classList.contains(className)) {
     results.push(node);
   }
-  _.each(node.childNodes, node => {
-    results = results.concat(getElementsByClassName(className, node));
+  _.each(node.childNodes, childNode => {
+    results = results.concat(getElementsByClassName(className, childNode));
   });
 
   return results;
@@ -79,8 +79,8 @@ var getElementsByClassName = (className, node) => {
     results.push(node);
   }
   
-  Array.from(node.children).forEach(child => {
-    elements = elements.concat(getElementsByClassName(className, child))
+  Array.from(node.children).forEach(childNode => {
+    elements = elements.concat(getElementsByClassName(className, childNode))
   });
 
   return results;
