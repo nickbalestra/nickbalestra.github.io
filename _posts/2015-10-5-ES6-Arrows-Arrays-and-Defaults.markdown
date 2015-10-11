@@ -80,7 +80,7 @@ var getElementsByClassName = (className, node) => {
   }
   
   Array.from(node.children).forEach(childNode => {
-    elements = elements.concat(getElementsByClassName(className, childNode))
+    results = results.concat(getElementsByClassName(className, childNode))
   });
 
   return results;
