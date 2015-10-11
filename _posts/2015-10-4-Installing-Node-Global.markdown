@@ -1,5 +1,5 @@
 ---
-title: Installing npm packages global on Mac OSX
+title: Installing npm packages global on OSX
 date: 2015-10-04
 description: Avoid using sudo when npm i -g
 ---
