@@ -32,7 +32,7 @@ What is happening here is that every time we get out of the container a node tha
 
 ####DFS: replace `<container>` with stack
 
-In the case of a DFS where we want to explore as far as possible along each branch before backtracking, a stack will be the perfect candidate for implementing our `<container>`. Thanks to its FIFO (First In First Out) approach, every time we'll pop the `<next>` element it will be a direct a child of the branch we are traversing, or in the case we reached the end of a branch, a backtracked node up in the branch, where the branch forked out. As soon as we encounter a node that allow us to explore deeper we'll move into that branch and explore it till we reach its end, before strarting to backtrack again. And so on until we traversed the whole tree. 
+In the case of a DFS where we want to explore as far as possible along each branch before backtracking, a stack will be the perfect candidate for implementing our `<container>`. Thanks to its LIFO (Last-In-First-Out) approach, every time we'll pop the `<next>` element it will be a direct a child of the branch we are traversing, or in the case we reached the end of a branch, a backtracked node up in the branch, where the branch forked out. As soon as we encounter a node that allow us to explore deeper we'll move into that branch and explore it till we reach its end, before strarting to backtrack again. And so on until we traversed the whole tree. 
 
 ```
       Given the following binary search tree:
@@ -56,7 +56,7 @@ In the case of a DFS where we want to explore as far as possible along each bran
 
 ####DBS: replace `<container>` with queue
 
-In the case of a DBS where we want to explore the neighbor nodes first, before moving to a depper level of the tree, a queue will be the perfect candidate for implementing our `<container>`. Thanks to its FILO (First In Last Out) approach, every time we'll dequeue the `<next>` element it will be a neighbour node, or, in the case we visited all of the neighbours for that specific depth of the tree, the first node in the next level.And so on until we traversed the whole tree. 
+In the case of a DBS where we want to explore the neighbor nodes first, before moving to a depper level of the tree, a queue will be the perfect candidate for implementing our `<container>`. Thanks to its FIFO (First-In-First-Out) approach, every time we'll dequeue the `<next>` element it will be a neighbour node, or, in the case we visited all of the neighbours for that specific depth of the tree, the first node in the next level.And so on until we traversed the whole tree. 
 
 ```
       Given the following binary search tree:
