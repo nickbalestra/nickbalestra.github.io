@@ -1,7 +1,7 @@
 ---
 title: "JS's Prototype-based inheritance and classes demystified"
 date: 2015-10-15
-description: Understanding what's lie underneath the ES6 sugar
+description: Understanding the sugar covered class in ES6 
 ---
 
 ##JavaScript classes are introduced in ECMAScript 6 and are syntactical sugar over JavaScript's existing prototype-based inheritance. 
@@ -10,7 +10,7 @@ Note: The class syntax is not introducing a new object-oriented inheritance mode
 
 * * *
 
-### In ECMAScript 5
+### Prototype-based inheritance in ECMAScript 5 
 
 Let's immagine a simple scenario, where we have a `Car` class. We want the constructor function to decorate each generated instance, for example by adding a `brand` property to the car. We also want each instanciated object to have access to some class methods, for example a horn() function.
 
@@ -23,7 +23,7 @@ var Car = function(brand){
 Car.prototype.horn = function(){return 'honk'};
 {% endhighlight %}
 
-Now, let's add a subClass and let's call it Tesla (Being it a truely new type of car, and therefore a subClass of `Car`). Of course, we want each Tesla to be branded 'tesla' as well, but we also want it to have some unique features, like for example the [ludicrousSpeed](http://www.teslamotors.com/blog/three-dog-day) function.
+Now, let's add a subClass and let's call it Tesla (being it a truly new type of car, and therefore a subClass of `Car`). Of course, we want each Tesla to be branded 'tesla' as well, but we also want it to have some unique features, like for example the [ludicrousSpeed](http://www.teslamotors.com/blog/three-dog-day) function.
 
 {% highlight javascript linenos %}
 // Constructor function for the Tesla subClass.
@@ -69,7 +69,7 @@ Tesla.prototype.constructor = Car;
 Tesla.prototype.ludicrousSpeed = function(){return true}; 
 {% endhighlight %}
 
-Running some tests, to make sure that everything work as expected:
+Running some tests, to make sure that everything works as expected:
 
 {% highlight javascript linenos %}
 var golf = new Car('wv');
@@ -92,9 +92,9 @@ modelS.hasOwnProperty('ludicrousSpeed'); // -> false
 modelS.ludicrousSpeed() // -> true
 {% endhighlight %}
 
-### In ECMAScript 6
+### Classes in ECMAScript 6, or better, Sugar over the ES5 prototype-based inheritance
 
-Now that we did brush up on the pseudoClassical subclass pattern, let see how the above code will look like in ES6 using the new Syntactic sugar for classes. Refer to the code above to see what is going on under the hood, it should now be pretty self explanatory.
+Now that we did brush up on the pseudoClassical subclass pattern, let see how the previous code will look like in ES6, using the new Class Syntactic sugar. Refer to the code above to better understand what is going on under the hood, it should be pretty self explanatory by now.
 
 {% highlight javascript linenos %}
 // Class Car
@@ -120,7 +120,7 @@ class Tesla extends Car {
 }
 {% endhighlight %}
 
-Running some tests, to make sure that everything work as expected:
+Running some tests, to make sure that everything works as expected:
 
 {% highlight javascript linenos %}
 var golf = new Car('wv');
