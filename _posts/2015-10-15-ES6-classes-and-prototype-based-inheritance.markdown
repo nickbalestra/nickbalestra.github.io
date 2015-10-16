@@ -23,7 +23,7 @@ var Car = function(brand){
 Car.prototype.horn = function(){return 'honk'};
 {% endhighlight %}
 
-Now, let's add a subClass and let's call it Tesla (Being it a truely new type of car, and therefore a subClass of `Car`). Of course, we want each Tesla to be branded 'tesla' as well, but we also want it to have some unique features, like for example the ludacrisSpeed function.
+Now, let's add a subClass and let's call it Tesla (Being it a truely new type of car, and therefore a subClass of `Car`). Of course, we want each Tesla to be branded 'tesla' as well, but we also want it to have some unique features, like for example the [ludicrousSpeed](http://www.teslamotors.com/blog/three-dog-day) function.
 
 {% highlight javascript linenos %}
 // Constructor function for the Tesla subClass.
@@ -52,7 +52,7 @@ Tesla.prototype.constructor = Car;
 // We can now add shared methods to any Tesla instance,
 // by adding them to the prototype object following 
 // the pseudoClassical Pattern: 
-Tesla.prototype.ludacrisSpeed = function(){return true}; 
+Tesla.prototype.ludicrousSpeed = function(){return true}; 
 {% endhighlight %}
 
 Without all the comments the Tesla subclass constructor should look something like:
@@ -66,7 +66,7 @@ var Tesla = function(){
 Tesla.prototype = Object.create(Car.prototype);
 Tesla.prototype.constructor = Car;
 
-Tesla.prototype.ludacrisSpeed = function(){return true}; 
+Tesla.prototype.ludicrousSpeed = function(){return true}; 
 {% endhighlight %}
 
 Running some tests, to make sure that everything work as expected:
@@ -78,8 +78,8 @@ golf.brand; // -> vw
 golf.hasOwnProperty('brand'); // -> true
 golf.hasOwnProperty('horn'); // -> false
 golf.horn(); // -> honk
-golf.hasOwnProperty('ludacrisSpeed'); // -> false
-golf.ludacrisSpeed(); // throw err 
+golf.hasOwnProperty('ludicrousSpeed'); // -> false
+golf.ludicrousSpeed(); // throw err 
 
 
 var modelS = new Tesla();
@@ -88,8 +88,8 @@ modelS.brand; // -> tesla
 modelS.hasOwnProperty('brand'); // -> true
 modelS.hasOwnProperty('horn'); // -> false
 modelS.horn(); // -> honk
-modelS.hasOwnProperty('ludacrisSpeed'); // -> false
-modelS.ludacrisSpeed() // -> true
+modelS.hasOwnProperty('ludicrousSpeed'); // -> false
+modelS.ludicrousSpeed() // -> true
 {% endhighlight %}
 
 ### In ECMAScript 6
@@ -114,7 +114,7 @@ class Tesla extends Car {
     super('Tesla');
   }
 
-  ludacrisSpeed() {
+  ludicrousSpeed() {
     return true;
   }
 }
@@ -129,7 +129,7 @@ console.log(golf.brand); // -> vw
 console.log(golf.hasOwnProperty('brand'));
 console.log(golf.hasOwnProperty('horn'));
 console.log(golf.horn()); // -> honk
-console.log(golf.hasOwnProperty('ludacrisSpeed'));
+console.log(golf.hasOwnProperty('ludicrousSpeed'));
 
 
 var modelS = new Tesla();
@@ -138,8 +138,8 @@ modelS.brand; // -> tesla
 modelS.hasOwnProperty('brand'); // -> true
 modelS.hasOwnProperty('horn'); // -> false
 modelS.horn(); // -> honk
-modelS.hasOwnProperty('ludacrisSpeed'); // false
-modelS.ludacrisSpeed(); // -> true
+modelS.hasOwnProperty('ludicrousSpeed'); // false
+modelS.ludicrousSpeed(); // -> true
 
 modelS.__proto__ == golf.__proto__ // -> false
 modelS.__proto__.__proto__ == golf.__proto__ // -> true
