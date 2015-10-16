@@ -72,7 +72,7 @@ Tesla.prototype.ludicrousSpeed = function(){return true};
 Running some tests, to make sure that everything works as expected:
 
 {% highlight javascript linenos %}
-var golf = new Car('wv');
+var golf = new Car('vw');
 
 golf.brand; // -> vw
 golf.hasOwnProperty('brand'); // -> true
@@ -123,7 +123,7 @@ class Tesla extends Car {
 Running some tests, to make sure that everything works as expected:
 
 {% highlight javascript linenos %}
-var golf = new Car('wv');
+var golf = new Car('vw');
 
 console.log(golf.brand); // -> vw
 console.log(golf.hasOwnProperty('brand'));
