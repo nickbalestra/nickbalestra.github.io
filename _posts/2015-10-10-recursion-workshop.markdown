@@ -19,7 +19,6 @@ For the sake of the example let's assume we have two functions that we can rely 
 
 {% highlight javascript linenos %}
 var inc = (n) => ++n;
-
 var dec = (n) => --n;
 {% endhighlight %}
 
@@ -110,7 +109,7 @@ function each(list, iterator) {
   }
   iterator(list[0]);
   return each(list.slice(1), iterator);
-};
+}
 {% endhighlight %}
 
 #####Tail-recursive reduce (linear iterative process in ES6)
@@ -124,7 +123,7 @@ function reduce(list, callback, accumulator) {
     accumulator = callback(accumulator, list[0]);
   
   return reduce(list.slice(1), callback, accumulator);
-};
+}
 {% endhighlight %}
 
 So with ES6 we can have linear iterative process in constant space
@@ -151,7 +150,7 @@ function fib(n) {
     return n;
   }
   return fib(n - 1) + fib(n - 2);
-};
+}
 {% endhighlight %}
 
 #### Visualizing the process
@@ -220,7 +219,7 @@ function each(list, iterator) {
   }
   iterator(list[0]);
   return each(list.slice(1), iterator);
-};
+}
 
 function reduce(list, callback, accumulator) {
   if (list.length === 0) return accumulator; // <- BASE CASE
@@ -230,14 +229,14 @@ function reduce(list, callback, accumulator) {
     accumulator = callback(accumulator, list[0]);
   
   return reduce(list.slice(1), callback, accumulator);
-};
+}
 
 function fib(n) {
   if (n < 2) { // <- BASE CASE
     return n;
   }
   return fib(n - 1) + fib(n - 2);
-};
+}
 
 var fib = (n, a = 0, b = 1) => (n === 0) ? a : // <- BASE CASE
 fib(n-1, b, a + b);
