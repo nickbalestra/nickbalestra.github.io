@@ -18,13 +18,9 @@ Let's start by implementing a function that will allow us to calculate the sum o
 For the sake of the example let's assume we have two functions that we can rely on: inc() wich increments its argument by 1 and dec(), which decrements its argument by 1:
 
 {% highlight javascript linenos %}
-function inc(n){
-  return ++n;
-}
+var inc = (n) => ++n;
 
-function dec(n){
-  return --n;
-}
+var dec = (n) => --n;
 {% endhighlight %}
 
 We could define the sum of two numbers as the increment of the sum of the first number decremented and the other number. That sounds more complex then it is... 
