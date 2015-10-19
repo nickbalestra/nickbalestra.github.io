@@ -16,7 +16,7 @@ A recursive implementation could look something like this:
 
 {% highlight javascript linenos %}
 var getElementsByClassName = function(className, node){
-  
+
   node = node || document.body;
   var results = [];
 
@@ -39,7 +39,7 @@ Arrow functions are always anonymous. Also known as fat arrow function, have a s
 
 {% highlight javascript linenos %}
 var getElementsByClassName = (className, node) => {
-  
+
   node = node || document.body;
   var results = [];
 
@@ -71,14 +71,14 @@ This is why in our earlier implementation we relied on underscore (_.each()) to 
 
 {% highlight javascript linenos %}
 var getElementsByClassName = (className, node) => {
-  
+
   node = node || document.body;
   var results = [];
 
   if (node.classList.contains(className)) {
     results.push(node);
   }
-  
+
   Array.from(node.children).forEach(childNode => {
     results = results.concat(getElementsByClassName(className, childNode))
   });
@@ -89,7 +89,7 @@ var getElementsByClassName = (className, node) => {
 
 ## Defaults
 
-In javascript we all rely on short-circuiting the OR operator to assign some default values to the function arguments, in case those were not definied. ES6 come with syntax sugar for this, allowing to set defaults directly within the function signature:
+In javascript we all rely on short-circuiting the OR operator to assign some default values to the function arguments, in case those were not defined. ES6 come with syntax sugar for this, allowing to set defaults directly within the function signature:
 
 {% highlight javascript linenos %}
 var getElementsByClassName = (className,  node = document.body) => {
@@ -98,18 +98,15 @@ var getElementsByClassName = (className,  node = document.body) => {
   if (node.classList.contains(className)) {
     results.push(node);
   }
-    
+
   Array.from(node.children).forEach(child => {
     results = results.concat(getElementsByClassName(className, child))
   });
-  
+
   return results;
 };
 {% endhighlight %}
 
-To run and test ES6 code on chrome make sure you switch on the harmony setting. To do so, just enter in your chrome address bar the folloing url: [chrome://flags/#enable-javascript-harmony](chrome://flags/#enable-javascript-harmony).
+To run and test ES6 code on chrome make sure you switch on the harmony setting. To do so, just enter in your chrome address bar the following url: [chrome://flags/#enable-javascript-harmony](chrome://flags/#enable-javascript-harmony).
 
 **Note** that defaults are not yet supported in chrome, therefore you won't be able to fully test this ES6 refactored solution out of the box. Because of that, I strongly encourage you to use the [babel](http://babeljs.io) transpiler.
-
-
-
