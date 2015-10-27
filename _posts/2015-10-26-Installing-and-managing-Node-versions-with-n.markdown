@@ -64,7 +64,7 @@ To verify if everything installed successfully just run the following commands:
 $ node -v 
 // check version of node installed
 
-$ npm -v to 
+$ npm -v
 // check version of npm installed
 
 $ npm list -g --depth=0
