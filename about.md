@@ -3,7 +3,7 @@ title: About
 permalink: about/
 profile: true
 ---
-I am a software engineer, with a background in product and user experience design. I enjoy thinking about user experience as much as solving difficult technical problems.
+I am a software engineer, with a background in product design. I enjoy thinking about user experience as much as solving difficult technical problems.
 
 Opinions are my own. Code snippets are open source.
 
