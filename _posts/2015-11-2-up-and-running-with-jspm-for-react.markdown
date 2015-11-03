@@ -1,7 +1,7 @@
 ---
 title: Jspm and React
 date: 2015-11-2
-description: Setting up jspm for developing react.
+description: Setting up jspm for developing with react.
 ---
 
 ##[Jspm](https://jspm.io/) is a package manager for the SystemJS universal module loader, built on top of the dynamic ES6 module loader.
