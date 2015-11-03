@@ -1,5 +1,5 @@
 ---
-title: Jspm and React
+title: JSPM - React starter kit
 date: 2015-11-2
 description: Setting up jspm for developing with react.
 ---

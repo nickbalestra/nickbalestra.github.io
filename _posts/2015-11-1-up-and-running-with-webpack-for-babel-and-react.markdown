@@ -1,5 +1,5 @@
 ---
-title: Up and running with Webpack for Babel and React
+title: Webpack - React starter kit
 date: 2015-11-1
 description: Setting up Webpack as your build tool.
 ---
