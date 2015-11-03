@@ -10,6 +10,9 @@ If you rely on a build tool with your development team (and you definitely shoul
 
 If all of that still confusing to you, read surviveJS's article ['Webpack compared']( http://survivejs.com/webpack_react/webpack_compared/) to understand Webpack better by seeing it explained into a historical context.
 
+If you were just looking for a quick and minimal starter setup, go ahead and [fork my webpack-react starter kit](https://github.com/nickbalestra/webpack-react-starter-kit), otherwise continue reading as I'll walk you trough that setup.
+
+
 ***
 
 ### A simple two pages app scenario
@@ -246,4 +249,4 @@ By adding the Dedupe and UglifyJs plugins we can optimize our bundles from:
 Webpack is an awesome tool that may not solve anything, but it does solve the difficult problem of bundling.
 Coupled with react and babel makes it a very good development tool.
 
-[Download the code of this post](https://github.com/nickbalestra/webpack-react)
+To help you kickstart your development with react using Webpack fork the [webpack-react starter kit](https://github.com/nickbalestra/webpack-react-starter-kit)

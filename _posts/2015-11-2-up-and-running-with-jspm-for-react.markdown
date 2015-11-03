@@ -15,6 +15,8 @@ In my last post, I walked through the process of [setting up webpack for react](
 
 ***
 
+If you were just looking for a quick and minimal starter setup, go ahead and [fork my jspm-react starter kit](https://github.com/nickbalestra/jspm-react-starter-kit), otherwise continue reading as I'll walk you trough that setup.
+
 ### Installing jspm
 
 Install jspm
@@ -125,4 +127,4 @@ Make sure to set the System trace property to true from the html file to enable 
 
 ***
 
-[Download the code of this post](https://github.com/nickbalestra/jspm-react)
+To help you kickstart your development with react using JSPM fork the [jspm-react starter kit](https://github.com/nickbalestra/jspm-react-starter-kit)
