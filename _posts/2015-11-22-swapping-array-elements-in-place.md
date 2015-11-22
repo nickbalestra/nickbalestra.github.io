@@ -1,5 +1,5 @@
 ---
-title: In-place swapping functions
+title: JavaScript swap in-place array elements
 date: 2015-11-22
 description: From bitwise operators to ES6 destructuring
 ---
