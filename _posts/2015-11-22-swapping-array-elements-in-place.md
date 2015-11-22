@@ -21,6 +21,9 @@ function memoSwap(list, iA, iB) {
   list[iB] = memo;
   return list; 
 }
+
+// memoSwap([1,2,5,4,3], 2, 4)
+// -> [1,2,3,4,5]
 {% endhighlight %}
 
 ### Bitwise swap - Integers only
@@ -34,6 +37,9 @@ function bitwiseSwap(list, iA, iB) {
   list[iA] ^= list[iB];
   return list; 
 }
+
+// bitwiseSwap([1,2,5,4,3], 2, 4)
+// -> [1,2,3,4,5]
 {% endhighlight %}
 
 Note: the bitwise swap method only works with integers
@@ -43,13 +49,16 @@ Note: the bitwise swap method only works with integers
 While the memo technique may look simple and to the point, sometime we just want to avoid creating an extra variable just to hold one of the values that we are going to swap. To solve this we can rely on swapping helpers that don't need an extra variable to do their job.
 
 {% highlight javascript linenos %}
-function swapInPlaceWithotMemo(list, iA, iB){
+function swapInPlaceWithoutMemo(list, iA, iB){
   list[iB] = list[iA] + (list[iA] = list[iB]) - list[iB];
   return list;
 }
+
+// swapInPlaceWithoutMemo([1,2,5,4,3], 2, 4)
+// -> [1,2,3,4,5]
 {% endhighlight %}
 
-If you wonder how the swapInPlaceWithotMemo() function works: 
+If you wonder how the swapInPlaceWithoutMemo() function works: 
 <br />the expression (list[iA] = list[iB]) does two things:
 
 - it assigns to list[iA] the value stored at list[iB]
@@ -65,6 +74,9 @@ function swapSpliceInPlaceWithotMemo(list, iA, iB){
   list[iA] = list.splice(iB, 1, list[iA])[0];
   return list;
 }
+
+// swapSpliceInPlaceWithotMemo([1,2,5,4,3], 2, 4)
+// -> [1,2,3,4,5]
 {% endhighlight %}
 
 
@@ -77,6 +89,9 @@ function destructuringSwap(list, iA, iB){
   [list[iA], list[iB]] = [list[iB], list[iA]];
   return list;
 }
+
+// destructuringSwap([1,2,5,4,3], 2, 4)
+// -> [1,2,3,4,5]
 {% endhighlight %}
 
 Note: the destructuring swap method only work with ES6, [check compatibility](https://kangax.github.io/compat-table/es6/#test-destructuring) or use an ES6 transpiler like [babel](https://babeljs.io/) that will compile the deconstructuring swap to a memo swap.
