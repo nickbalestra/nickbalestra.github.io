@@ -1,7 +1,7 @@
 ---
 title: "Simple O(n^2) sorting algorithms in JavaScript"
 date: 2015-11-24
-description: BubbleSort, SelectSort and InserSort
+description: BubbleSort, SelectSort and InsertSort
 ---
 
 No need to rely on logarithmic time sorting algorithms If you are sorting small datasets.
