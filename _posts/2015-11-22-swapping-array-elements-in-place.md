@@ -103,3 +103,10 @@ Note: the destructuring swap method only work with ES6, [check compatibility](ht
 - [ES6: JS's Prototype-based inheritance and classes demystified](http://nick.balestra.ch/2015/ES6-classes-and-prototype-based-inheritance/)
 - [ES6: Arrows, array-like objects and defaults](http://nick.balestra.ch/2015/ES6-Arrows-Arrays-and-Defaults/)
 - [Tail-recursive processes in JS](http://nick.balestra.ch/2015/recursion-workshop-part2/)
+
+***
+
+#### Other Sorting algorithms, related articles:
+
+- [Simple O(n^2) sorting algorithms in JavaScript](http://nick.balestra.ch/2015/quadratic-time-sorting-algorithms)
+- [O(nlogn) sorting algorithms in JavaScript](http://nick.balestra.ch/2015/logarithmic-time-sorting-algorithms)

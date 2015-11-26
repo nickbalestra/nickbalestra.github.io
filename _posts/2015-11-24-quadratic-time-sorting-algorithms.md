@@ -168,3 +168,9 @@ function insertSortInPlace(list) {
 // time complexity: O(n^2)
 {% endhighlight %}
 
+***
+
+####Sorting algorithms, related articles:
+
+- [O(nlogn) sorting algorithms in JavaScript](http://nick.balestra.ch/2015/logarithmic-time-sorting-algorithms)
+- [JavaScript swap in-place array elements](http://nick.balestra.ch/2015/swapping-array-elements-in-place/)
