@@ -116,7 +116,7 @@ function quickSort(list) {
 // quickSort([1, 3, 2, 4, 6, 5])
 // -> [1, 2, 3, 4, 5, 6]
 
-// time complexity: O(n^2)
+// time complexity: O(nlogn)
 {% endhighlight %}
 
 ***
