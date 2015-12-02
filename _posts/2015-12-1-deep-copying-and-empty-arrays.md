@@ -44,7 +44,7 @@ function deepCopy(obj) {
 }
 
 // var obj = [{a:1, b: {b:2, c:3}, d: null, e: [1,2,3, [3, ,5]]}];
-// JSON.stringify(deepCopy(obj1)) === JSON.stringify(obj1);
+// JSON.stringify(deepCopy(obj)) === JSON.stringify(obj);
 // -> true
 
 {% endhighlight %}
