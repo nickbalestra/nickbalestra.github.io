@@ -25,7 +25,7 @@ The idea behind merge sort, is quite simple: recursively divide the unsorted lis
    |          /     \         |           /     \
    |      [3]       [2]       |         [6]      [5]
    |         \     /          |           \     /
-   |           [2, 3]         |            [5, 6]
+   |          [2, 3]          |            [5, 6]
     \         /                \          /
      [1, 2, 3]                   [4, 5, 6]
               \                 / 
@@ -83,7 +83,7 @@ Quicksort is the sorting algorithm behind the native array sort method in javasc
         |           |           |           |
     [1, 2, 3]       |           |           |
    /    |    \      |           |           |
-[1]     [2]   [3]   |           |           |
+[1]    [2]    [3]   |           |           |
    \    |    /      |           |           |
     [1, 2, 3]       |           |           |
              \      |           |           | 
