@@ -4,7 +4,7 @@ date: 2015-12-1
 description: Dealing with infinite nested structures
 ---
 
-Oftentimes, especially when dealing with pure functions, we might need to deep copy objects and array. Although we may rely on JSON.stringify and JSON.parse methods for that, implementing a recursive routine that works for both objects and arrays, isn't something that hard.
+Oftentimes, especially when we deal with pure functions, we might need to deep copy objects and array. Although we may rely on JSON.stringify and JSON.parse methods for that, implementing a recursive routine that works for both objects and arrays, isn't something that hard.
 
 ***
 
