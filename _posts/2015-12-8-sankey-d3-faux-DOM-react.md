@@ -44,7 +44,7 @@ var svg = d3.select(divNode).append("svg")
  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 {% endhighlight %}
 
-If we would have relied on JSX instead it probably looked something along the folloing lines:
+If we would have relied on JSX instead, our code would looked something like:
 
 
 {% highlight javascript linenos %}
@@ -71,7 +71,7 @@ return divNode.toReact();
 
 ### Sankey Diagram, a real example
 
-To put all the pieces together and see in a more concrete example how this approach may work, we'll be building an interactive App that allows us to construct and edit [Sankey's diagrams](http://bost.ocks.org/mike/sankey/).
+To put all the pieces together and see this approach in a more concrete example, we'll be building an interactive App that allows us to construct and edit [Sankey's diagrams](http://bost.ocks.org/mike/sankey/).
 
 The approach will be:
 
@@ -80,7 +80,7 @@ The approach will be:
 - D3/Faux-DOM for React DOM elements construction
 - React for rendering
 
-<br>As [Shirley Wu](https://twitter.com/shirleyxywu) mention this approach may be good for a react app with a small and simple visualization. It comes with the pro of being Clean and easy and the added benefit of being able to port quickly D3 visualizations to react as we don't have to refactor their code into JSX. 
+<br>As [Shirley Wu](https://twitter.com/shirleyxywu) mention, this approach may be good for a react app with a small and simple visualization. It comes with the pro of being Clean and easy and the added benefit of being able to port quickly D3 visualizations to react as we don't have to refactor them into JSX. 
 
 #### 1) React for structure
 
@@ -98,27 +98,15 @@ class App extends React.Component {
       modalIsOpen: false
     };
 
-    this.loadData = loadData.bind(this);
-    this.readFile = readFile.bind(this);
-
-    this.emptyDiagram = this.emptyDiagram.bind(this);
-
-    this.addNode = this.addNode.bind(this);
-    this.updateNode = this.updateNode.bind(this);
-    this.addLink = this.addLink.bind(this);
-    this.updateLink = this.updateLink.bind(this);
-    
+    this.addNode = this.addNode.bind(this);    
     this.openModal = this.openModal.bind(this);
-    this.closeModal = this.closeModal.bind(this);
-    this.closeAndSaveModal = this.closeAndSaveModal.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);  
+    ...
   }
 
   ...
 {% endhighlight %}
 
-We also rely on the react-modal component to add a little modal we'll be using to interact with some of the diagram elements.
-Together with decoupling the whole application in smaller sub-elements, the structure could look something like:
+The whole structure could look something like:
 
 {% highlight javascript linenos %}
 app.js
@@ -162,7 +150,7 @@ sankey.nodes(graph.nodes)
 
 #### D3/Faux-DOM for React DOM elements construction
 
-Now, as we saw earlier we can just rely on D3 + faux-DOM to build our REACT elements
+Now, as we saw earlier, we can just rely on D3 + faux-DOM to build our REACT elements
 
 
 {% highlight javascript linenos %}
@@ -217,14 +205,14 @@ node.append("text")
   .attr("text-anchor", "start");
 {% endhighlight %}
 
-One interesting thing is that we can register our eventListener directly within our D3 chain, i.e.:
+One interesting thing is that we can register our eventListener directly within the D3 chain, i.e.:
 {% highlight javascript linenos %}
   .on('click', this.props.openModal) 
 {% endhighlight %}
 
 #### React for rendering 
 
-We can now return our faux-dom element by converting back to a react element for React to render it
+We can now return our faux-dom element by converting back to a react element so that can safely render it
 
 {% highlight javascript linenos %}
 return svgNode.toReact();
