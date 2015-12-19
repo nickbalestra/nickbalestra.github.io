@@ -1,7 +1,7 @@
 ---
 title: "D3 vs. React DOMination"
 date: 2015-12-8
-description: Relying on fake DOM to use D3 instead of JSX and React for rendering.
+description: D3 + Faux-DOM + React
 ---
 
 If you try pairing up [D3](http://d3js.org/) with [React](https://facebook.github.io/react/) to create interactive data visualizations, you'll soon discover that both libraries try to solve the same problem and they both want to be in control of the DOM. While React does this with its DOM diffing approach, D3 does it with its enter-update-exit pattern.
