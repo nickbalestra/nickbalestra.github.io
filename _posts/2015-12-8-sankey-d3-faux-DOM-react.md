@@ -6,7 +6,7 @@ description: D3 + Faux-DOM + React
 
 If you try pairing up [D3](http://d3js.org/) with [React](https://facebook.github.io/react/) to create interactive data visualizations, you'll soon discover that both libraries try to solve the same problem and they both want to be in control of the DOM. While React does this with its DOM diffing approach, D3 does it with its enter-update-exit pattern.
 
-How to avoid them fighting over DOMination and what approach is best? [Shirley Wu](http://slides.com/shirleywu/deck#/) does a great job dissecting the problem into three possible approaches. In this post I explore a variation of her first approach, by not only using D3 for data calculation but also for building the DOM elements that React will then render. How? By tricking D3 into believing he's working on the DOM while is not...
+How to avoid them fighting over DOMination and what approach is best? [Shirley Wu](http://slides.com/shirleywu/deck#/) does a great job dissecting the problem into three possible approaches. In this post I explore a variation of her first approach, by not only using D3 for data calculation but also for building the elements that React will then render to thr DOM. How? By tricking D3 into believing he's working on the DOM while is not...
 
 We'll build and use as a reference a simple Sankey diagram builder app:
 ![index page](https://raw.githubusercontent.com/nickbalestra/nickbalestra.github.io/master/assets/images/sankeyApp.png)
