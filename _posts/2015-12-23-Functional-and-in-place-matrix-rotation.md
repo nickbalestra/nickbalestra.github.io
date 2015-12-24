@@ -1,7 +1,7 @@
 ---
 title: "Functional and in-place matrix rotation"
 date: 2015-12-23
-description: Transposition and flipping composition.
+description: Transpose and flip composition.
 ---
 
 In this post I'll walk through rotating a bi-dimension matrix, in a functional way, by composing transpose and flip functions.
