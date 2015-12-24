@@ -42,6 +42,9 @@ We relied on a [deepCopy helper](http://nick.balestra.ch/2015/deep-copying-and-e
 
 ### Flip a Matrix
 
+![index page](https://raw.githubusercontent.com/nickbalestra/nickbalestra.github.io/master/assets/images/flip.png)
+
+
 The horizontal flip of a matrix A is another matrix Afh created by reflecting A over its horizontal line of symmetry (which runs from mid-left to mid-right) to obtain Afh. 
 
 {% highlight javascript linenos %}
@@ -55,10 +58,7 @@ While the vertical flip of a matrix A is another matrix Afv created by reflectin
 A[j][i] === Afv[A.length - 1 - j][i];
 {% endhighlight %}
 
-
-![index page](https://raw.githubusercontent.com/nickbalestra/nickbalestra.github.io/master/assets/images/flip.png)
-
-A matrix can be flipped vertically or horizontally. Same idea, slightly different code:
+Same idea, slightly different code:
 
 {% highlight javascript linenos %}
 function flipVertical(matrix) {
