@@ -96,7 +96,7 @@ At this point rotating the Matrix, is just a matter of function composition:
 
 - rotate 90 degree clock wise = flipHorizontal(transpose(matrix))
 - rotate 90 degree counter clock wise = flipVertical(transpose(matrix))
-- rotate 180 degree = flipVertical(flipHprizontal(matrix))
+- rotate 180 degree = flipVertical(flipHorizontal(matrix))
 
 <br>We could then put it all together and have a pretty sweet Matrix rotating function:
 
