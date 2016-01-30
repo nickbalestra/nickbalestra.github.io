@@ -8,7 +8,7 @@ Software engineer. [@opentable](http://www.opentable.com). FRP. Learning me a Ha
 Opinions are my own. Code snippets are open source.
 
 Follow me on [Github](https://github.com/nickbalestra) and [Twitter](https://twitter.com/nickbalestra)<br>
-Connect on [Linkedin](https://linkedin.com/in/nickbalestra) and [Facebook](https://facebook.com/nickbalestra)<br>
+Connect on [Linkedin](https://linkedin.com/in/nickbalestra)<br>
 Write me an [email](mailto:nick@balestra.ch).
 ***
 
