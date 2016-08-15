@@ -3,7 +3,7 @@ description: Try. Fail. Learn. Repeat
 meta_description: "Nick Balestra's blog"
 
 
-markdown: redcarpet
+markdown: kramdown
 highlighter: pygments
 
 paginate: 50
