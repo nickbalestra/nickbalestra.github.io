@@ -3,8 +3,8 @@
 /* -------------------------------------*/
 /* Syntax Coloring */
 /* -------------------------------------*/
-.highlight pre {
-  font-size: 13px;
+.highlight > pre {
+  font-size: 11px;
   word-wrap: break-word;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
@@ -12,10 +12,10 @@
   padding-left: 21px;
   padding-bottom: 14px;
   display: block;
-  color: #788D9E;
+  color: #808080;
   background: #fff;
   border: none;
-  box-shadow: inset 0 0 0 1px #E4EBF2, inset 49px 0 0 #FBFDFE, inset 50px 0 0 #E4EBF2;
+  box-shadow: inset 0 0 0 1px #E4EBF2;
   border-radius: 4px;
   overflow: hidden;
   font-family: 'Menlo', 'Monaco', Courier, monospace;
@@ -47,7 +47,7 @@
 .k,
 .kc,
 .k + .nx {
-  color: #FF9740;
+  color: #F8B000;
   /* Orange */
   /* k + nx = followed by "New" */ }
 
@@ -56,11 +56,11 @@
 .cp,
 .c1,
 .cs {
-  color: #A4BDD1; }
+  color: #B8B8B8; }
 
 /* Comment */
 .mi, .mf {
-  color: #5BC1F0; }
+  color: #00AAFF; }
 
 /* Blue */
 .s {
@@ -79,7 +79,7 @@
 
 /* Lighter, following dots like ".states.add etc" */
 .p + .nx {
-  color: #79A3C4; }
+  color: #00AAFF; }
 
 /* Custom LineNumbers */
 .highlight pre ol {
@@ -114,7 +114,9 @@
   .highlight .lineno {
     color: #B7CADA;
     font-size: 10px;
-    display:inline-block;
+    line-height: 22.1px;
+    /*display:none;*/
+    /*display:inline-block;*/
     padding: 0 30px 0 0px;
     /*border-right:1px solid #ccc;*/
     position: relative;
@@ -124,7 +126,7 @@
     -ms-user-select: none;
     text-align: right;
 
-    white-space: nowrap;
+    /*white-space: nowrap;*/
   }
 
   .highlight pre code {

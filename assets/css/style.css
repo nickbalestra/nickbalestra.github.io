@@ -125,7 +125,7 @@ nav.main-nav a {
 	top: 8px;
 	right: 6px;
 	padding: 8px 12px;
-	color: #5badf0;
+	color: #00AAFF;
 	font-size: 13px;
 	/*font-weight: bold;*/
 	line-height: 1.35;
@@ -133,7 +133,7 @@ nav.main-nav a {
 
 }
 nav.main-nav a.cta {
-	background: #5badf0;
+	background: #00AAFF;
 	color: #fff;
 	margin-left: 12px;
 }
@@ -165,11 +165,11 @@ a,
 #post-list li:hover .dates,
 #title:hover {
 	text-decoration: none;
-	color: #5badf0;
-	color: #5694f1;
+	color: #00AAFF;
+	color: #00AAFF;
 }
 
-p a { color: #5694f1; }
+p a { color: #00AAFF; }
 
 /*Transitions*/
 a,
@@ -296,7 +296,7 @@ hr {
 }
 
 span.code { font-family:Menlo, Monaco, Courier; background-color:#EEE; font-size:14px; }
-
+/*
 pre	{
 	font-family:Menlo, Monaco, Courier;
 	white-space:pre-wrap;
@@ -313,9 +313,9 @@ pre	{
 	  font-weight: 500;
 	color: #d0d4d7;
 
-}
+}*/
 
-table {
+/*table {
 	width: 100%;
 	margin: 40px 0;
 	border-collapse: collapse;
@@ -354,7 +354,7 @@ thead th,th {
 	border-bottom: 1px solid #dadadc;
 	cursor: default;
 	white-space: nowrap;
-}
+}*/
 
 img {
 	width: 100%;
@@ -421,9 +421,9 @@ Post List
 }
 
 #archive-link:hover {
-	background: #5694f1;
+	background: #00AAFF;
 	color: #fff;
-	box-shadow: 0 0 0 1px #5694f1;
+	box-shadow: 0 0 0 1px #00AAFF;
 }
 
 #archive-link span {
@@ -578,7 +578,7 @@ h2.month {
 }
 
 #archive-list li a:hover,#archive-list li:hover .dates {
-	color: #5694f1;
+	color: #00AAFF;
 }
 
 #post-meta img.avatar {
@@ -599,7 +599,7 @@ h2.month {
 
 #post-list.archive.readmore a{
 	font: 400 16px/1.6 "Helvetica Neue",helvetica,Arial,sans-serif;
-	color: #5694f1;
+	color: #00AAFF;
 }
 
 #post-list.archive.readmore a:hover{
