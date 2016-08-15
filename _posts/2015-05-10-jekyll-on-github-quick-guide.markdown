@@ -34,7 +34,7 @@ Rename the repository you just forked as ```username.github.io``` where username
 ### Step 3 - Enjoy
 There is no step 3, your new blog is now live and reachable at the following address:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 http://username.github.io
 {% endhighlight %}
 
@@ -49,13 +49,13 @@ To publish a new article just add a new markdown file in the _posts directory, i
 ##### Testing locally
 First make sure to have Jekyll installed.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ gem install jekyll
 {% endhighlight %}
 
 and then you can simply run it from the terminal
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 jekyll serve
 {% endhighlight %}
 

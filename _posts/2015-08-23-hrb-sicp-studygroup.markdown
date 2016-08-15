@@ -32,13 +32,13 @@ Similarly to the node REPL, you can also run the the MIT/GNU Scheme directly fro
 
 #### Symlink the binary in your /usr/bin:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 sudo ln -s /Applications/MIT\:GNU\ Scheme.app/Contents/Resources/mit-scheme /usr/bin/scheme
 {% endhighlight %}
 
 #### Add the library path to your bash profile:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 export MITSCHEME_LIBRARY_PATH="/Applications/MIT\:GNU\ Scheme.app/Contents/Resources"
 
 // Optionally you can also add the
@@ -48,13 +48,13 @@ export MIT_SCHEME_EXE="/usr/local/scheme"
 
 Done! Just reload your terminal, and run
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 scheme
 {% endhighlight %}
 
 You can now write your first awesome Scheme Script.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 (display "Hello World")
 {% endhighlight %}
 

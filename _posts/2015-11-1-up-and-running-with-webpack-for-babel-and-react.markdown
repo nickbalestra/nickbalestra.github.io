@@ -27,7 +27,7 @@ Both have react and react-dom as dependencies ,and both use ES6 and/or JSX synta
 
 Home.js:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -42,7 +42,7 @@ ReactDOM.render(<Home/>, document.getElementById('app'));
 
 and Profile.js
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var React = require('react');
 var ReactDOM = require('react-dom');
 
@@ -66,7 +66,7 @@ Note: Just for the sake of illustrating some example variations, Home.js rely on
 Before being able to configure webpack we want to make sure that we have everything we need.
 We therefore define our dependencies and dev-dependenciesInside package.json:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 "dependencies": {
   "react": "^0.14.1",
   "react-dom": "^0.14.1"
@@ -86,7 +86,7 @@ We therefore define our dependencies and dev-dependenciesInside package.json:
 
 Webpack looks for a file named webpack.config.js in the root of our project. In our case we could have something like:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var webpack = require('webpack');
 
 var plugins = [
@@ -115,13 +115,13 @@ module.exports = {
 
 Let's walk through it:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var webpack = require('webpack');
 {% endhighlight %}
 
 We require all the modules we may need to build our configuration file.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var plugins = [
   new webpack.optimize.CommonsChunkPlugin('public/shared.js'),
 ];
@@ -129,7 +129,7 @@ var plugins = [
 
 The CommonsChunkPlugin allows us to build all the shared common javascript modules into a separate single js file. In this case, we'll want to output a file named shared.js inside the public directory. At this moment webpack still won't do anything with it, as the only thing that it will look for is what come within its exports, in other words, the webpack.config.js is nothing more then a js module itself:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 module.exports = {
   ...
 }
@@ -137,7 +137,7 @@ module.exports = {
 
 We expose the configuration following the export module pattern
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 entry: {
   Home: './app/Home.js',
   Profile: './app/Profile.js'
@@ -150,13 +150,13 @@ output: {
 
 We export a reference to the entries that we want to bundle telling webpack to compile a different file for each of them in the public directory.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 plugins: plugins,
 {% endhighlight %}
 
 Exporting the plugin array we declared earlier.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 module: {
   loaders: [
     {test: /\.js$/, loader: "babel", query: {presets:['react', 'es2015']}}
@@ -168,7 +168,7 @@ We make sure to tell webpack to use the babel-loader for any .js file to correct
 
 If we did everything right, we could now run webpack in the terminal (make sure you installed webpack globally first)
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ npm i -g webpack
 $ webpack
 {% endhighlight %}
@@ -184,7 +184,7 @@ We can now require those final assets from their respective HTML files (home.htm
 
 home.html
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 <!doctype html>
 <html>
 <meta charset="utf-8">
@@ -196,7 +196,7 @@ home.html
 
 profile.html
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 <!doctype html>
 <html>
 <meta charset="utf-8">
@@ -214,7 +214,7 @@ While you can run webpack with the --watch flag so that webpack watches all depe
 
 Enabling some extra plugins to optimize code for production:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var plugins = [
   new webpack.optimize.CommonsChunkPlugin('public/shared.js'),
   new webpack.DefinePlugin({

@@ -26,7 +26,7 @@ We can slightly rephrase that definition into something like:
 
 Can you see now how every() made it through that some() definition? Let's pseudo code this further:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 some = function(collection, test) {
         // not every element of the collection
         return !every(collection, function(item){

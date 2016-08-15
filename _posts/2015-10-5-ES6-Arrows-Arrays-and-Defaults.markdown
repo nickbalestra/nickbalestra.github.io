@@ -14,7 +14,7 @@ getElementsByClassName() returns an array-like object of all child elements whic
 
 A recursive implementation could look something like this:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var getElementsByClassName = function(className, node){
 
   node = node || document.body;
@@ -37,7 +37,7 @@ Let's see how ES6 could come handy:
 
 Arrow functions are always anonymous. Also known as fat arrow function, have a shorter syntax compared to function expressions and lexically binds the this value. Let's refactor the previous version using Arrow functions expressions instead:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var getElementsByClassName = (className, node) => {
 
   node = node || document.body;
@@ -61,7 +61,7 @@ Not much but we shaved off some characters anyway.
 
 We are all familiar with those array-like objects, especially if we deal with the DOM. The Array.from() method creates a new Array instance from an array-like or iterable object. Forgot about those? Here a refresher:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 Array.isArray(document.body.childNodes);
 // > false
 {% endhighlight %}
@@ -69,7 +69,7 @@ Array.isArray(document.body.childNodes);
 This is why in our earlier implementation we relied on underscore (_.each()) to iterate through that array-like object. Lets refactor again and get rid of that underscore dependency:
 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var getElementsByClassName = (className, node) => {
 
   node = node || document.body;
@@ -91,7 +91,7 @@ var getElementsByClassName = (className, node) => {
 
 In javascript we all rely on short-circuiting the OR operator to assign some default values to the function arguments, in case those were not defined. ES6 come with syntax sugar for this, allowing to set defaults directly within the function signature:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var getElementsByClassName = (className,  node = document.body) => {
   var results = [];
 

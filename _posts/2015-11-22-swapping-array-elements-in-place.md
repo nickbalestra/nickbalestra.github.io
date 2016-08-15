@@ -14,7 +14,7 @@ No matter what sorting algorithm we are using, it's more likely than not that we
 
 The memo swap technique relies on a variable to temporarily hold one of the two values that we want to swap.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function memoSwap(list, iA, iB) {
   var memo = list[iA];
   list[iA] = list[iB];
@@ -30,7 +30,7 @@ function memoSwap(list, iA, iB) {
 
 Bitwise operators can be used to solve different problems (it's worth reading this [paper by Martin Richards](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.51.7113&rep=rep1&type=pdf), where among others things he suggests an interesting algorithm based on bitwise operators to solve the n-queens problem). A more common usage is to swap integers in place using the bitwise operator XOR (exclusive OR). 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function bitwiseSwap(list, iA, iB) {
   list[iA] ^= list[iB];
   list[iB] ^= list[iA];
@@ -48,7 +48,7 @@ Note: the bitwise swap method only works with integers
 
 While the memo technique may look simple and to the point, sometime we just want to avoid creating an extra variable just to hold one of the values that we are going to swap. To solve this we can rely on swapping helpers that don't need an extra variable to do their job.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function swapInPlaceWithoutMemo(list, iA, iB){
   list[iB] = list[iA] + (list[iA] = list[iB]) - list[iB];
   return list;
@@ -69,7 +69,7 @@ If you wonder how the swapInPlaceWithoutMemo() function works:
 
 We could also rely on the native splice method, to swap in place without need of a memo variable:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function swapSpliceInPlaceWithotMemo(list, iA, iB){
   list[iA] = list.splice(iB, 1, list[iA])[0];
   return list;
@@ -84,7 +84,7 @@ function swapSpliceInPlaceWithotMemo(list, iA, iB){
 
 ES6, come with an awesome feature called [destructuring assignment](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment), that we can take advantage of for putting together an awesome in-place swapping helper function:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function destructuringSwap(list, iA, iB){
   [list[iA], list[iB]] = [list[iB], list[iA]];
   return list;

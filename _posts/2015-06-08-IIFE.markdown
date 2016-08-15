@@ -10,7 +10,7 @@ description: Immediately-Invoked Function Expression
 
 There are two ways of writing such pattern, each perfectly valid, so just pick your favorite.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 (function(){ /* code */ }()); // Crockford's way
 (function(){ /* code */ })(); // But this is also fine
 {% endhighlight %}
@@ -19,7 +19,7 @@ There are two ways of writing such pattern, each perfectly valid, so just pick y
 
 Function expressions can be named or anonymous, and so do IIFEs
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 (function IIFE(){ /* code */ })(); // Named IIFE
 (function(){ /* code */ })(); // Anonymous IIFE
 {% endhighlight %}
@@ -32,7 +32,7 @@ Named function expressions are generally more preferable especially for [debuggi
 
 An immediately invoked function expression need to be wrapped inside parens to avoid the parser to throw an error by thinking it encountered an anonymous function declaration instead.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Function expression VS Function declaration
 var fn = function(){}; // Expression
 function fn(){}; // Declaration
@@ -43,7 +43,7 @@ The main benefit of the IIFE pattern is local scoping and that's why it is used 
 
 Another small benefit relies on the ability to pass common global objects (like window, document, jQuery, etc) to an IIFE in order to reference them locally from within the IFEE's local scope. This reduce the number of scope lookups and increase performances.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 (function IIFE((window, document, $){
   // ...
 }(window, document, window.jQuery));

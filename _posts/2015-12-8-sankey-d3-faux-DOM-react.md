@@ -21,7 +21,7 @@ Say hello to [react-faux-dom](https://github.com/Olical/react-faux-dom): A DOM-l
 
 To use it is a matter of requiring it to create out fake DOM structures, in the example we create a 'div' element.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 import ReactFauxDOM from 'react-faux-dom';
 
 // Create a faux-DOM 'div' element
@@ -30,7 +30,7 @@ var divNode = ReactFauxDOM.createElement('div');
 
 We can now feed this to D3:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Set units, margin, sizes
 var margin = { top: 10, right: 0, bottom: 10, left: 0 };
 var width = 690 - margin.left - margin.right;
@@ -47,7 +47,7 @@ var svg = d3.select(divNode).append("svg")
 If we would have relied on JSX instead, our code would looked something like:
 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Set units, margin, sizes
 var margin = { top: 10, right: 0, bottom: 10, left: 0 };
 var width = 690 - margin.left - margin.right;
@@ -63,7 +63,7 @@ var height = 400 - margin.top - margin.bottom;
 
 Once you finish faking it, and it's time to making it, just return it as a react element to be rendered:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 return divNode.toReact();
 {% endhighlight %}
 
@@ -87,7 +87,7 @@ The approach will be:
 We are going to use a wrapping React Component to hold the state and methods we may need to pass down to other components that need to be able to update the visualization.
 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 class App extends React.Component {
   constructor() {
     super()
@@ -108,7 +108,7 @@ class App extends React.Component {
 
 The whole structure could look something like:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 app.js
 sankey.css
 SankeyChart.js
@@ -126,7 +126,7 @@ On a side note, we'll be using [webpack](https://webpack.github.io/) for our bui
 
 We are going to rely on D3 and its Sankey plugin for the visualization calculation:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 import d3 from 'd3';
 import sankey from 'd3-plugins-sankey';
 
@@ -153,7 +153,7 @@ sankey.nodes(graph.nodes)
 Now, as we saw earlier, we can just rely on D3 + faux-DOM to build our REACT elements
 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Initialize and append the svg canvas to faux-DOM
 var svgNode = ReactFauxDOM.createElement('div');
 
@@ -206,7 +206,7 @@ node.append("text")
 {% endhighlight %}
 
 One interesting thing is that we can register our eventListener directly within the D3 chain, i.e.:
-{% highlight javascript linenos %}
+{% highlight javascript %}
   .on('click', this.props.openModal) 
 {% endhighlight %}
 
@@ -214,7 +214,7 @@ One interesting thing is that we can register our eventListener directly within 
 
 We can now return our faux-dom element by converting back to a react element so that can safely render it
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 return svgNode.toReact();
 {% endhighlight %}
 

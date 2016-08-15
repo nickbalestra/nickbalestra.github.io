@@ -21,25 +21,25 @@ If you were just looking for a quick and minimal starter setup, go ahead and [fo
 
 Install jspm
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ npm install -g jspm
 {% endhighlight %}
 
 Initialize jspm for the project
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ jspm init
 {% endhighlight %}
 
 Add jsx to extend the es6 module loader to support .jsx files
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ jspm install jsx
 {% endhighlight %}
 
 Pull react and react-dom via jspm
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ jspm install react
 $ jspm install react-dom
 {% endhighlight %}
@@ -58,7 +58,7 @@ It doesn't do much, apart rendering a header on the page using react-dom.
 It has react and react-dom as dependencies ,and use ES6 and JSX syntax.
 
 
-<br>{% highlight javascript linenos %}
+<br>{% highlight javascript %}
 import React from 'react';
 import ReactDOM from 'react-dom';
 
@@ -84,7 +84,7 @@ We can now require the app from a HTML file:
 
 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 <!doctype html>
 <html>
 <head>
@@ -110,13 +110,13 @@ That's it, just load the html in the browser and enjoy!
 Jspm doesn't come with a dev-server as the one you can find in webpack.
 No worry, you can quickly install the jspm-server and have it serve your app within seconds live reload included!
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ jspm i -g jspm-server
 {% endhighlight %}
 
 Make sure to set the System trace property to true from the html file to enable live reloading via web sockets.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 ..
 <script>
     System.trace = true;

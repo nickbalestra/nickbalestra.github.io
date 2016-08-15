@@ -14,7 +14,7 @@ Note: The class syntax is not introducing a new object-oriented inheritance mode
 
 Let's immagine a simple scenario, where we have a `Car` class. We want the constructor function to decorate each generated instance, for example by adding a `brand` property to the car. We also want each instanciated object to have access to some class methods, for example a horn() function.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Constructor function for the Car class.
 var Car = function(brand){
   this.brand = brand;
@@ -25,7 +25,7 @@ Car.prototype.horn = function(){return 'honk'};
 
 Now, let's add a subClass and let's call it Tesla (being it a truly new type of car, and therefore a subClass of `Car`). Of course, we want each Tesla to be branded 'tesla' as well, but we also want it to have some unique features, like for example the [ludicrousSpeed](http://www.teslamotors.com/blog/three-dog-day) function.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Constructor function for the Tesla subClass.
 var Tesla = function(){
   // Decorates subClass istances with Car properties
@@ -57,7 +57,7 @@ Tesla.prototype.ludicrousSpeed = function(){return true};
 
 Without all the comments the Tesla subclass constructor should look something like:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Constructor function for the Tesla subClass.
 var Tesla = function(){
   Car.call(this, 'tesla');
@@ -71,7 +71,7 @@ Tesla.prototype.ludicrousSpeed = function(){return true};
 
 Running some tests, to make sure that everything works as expected:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var golf = new Car('vw');
 
 golf.brand; // -> vw
@@ -96,7 +96,7 @@ modelS.ludicrousSpeed() // -> true
 
 Now that we did brush up on the pseudoClassical subclass pattern, let see how the previous code will look like in ES6, using the new Class Syntactic sugar. Refer to the code above to better understand what is going on under the hood, it should be pretty self explanatory by now.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Class Car
 class Car {
   constructor(brand) {
@@ -122,7 +122,7 @@ class Tesla extends Car {
 
 Running some tests, to make sure that everything works as expected:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var golf = new Car('vw');
 
 console.log(golf.brand); // -> vw

@@ -17,7 +17,7 @@ Treat this post as a summary/note on [Kyle Simpson’s](https://twitter.com/geti
 
 So, I mentioned that javascript is a compiled language, but what does this mean? Shortly, just before execution, the source code is sent by the engine trough a compiler, in which, during an early phase called lexing (or tokenizing), scope get defined. This doesn’t just tell us what’s in a name, but also remember us that lexical scope is based on where variables and blocks of scope have been authored in the source code. In other words, lexical scope is defined by you during author time and frozen by the lexer during compilation. Let’s show this with the help of a little example:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var a = ‘something’;
 {% endhighlight %}
 
@@ -26,7 +26,7 @@ As the compiler encounter the variable declaration for *a* (var a) it asks scope
 ##Engine meets scope
 When engine executes the code that the compiler produced it will see our above example’s code to be something like:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 a = ‘something’;
 {% endhighlight %}
 
@@ -54,7 +54,7 @@ Think of scopes as strictly nested bubbles, not like Venn diagrams where the bub
 
 What create a scope then? Although not completely true the common wisdom is that javascript has function-based scope only. Meaning that each declared function create its own scope. Let’s take the following example:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var a = 1;
 function foo() {
     var a = 10;
@@ -68,7 +68,7 @@ Scope of *foo* is nested inside global scope, hiding what gets defined inside of
 
 What are then the mechanics that create block-level scope? *with* and *try/catch* and coming up in ES6 *const* and *let*. I’ll give here some more details about the latest one mentioned: *let*. The *let* keyword can be used for variable declaration instead of *var*, and in fact attaches the variable declaration to the scope of whatever block (usually a { .. } pair) it’s contained in. In other words, *let* implicitly hijacks any block’s scope for its variable declaration.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 {
     let foo = 10;
     console.log( foo ); // 10
@@ -79,7 +79,7 @@ console.log( foo ); // ReferenceError
 
 *let* also come packed with a special behavior when used inside a for loop header:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 for (let i = 0; i < 5; i++) {
     console.log( i ); // 0 1 2 3 4
 }
@@ -92,7 +92,7 @@ This is very useful not only for avoiding collisions and scope-pollution but als
 ##Hoisting
 First, let see hoisting in action
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 foo(); // ‘hello hoisting’
 
 function foo() {
@@ -104,7 +104,7 @@ As you can see we can invoke *foo* before it has been declared and the code will
 
 Remember that functions declaration and not function expression are hoisted, and that functions are hoisted first, and then variables:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 foo(); // 3
 
 var foo;
@@ -125,7 +125,7 @@ Also, notice how function declaration can override each other (instead, if we we
 
 However, declarations made with let will *not* hoist to the entire scope of the block they appear in. Such declarations will not observable “exist” in the block until the declaration statement.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 {
    console.log( foo ); // ReferenceError!
    let foo = 10;
@@ -140,7 +140,7 @@ In his book Kyle gives a very straightforward definition for what a closure is:
 
 If you think about lexical scope, this is so straight forward, cause scope is defined on author time and set in stone during compilation, therefore it have nothing to do with runtime and the call-stack(different will be if javascript will have been based on dynamic scope, but perhaps I will write a post about *‘this’* in the near future…). This mean that a function *bar* defined inside a function *foo* will have access to the outer scope of *foo*, also if being returned within it and invoked outside of *foo*, or in other words, outside of its scope,yes, its lexical scope! If it sounds complex, this latest example will make it clearer.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function foo() {  // 'scope of foo' aka lexical scope for bar
    var memory = 'hello closure';
    return function bar() {

@@ -20,7 +20,7 @@ Following are two examples of a recursive implementation of each and reduce that
 
 #####Tail-recursive each (linear iterative process in ES6)
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function each(list, iterator) {
   if (list.length === 0) {
     return undefined;
@@ -32,7 +32,7 @@ function each(list, iterator) {
 
 #####Tail-recursive reduce (linear iterative process in ES6)
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function reduce(list, callback, accumulator) {
   if (list.length === 0) return accumulator;
 

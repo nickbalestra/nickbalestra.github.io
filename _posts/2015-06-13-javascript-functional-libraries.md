@@ -47,7 +47,7 @@ Underscore comes with a chain method. It allows us to use _.chain() to wrap a co
 
 Taking a movies collection:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var movies = [
   { title: "Mad Max: Fury Road", ratings: [8.9, 9.9, 7.9], year: 2015 },
   { title: "Tomorrowland", ratings: [6.0, 7.0, 8.0], year: 2015 },
@@ -58,7 +58,7 @@ var movies = [
 
 and some basic helpers
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var sum = function(numbers) {
     return _.reduce(numbers, function(sum, n){
         return sum + n }, 0);
@@ -75,7 +75,7 @@ var isRecommended = function (movie) {
 
 We can now create a complex operation by simply chaining together underscore functions. For example, to discover the lowest rating ever given to a recommended movie:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 _.chain(movies)
   .filter(isRecommended)
   .pluck('ratings')
@@ -93,7 +93,7 @@ In math terms, composing the functions f(), g(), and h() produces f(g(h())).
 
 Given some generic functions
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var greet = function(name){
     return "hi: " + name;
 };
@@ -105,7 +105,7 @@ var exclaim  = function(statement){
 
 We can now \_.compose them to create a more powerful function out of the two:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var welcome = _.compose(greet, exclaim);
 welcome('there')
 // → hi: THERE!
@@ -134,7 +134,7 @@ A curried function is a function that may be invoked with fewer arguments than i
 
 Given a sum3 function, that when invoked with three arguments will return their sum, we can create its curried version as follows:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var sum3 = function(a, b, c) {
   return a + b + c;
 };
@@ -172,7 +172,7 @@ Ramda is not a drop-in replacement for underscore or lodash, as it has a more fo
 The parameters to Ramda functions are arranged to make it convenient for currying as the data to be operated on is supplied last.
 
 lodash map vs. rampda map functions
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // lodash
 _.map(collection, iteratee)
 
@@ -186,7 +186,7 @@ Ramda functions are automatically curried. Currying allows you to easily build u
 
 Let's then rebuild part of the underscore/lodash code we saw earlier with ramda instead.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Underscore/lodash style:
 var recommendedMovies = function(movies) {
   return _.filter(movies, isRecommended);
@@ -201,7 +201,7 @@ Because every ramda function automatically curry, omitting to pass the collectio
 
 Other previously encountered code re-factored with Ramda:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Underscore:
 _.chain(movies)
   .filter(isRecommended)
@@ -233,7 +233,7 @@ R.pipe(
 
 Is worth mentioning that there is a version of lodash that comes packed with functionFirst dataLast APIs and auto-currying, called **lodash-fp**. Let's see how that could be beneficial, for example within a composition (flow) taken from the example we just saw:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // lodash flow
 // passing anonimous functions
 _.flow(

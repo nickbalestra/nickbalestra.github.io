@@ -16,7 +16,7 @@ Let's start by implementing a function that will allow us to calculate the sum o
 
 For the sake of the example let's assume we have two functions that we can rely on: inc() wich increments its argument by 1 and dec(), which decrements its argument by 1:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var inc = (n) => ++n;
 var dec = (n) => --n;
 {% endhighlight %}
@@ -24,7 +24,7 @@ var dec = (n) => --n;
 We could define the sum of two numbers as the increment of the sum of the first number decremented and the other number. That sounds more complex then it is...
 Let's see some code about this way to define sum in term of inc and dec:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function sum(a, b) {
   if (a == 0) {
     return b;
@@ -39,7 +39,7 @@ function sum(a, b) {
 
 We can use the sobstitution model to watch this function in action computing `4 + 5` :
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // A linear recursive process for computing 4 + 5
 
 sum(4, 5)
@@ -57,7 +57,7 @@ inc(8)
 
 Now let's take a different perspective on computing sum. We could describe sum by specifying that we first decrement A and incremen B and then sum them together, and so on until we reach 0 + 9. Therefore, another possible, but still valid, way to define sum in term of inc and dec is:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function sum(a, b) {
   if (a == 0) {
     return b;
@@ -70,7 +70,7 @@ function sum(a, b) {
 
 As before we can use the sobstitution model to visualize the process of computing `4 + 5` :
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // A linear iterative process for computing 4 + 5
 
 sum(4, 5)

@@ -25,7 +25,7 @@ That's mostly about it as Node isn’t really much more than that.
 ### A basic server
 The first thing that we need is to have a live server up and running listening for requests on a specific address:port. In other words we just need an address to expose our public API for the external world to communicate and interact with. For this we'll need to rely on the node http module. After loading it we can then create a server via its createServer() method. createServer() accept a function as parameter and automatically add it to the 'request' event (registering it as a listener). Yes, right.. enough said, here is the code:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var http = require("http");
 var router = require('./router');
 
@@ -40,7 +40,7 @@ server.listen(port, ip);
 
 So, we now have a new instance of http.Server listening for requests on 127.0.0.1:3000. Every time a 'request' event triggers, the router will be called and the request object passed to it. The router should checks the url of the request against a list of registered routes (a.k.a our public API endpoints) and route the request to the relative endpoint handler, or, in case such a route wasn't registered, send back a 404 response. Here the code for the router and it routes hash:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var url = require('url');
 
 // The routes hash maps registered endpoint URLs
@@ -80,7 +80,7 @@ At a very besic level we don't need much, is enough to have:
 
 Inside the utils file we can also define some headers to be used within our responses, allowing us to define CORS headers and any other header property we may need. As we are at it, and we are building an API server let's add json as the content type of our headers:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var headers = {
   "access-control-allow-origin": "*",
   "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
@@ -123,7 +123,7 @@ Now we should have everything we need to easily create the endPointHandlers with
 
 Let's require our freshly backed utils, to support us handling both the requests and responses as well as the actions hash like a boss. The actions hash is where we will define the logic for each http method we may want to support/allow for the given endpoint. Here the final ping endpoint handler definition:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var utils = require('../utils');
 
 var actions = {
@@ -151,7 +151,7 @@ utils.js<br>
 
 Boom!, we should now be able to CD into the root folder, run it and ping it via curl:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 nodemon server.js
 
 // make some http requests using curl:

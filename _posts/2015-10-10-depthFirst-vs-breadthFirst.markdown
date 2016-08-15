@@ -20,7 +20,7 @@ Assuming that an instance of a binary search tree hold some values, we can visua
 
 Although the algorithms may seems different, both share the _"same"_ pseudocode:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // <store> the root node in a <container>
 // While (the <container> isn't empty)
 //   el = the <next> element from the container
@@ -82,7 +82,7 @@ In the case of a BFS where we want to explore the neighbor nodes first, before m
 
 Let's assume we have stacks and queues implemented (in js, we could easily get along by just relying to array and its native methods push/pop for stacks and push/shift for queues). We could then immagine a depthFirstLog() and breadthFirstLog() methods for a binary search tree to be like:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 BinarySearchTree.prototype.depthFirstLog = function(cb) {
   var container = new Stack(); 
   var element;
@@ -102,7 +102,7 @@ BinarySearchTree.prototype.depthFirstLog = function(cb) {
 };
 {% endhighlight %}
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 BinarySearchTree.prototype.breadthFirstLog = function(cb) {
   var container = new Queue(); 
   var element;
@@ -123,7 +123,7 @@ BinarySearchTree.prototype.breadthFirstLog = function(cb) {
 
 Alternatively, we could mimic how stacks works using a recursive approach. A recursive solution in that direction may look something like:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 BinarySearchTree.prototype.depthFirstLog = function(cb) {
   cb(this._value);
   if (this._left) {

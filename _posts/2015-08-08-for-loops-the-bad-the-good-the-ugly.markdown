@@ -11,7 +11,7 @@ There are 2+1 ways to do for* loops in javaScript. While each has its pros, in t
 
 ## The Bad
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 for (var i = 0, len = nums.length; i < len; i++) {
   doSomethingWith(nums[i])
 }
@@ -23,7 +23,7 @@ We all know him: it's a pain to type, a risk for our i's (unless we rely on ES6 
 
 ## The Good
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 nums.forEach(function(number){
   doSomethingWith(number)
 })
@@ -37,7 +37,7 @@ When looping using higher order functions the lexical scope work to our advantag
 
 For those reasons you will never be trapped by the infamous async loop nightmare, aka:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var nums = [1, 2, 3];
 
 // The Bad vs Async
@@ -59,7 +59,7 @@ nums.forEach(function(number, i){
 
 Lastly, by being more expressive it represents our intent to iterate through each element of an array, allowing us to abstract over actions, not just values.This allow us to properly name such intent instead of having to rely on meaningless indexes:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 nums.forEach(function(number){
   doSomethingWith(number)
 })
@@ -71,7 +71,7 @@ Yay, that's good!
 
 ##  The Ugly
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 for (var number in nums) {
   doSomethingWith(nums[number]);
 }
@@ -79,7 +79,7 @@ for (var number in nums) {
 
 For in is the ugly one. I bet you can now easily spot all the negative aspects we just encountered earlier for its counterpart for semicolon, like lack of expressiveness and scope pollution. For in is ugly-evil too as it will loop through prototypal properties as well. This is ok if your intent is explicitly to loop trough the prototypal chain properties as well, but that's rarely the case. The underscore method allKeys does just that, as its name clearly communicate...
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 _.allKeys = function(object){
   var keys = [];
   for(var key in object) {

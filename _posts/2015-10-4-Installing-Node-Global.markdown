@@ -14,7 +14,7 @@ We'll be using the Z shell (zsh) instead of bash. Replace any reference to `.zsh
 
 We'll install node via homebrew. If you have Node installed already via brew, remove it, then:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ brew install node --without-npm
 {% endhighlight %}
 
@@ -23,39 +23,39 @@ $ brew install node --without-npm
 
 Create a directory for your global packages.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ mkdir .npm-packages
 {% endhighlight %}
 
 Add a reference to the directory into `zshrc`
 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ echo NPM_PACKAGES="${HOME}/.npm-packages" >> ${HOME}/.zshrc
 {% endhighlight %}
 
 Tell NPM where to install global packages (in our case ~/.npm-packages)
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ echo prefix=${HOME}/.npm-packages >> ${HOME}/.npmrc
 {% endhighlight %}
 
 Install the latest version of NPM
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ curl -L https://www.npmjs.org/install.sh | sh
 {% endhighlight %}
 
 Add the following lines to your .zshrc to be ensure that node will find the packages and that you'll find the installed binaries:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ echo NODE_PATH=\"\$NPM_PACKAGES/lib/node_modules\:\$NODE_PATH\" >> ${HOME}/.zshrc
 $ echo PATH=\"\$NPM_PACKAGES/bin\:\$PATH\" >> ${HOME}/.zshrc
 {% endhighlight %}
 
 To verify if everything installed successfully just run the following commands:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ node -v 
 // check version of node installed
 

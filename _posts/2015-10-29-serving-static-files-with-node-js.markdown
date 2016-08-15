@@ -21,7 +21,7 @@ The first thing that we need is making sure that our request handler is listenin
 
 First, let's create a hash of MIME types we want to support, it will act as our whitelist.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var MIME = {
   html: 'text/html',
   css: 'text/css',
@@ -33,7 +33,7 @@ var MIME = {
 To serve the main application when a user visit the server URL  (i.e., '127.0.0.1:3000'), we need to be able to serve the index.html. Otherwise,in the case we get requests for any relative static file associated with the app, we need to be able to serve those.
 Therefore our request handler module could look something like this:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 
 var url = require('url');
 var utils = require('./utils');
@@ -76,7 +76,7 @@ Having some utilities we can always reuse will make our life a little bit easier
 
 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var fs = require('fs');
 
 exports.sendFileContent = function(response, fileName, contentType){

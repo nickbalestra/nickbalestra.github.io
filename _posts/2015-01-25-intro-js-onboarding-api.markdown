@@ -36,14 +36,14 @@ Batman will transform the intro.js steps defined in your markup into helpers (br
 ####How to use it
 We just need to call intro.js via its new batman API. This could be done via a click event: (Batman works as a toggle)
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 onclick="javascript:introJs().batman();"
 {% endhighlight %}
 
 ####Under the hood
 First an array containing the intro.js steps found on the page get created, together with an array of batman helpers (In case batman has been already fired).
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var steps = document.querySelectorAll('*[data-intro]'),
     helpers = document.querySelectorAll('.batman-helper');
 {% endhighlight %}
@@ -56,14 +56,14 @@ By looping trough the *steps* array, batman will create for each item an html el
 
 Is important to know that the batman method can accept any options that you will normally pass as argument to intro.js itself. It will use those arguments when firing intro.js later from within an helper, like:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 onclick="javascript:introJs().batman({showBullets: false, ...});"
 // check intro.js docs, for the full list of available options
 {% endhighlight %}
 
 Animations are handled purely via css.
 
-{% highlight css linenos %}
+{% highlight css %}
 .batman-helper {
   animation: POW .3s;
 }

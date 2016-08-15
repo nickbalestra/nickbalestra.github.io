@@ -10,7 +10,7 @@ description: When non-boolean values are coerced to booleans
 
 ### Falsy
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 Boolean("")  // Empty string
 Boolean(0)
 Boolean(-0)
@@ -24,7 +24,7 @@ Every other value will become true when coerced to a boolean, and therofore can 
 
 ### Truthy
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 Boolean("hello")
 Boolean(true)
 Boolean(17)

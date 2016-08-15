@@ -9,7 +9,7 @@ description: Avoid using sudo when gem install
 
 If you encountered the following error when trying to install a ruby gem on MAC OSX, it's only because of some persmission related to how/where the ruby version that come packed OSX is installed. To fix it, is enough to rely on rbenv, a ruby version manager.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 
 $ gem install jekyll
 $ Fetching: liquid-2.6.3.gem (100%)
@@ -24,13 +24,13 @@ We'll be using the Z shell (zsh) instead of bash. Replace any reference to `.zsh
 
 We'll install rbenv via homebrew:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ brew install rbenv ruby-build
 {% endhighlight %}
 
 Add the following references to your `.zshrc`
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ echo 'if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi' >> ~/.zshrc
 $ echo 'export PATH="$HOME/.rbenv/bin:$PATH"' >> ~/.zshrc
 $ echo 'eval "$(rbenv init -)"' >> ~/.zshrc
@@ -41,20 +41,20 @@ $ echo 'eval "$(rbenv init -)"' >> ~/.zshrc
 
 Install a more recent ruby version via rbenv 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ rbenv install 2.2.3
 {% endhighlight %}
 
 Set the globa version to the latest installed version of ruby, i.e:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 rbenv global 2.2.3
 {% endhighlight %}
 
 
 To verify if everything installed successfully just run the following commands:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ ruby -v 
 // check version of ruby installed
 {% endhighlight %}

@@ -18,7 +18,7 @@ It's ok to use it only in cases where the data that need to be sorted is already
 
 Let's see it in action:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function bubbleSort(list) {
   function swap(list, iA, iB) {
     list[iA] = list[iB] + (list[iB] = list[iA]) - list[iA];
@@ -52,7 +52,7 @@ If you wonder about swapping helpers, check-out the post on [JavaScript swap in-
 
 The idea behind select sort is to repeatedly select the minimum value from the array pushing it to a new array, this way the newly created array will result in being sorted. 
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function selectSort(list) {
   var sorted = [];
 
@@ -78,7 +78,7 @@ function selectSort(list) {
 
 Normally select sort is being used as an in-place comparison algorithm, allowing to save memory. For the sake of variation, we are going to select the Max value this time for the in-place example of selectSort:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function selectSortInPlace(list) {
   function swap(list, iA, iB) {
     list[iA] = list[iB] + (list[iB] = list[iA]) - list[iA];
@@ -110,7 +110,7 @@ function selectSortInPlace(list) {
 
 Insert Sort take each element of the array and insert it into a new array in a sorted position:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function insertSort(list) {
   var sorted = [];
 
@@ -139,7 +139,7 @@ function insertSort(list) {
 
 As we did for select sort we can have an insertion sorting in-place:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function insertSortInPlace(list) {
   function swap(list, iA, iB) {
     list[iA] = list[iB] + (list[iB] = list[iA]) - list[iA];

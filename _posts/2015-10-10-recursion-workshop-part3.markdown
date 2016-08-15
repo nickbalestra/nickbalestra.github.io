@@ -18,7 +18,7 @@ Tree recursion is another common computational pattern. An often used example in
 
 Let's see a recursive function to computing Fibonacci numbers, that will result in a tree recursive process:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function fib(n) {
   if (n < 2) {
     return n;
@@ -31,7 +31,7 @@ function fib(n) {
 
 Similary to what we did before we can use the sobstitution model to visualize the process of computing fib(5) :
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // A tree recursive process for computing fib(5)
 
                                      fib(5)
@@ -55,7 +55,7 @@ If you read my post on [DepthFirst and breadthFirst tree walking](http://nick.ba
 
 We can also define a recursive function to compute the Fibonacci numbers that will instead generate a linear iterative process (as in ES6, thanks to its tail-call optimization):
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var fib = (n, a = 0, b = 1) => (n === 0) ? a : fib(n-1, b, a + b);
 {% endhighlight %}
 

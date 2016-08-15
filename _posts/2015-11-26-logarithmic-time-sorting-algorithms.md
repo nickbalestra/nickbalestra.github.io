@@ -14,7 +14,7 @@ The idea behind merge sort, is quite simple: recursively divide the unsorted lis
 
 #### Visualizing the process
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Merge sort process
 
               [1, 3, 2, 4, 6, 5]
@@ -35,7 +35,7 @@ The idea behind merge sort, is quite simple: recursively divide the unsorted lis
 
 The code could look something along the following lines:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function mergeSort(list) {
   
   function merge(listR, listL) {
@@ -70,7 +70,7 @@ function mergeSort(list) {
 Quicksort is the sorting algorithm behind the native array sort method in javascript, although different browsers may rely on mergesort instead. The idea is to pick recursively the last element and set it as the pivot. Then sort the list by positioning all the elements with a value less then the pivot's value on the left and the rest on the right of the pivot. At this point, the pivot can be safely assumed to be sorted with its proper final index assigned. By recursively applying the process to each side we'll soon find ourself with n lists, each of length 1, that only need to be concatenated back together while walking backward the call stack.
 
 #### Visualizing the process
-{% highlight javascript linenos %}
+{% highlight javascript %}
 // Merge sort process
 
                         [1, 3, 2, 4, 6, 5]
@@ -95,7 +95,7 @@ Quicksort is the sorting algorithm behind the native array sort method in javasc
 
 Again, the code could look something along the following lines:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function quickSort(list) {
   if (list.length < 2) {
     return list;

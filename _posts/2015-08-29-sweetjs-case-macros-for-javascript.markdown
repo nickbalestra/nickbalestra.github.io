@@ -17,13 +17,13 @@ So, what is a macro? Macros give you snippets in the programming language that a
 
 ### Rule Based Macros : **MACRO > OUTPUT**
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 macro <name> {
   rule { <pattern> } => { <template> }
 }
 {% endhighlight %}
 Our rule base macro definition contain a pattern and a template that is output excactly as it was written inside the macro definition. For example an identity rule bases macro definition will look something like:
-{% highlight javascript linenos %}
+{% highlight javascript %}
 macro id {
   rule { $x } => { $x }
 }
@@ -34,7 +34,7 @@ macro id {
 
 ### Case Based Macros: **MACRO > CODE-EXEC > OUTPUT**
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 macro <name> {
   rule { <pattern> } => {
     return #{ <template> }
@@ -45,7 +45,7 @@ macro <name> {
 The main difference is that case based macros execute code before returning the template, meaning they
 have their own lexical scope and allow for more complex logic. So if we compare with the id rule base macro we saw above, in sweet js we will re-write the id macro as following:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 macro id {
   rule { _ $x } => {
     return #{ $x }
@@ -58,7 +58,7 @@ macro id {
 
 Well this doesn't show much of the potential of a case base macro, so let's change this id macro into a randomid macro that will generate a random id;
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 macro rid {
   rule { _ $x } => {
     var r = Math.random();

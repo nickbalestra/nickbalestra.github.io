@@ -25,14 +25,14 @@ The application architecture is composed of a model, a collection and a view.
 ### Color model
 The color model is just a stripped Backbone.Model. This will serve as a constructor to later instantiate all of our colors.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var Color = Backbone.Model.extend({});
 {% endhighlight %}
 
 ### Colors collection
 Here is where all the action will happen. Our application will allow us to add colors to a colors collection. The collection will act similarly to a stack: we'll be adding colors on top of the stack and removing from the top of it, following a FILO (First In Last Out) approach.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var Colors = Backbone.Collection.extend({
   model: Color,
 });
@@ -51,7 +51,7 @@ addColor() will instantiate a color using the Color model as a constructor. We'l
 
 The code of our view:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var AppView = Backbone.View.extend({
   template: _.template('<div class="row" style="background-color:<%= hexColor %>"><span><%= hexColor %></span></div>'),
 
@@ -98,11 +98,11 @@ So, wasn't this post about binding backbone models and collections to Firebase? 
 ###Dependencies
 First, let's add the right dependencies and load the firebase and backbonefire js libraries in our index.html.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 $ bower install backbonefire --save
 {% endhighlight %}
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 <script src="bower_components/firebase/firebase.js"></script>
 <script src="bower_components/backbonefire/dist/backbonefire.js"></script>
 {% endhighlight %}
@@ -111,7 +111,7 @@ $ bower install backbonefire --save
 
 Once we have sorted our dependencies and the needed libraries are in place, we can now access some special models and collections: Backbone.Firebase.Collection and Backbone.Firebase.Model. As for any backbone model and collection they support a url property (Add there your Firebase-app url). Our code for the collection code should now look something like:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var Colors = Backbone.Firebase.Collection.extend({
   url: 'https://<YOUR_FIREBASE_APP>.firebaseio.com/colors',
   model: Color,

@@ -17,7 +17,7 @@ The first among those algorithms, most laborious, but easiest to understand is t
 
 If n is not divisible by any smaller number, then n is a prime. Lets put this algorithm into code:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var isPrime = function(n){
   var divisor;
   for(divisor = 2; divisor < n; divisor++) {
@@ -32,7 +32,7 @@ var isPrime = function(n){
 Furthermore, the trial factors need go no further than √n because, if n is divisible by some number p, then n = p × q and if q were smaller than p, n would have earlier been detected as being divisible by q or a prime factor of q.
 We could then rewrite an optimised version of the isPrime function based on the trial division in the following way:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var isPrime = function(n){
   var divisor;
   for(divisor = 2; divisor <= Math.sqrt(n); divisor++) {
@@ -61,7 +61,7 @@ The algorythm can be braken down into the following steps:
 
 Assuming we already have a list of consecutive integers from 2 through n, we could put the sieving into the following code:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var sieve = function(list, p) {
 
   var sieved = list;
@@ -101,7 +101,7 @@ Again, as the original algorithm suggest there are few optimization that could b
 
 and here the refined code:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var sieve = function(oddList, p) {
   var sieved = oddList;
   p = p || 3;

@@ -25,7 +25,7 @@ Every pattern need to take care of the basics:
 
 It does just what is suppose to do:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var FunctionalPattern = function(){
   // Create a new object
   var instance = {};
@@ -55,7 +55,7 @@ The very same principle that give the functional pattern the closure advantage a
 
 Born as an effort to limit the drawbacks of the functional pattern, it moves the methods declaration outside the lexical scope of the class, extending it methods by reference. In this way each istance will have pointers to the same functions without duplicating them:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var FunctionalSharedPattern = function(){
   // Create a new object
   var instance = {};
@@ -86,7 +86,7 @@ With the help of a little helper we could refactor the functional-shared pattern
 
 > DRY: Don't Reapeat Yourself
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var FunctionalSharedPattern = function(){
   // Create a new object
   var instance = {};
@@ -127,7 +127,7 @@ But, it still have a big drawback: the pointers in each instance are created dur
 
 By now you probably noticing a trend in how this blog post is structured, we are building up a better pattern to solve the drawbacks of the previous one. And this is where the Prototypal pattern come handy. By relying on the prototypal delegation on which javaScript objects obey, it provide a handy way to keep in sync any istance with its class. Long story short: the prototypal pattern allow us to edit, add and remove methods on the Class and automagically have each istance updated accordingly.
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var PrototypalPattern = function(){
   // Create a new object
   var instance = Object.create(PrototypalPattern.prototype);
@@ -155,7 +155,7 @@ There are'n much drawbacks with this Pattern, as it solve all our issues we enco
 ### Pseudoclassical
  Sometime an advantage could be given by the language itself and its syntactic sugar, and guess what, mr. Pseudoclassical pattern is very very sweet:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 var PseudoclassicalPattern = function(){
   // Create a new object
   // var this = Object.create(PseudoclassicalPattern.prototype)

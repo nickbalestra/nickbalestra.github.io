@@ -26,7 +26,7 @@ The acorn onComment option can be passed in the form of a function, so that when
 <br>
 Plus, if you want to fall back to how esprima works in relation to comments, pass an array for this option instead, and each found comment is pushed to it as object in Esprima format:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 {
   "type": "Line" | "Block",
   "value": "comment text",

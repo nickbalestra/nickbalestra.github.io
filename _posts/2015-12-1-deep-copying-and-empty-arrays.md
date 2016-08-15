@@ -27,7 +27,7 @@ Object.keys to the rescue! As we can treat Arrays as Objects when accessing thei
 
 Let's see some code:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function deepCopy(obj) {
   var copy = Array.isArray(obj) ? [] : {};
 

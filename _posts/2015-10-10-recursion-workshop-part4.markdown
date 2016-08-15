@@ -18,7 +18,7 @@ A recursive behaviour is when you can define it by two properties:
 
 Let's mark with some comments all the base cases from our previous examples to make this even more clear:
 
-{% highlight javascript linenos %}
+{% highlight javascript %}
 function sum(a, b) {
   if (a == 0) { // <- BASE CASE
     return b;
@@ -82,7 +82,7 @@ Land is defined as the continuos walkable surface not crossed by water.
 - Implement continentCounter() using a recursive process.
 - Identify which kind of recursive process your implementation of continentCounter() generates.
 <br><br>
-{% highlight javascript linenos %}
+{% highlight javascript %}
 
 var o = "water"; // water
 var M = "land";  // land
