@@ -28,12 +28,12 @@ readmore: true
 </footer>
 
 <!-- Disqus comments -->
-{% if page.disqus %}
+{% if layout.disqus %}
     {% include disqus.html %}
 {% endif %}
 
 <!-- Archive -->
-{% if page.readmore %}
+{% if layout.readmore %}
     <ul id="post-list" class="archive readmore">
         <h3>Read more</h3>
         {% for post in site.posts %}
@@ -44,5 +44,5 @@ readmore: true
     </ul>
 {% endif %}
 
-
+{% include footer.html %}
 
