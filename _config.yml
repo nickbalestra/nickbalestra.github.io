@@ -4,7 +4,7 @@ meta_description: "Nick Balestra's blog"
 
 
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 
 paginate: 50
 baseurl: /
