@@ -43,7 +43,27 @@ Just be aware that Npm scripts will resolve to locally installed executables out
 }
 {% endhighlight %}
 
+***
 
+### Conclusion
+Try avoiding installing global packages as much as possible
+If you find yourself having hard times typing $(npm bin)/whataver you can just install one global package: npm-run (a nicely written wrapper around npm bin)
+
+{% highlight javascript %}
+$ npm i -g npm-run
+{% endhighlight %}
+
+feel free to add an alias to your bashprofile, I personally like to have ‘nr’ so that I can simply type:
+
+{% highlight javascript %}
+$ nr jspm init // will run the locally resolved jspm bin executable like $(npm bin)/jspm init
+{% endhighlight %}
+
+Wondering what packages you have already installed globally? Simply type:
+
+{% highlight javascript %}
+$ npm list -g —depth=0 // leave out the depth flag to get scared
+{% endhighlight %}
 
 
 
