@@ -1,7 +1,7 @@
 ---
 title: Express middleware serving SSR React apps
 date: 2016-08-29
-description: and why you should give it a go
+description: Express, React, JSPM and HML
 ---
 
 ## [Expressjs](https://expressjs.com/) is a fast, unopinionated, minimalist web framework for Node.js. In the expresses idiom a middleware, is, simply put, a function like: (req, res, nextMiddleware) => {}. 
