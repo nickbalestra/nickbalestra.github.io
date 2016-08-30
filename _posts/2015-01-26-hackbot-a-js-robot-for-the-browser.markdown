@@ -4,7 +4,7 @@ date: 2015-01-26
 description: A fully programmable bot, modeled after Hubot.js
 ---
 
-##During my deep dive journey into JavaScript I've encountered the Hack Reactor chat-builder challenge, where you have to implement a very basic chat client. [Hack Reactor](http://www.hackreactor.com/) is a world leading CS degree for the 21st century based in San Francisco. The chat-builder challenge is part of their admission program. That’s where I got the inspiration for the name — Hackbot.
+## During my deep dive journey into JavaScript I've encountered the Hack Reactor chat-builder challenge, where you have to implement a very basic chat client. [Hack Reactor](http://www.hackreactor.com/) is a world leading CS degree for the 21st century based in San Francisco. The chat-builder challenge is part of their admission program. That’s where I got the inspiration for the name — Hackbot.
 
 ***
 
@@ -24,11 +24,11 @@ Piece by piece, I started refactoring my robot, implementing the very same modul
 The main elements of the Hackbot (and Hubot) architecture are:
 *Robot, Adapter, Listener, Message & Response* and *scripts*.
 <br><br>
-####Robot
-#####What is it and why we need it
+#### Robot
+##### What is it and why we need it
 Robots receive messages from a chat source, and dispatch them to matching listeners. Robot is the central part of our application. Among other things it has a name (default to ‘Hackbot’), a brain as storage system, an adapter to interact with a specific chat source (in our case the chat-builder API), a collection of listeners to analyse incoming messages and few other utilities.
 
-#####How to create a robot
+##### How to create a robot
 
 {% highlight javascript %}
 robot = new Robot();  // Create a Robot object
@@ -42,7 +42,7 @@ robot.run();          // start the robot adapter
 > running...
 
 
-#####Under the hood
+##### Under the hood
 The created robot object will looks like:
 
 {% highlight javascript %}
@@ -69,11 +69,11 @@ Through its prototype chain a robot has access to the following methods:
 - [robot.shutdown()](http://nickbalestra.github.io/hackbot/robot.html#section-12)
 
 <br>
-####Adapter
-#####What is it and why we need it
+#### Adapter
+##### What is it and why we need it
 An adapter is a specific interface to a chat source for robots. In the case of Hackbot its adapter is made to work with chat-builder as chat source. Shortly, adapters can be seen as some kind of middleware API, sitting between the robot and the chat source.
 
-#####Under the hood
+##### Under the hood
 The adapter through its prototype chain has access to the following methods (you will notice that few of them have similar names to the methods we listed above for the robot itself. This is because in some cases the robot will just delegate the action to its adapter):
 
 - [adapter.fetch()](http://nickbalestra.github.io/hackbot/adapter.html#section-3)
@@ -90,13 +90,13 @@ The adapter through its prototype chain has access to the following methods (you
 <br><br><br>
 
 
-####Listener
+#### Listener
 
-#####What is it and why we need it
+##### What is it and why we need it
 Listeners receive messages from the chat source and decide if they want to act on them. Among other things, they have the following properties: a regular expression that determines if the listener should trigger the callback, the callback itself (a function to be triggered if the incoming message matches) and through its prototype chain it has access to a call method that determines if the listener likes the content of the message. If so, a Response built from the given Message is passed to the Listener’s callback.
 <br><br>
 
-#####Under the hood
+##### Under the hood
 Shortly, when robots receive a message (via an adapter), will invoke the listener via its call method passing the message as argument:
 
 {% highlight javascript %}
@@ -114,11 +114,11 @@ if (match) {
 See [annotated documentation of the listener](http://nickbalestra.github.io/hackbot/listener.html) for more details
 
 <br>
-####Message & Response
-#####What are them and why we need them
+#### Message & Response
+##### What are them and why we need them
 Messages and responses are data structures used to carry data around the application. Messages get created inside the adapter with data receive from the chat source. Responses get created inside listeners when Messages trigger a listener’s callback, as we just saw earlier.
 
-#####Under the hood
+##### Under the hood
 A message object, has the following properties:
 
 {% highlight javascript %}
@@ -145,11 +145,11 @@ Through the prototype chain, the response object has access to the following met
 Check the full annotated documentation of Message and Response for further details.
 <br><br>
 
-####Scripts
-#####What are them and why we need them
+#### Scripts
+##### What are them and why we need them
 Scripts refer to the system that allow to extend Hackbot. In other words they are little plugins that extend the functionality of the bot. Scripts are made with the goal of adding one or more listeners to our robot. For that reason they will need to define what the robot will listen for (using a regular expression), and what will the robot do if it hears the right words (using a callback function).
 
-#####How to create listeners within scripts
+##### How to create listeners within scripts
 There are two methods available within a robot for that: hear() and respond(). Both accept a regex and a callback function as parameters. They differ in how the robot will listen to messages. With hear(), robot listen to the whole conversation, checking all words, while with respond(), robots will listen to words only when somebody calls it. For example:
 
 > **User**: ‘Oh, nice to be in here, hello world’<br>
@@ -170,7 +170,7 @@ Response.finish() will mark the message as done (by setting the value of his pro
 
 Response.random() is a simple method that return a random value out of an array. Can be useful to create random replies or sentences. For an example, see how its being used in the [thank you script](http://nickbalestra.github.io/hackbot/hackbot-thankyou.html).
 
-#####How to add help commands to a script
+##### How to add help commands to a script
 To add some help to a script that can be called by typing the help command in the chat, use the help method:
 
 {% highlight javascript %}
@@ -182,23 +182,23 @@ If in the chat somebody type help, robot will respond as follow:
 
 See the [annotated documentation of the help script](http://nickbalestra.github.io/hackbot/hackbot-help.html) for more details. In Hackbot the help system is implemented as a script, so you can disable help by not loading that script.
 ***
-###Hackbot vs Hubot
+### Hackbot vs Hubot
 Although Hackbot mimic very closely Hubot’s architecture, the two are different in some aspects.
 
-####Vanilla javascript vs Coffeescript
+#### Vanilla javascript vs Coffeescript
 Hubot is entirely written in [coffeescript](http://coffeescript.org/), a little language that compiles into JavaScript, while Hackbot is written in plain javaScript. To help navigate from one to the other, use [js2coffee](http://js2coffee.org/).
 
-####Browser vs Server
+#### Browser vs Server
 Hubot run on the server thanks to node.js while Hackbot run on the browser. It may be argued that having a chat bot running on the browser ain’t that useful, and I could generally agree with that, although there can be cases where having a robot born and die within your browser could be a good thing. For sure, in a learning environment depending solely on the browser reduces the elements needed to be understood in order to have everything up and running, making our life a little bit easier.
 ***
-###Dependencies
-####Require.js
+### Dependencies
+#### Require.js
 Running in the browser is perhaps the single biggest cause of changes inside Hackbot compared to Hubot. First, to be able to implement a similar modular architecture, based around the module pattern, I had to use a library for that. Hackbot is therefore built using require.js, and therefore depend on it.(Require.js is a javaScript file and module loader. It is optimised for in-browser use).
 
-####Chatbuilder.js
+#### Chatbuilder.js
 Of course, being built around chatbuilder, Hacknot require chatbuilder.js. Although this could be relegated to a dependency for the adapter only, the chatbuilder.js has been added as a global dependency to be inline with the scope of the exercise. As a nice side effect, there is no need to add jQuery as it comes packed within chatbuilde.js itself.
 
-####Underscorish.js
+#### Underscorish.js
 In order to take advantage of some functional utilities similar to what the underscore.js library offer, I’ve created a very little library called underscorish. At the moment underscorish come packed with very limited methods:
 
 - [_.each()](http://nickbalestra.github.io/hackbot/underscorish.html#section-2)
@@ -219,8 +219,8 @@ For more details, please check the [underscorish annotated documentation](http:/
 
 ***
 
-###Challenges
-####Brain
+### Challenges
+#### Brain
 Hackbot runs in the browser, so gaining writing access to local file system in order to have a persistent storage was anything but trivial. After digging possible solutions it seemed that using the html5 localStorage API was the best things to do. Hackbot’s brain therefore differ from the Hubot brain implementation as it use the localStorage API. Few extra methods are then available to deal with it:
 
 - [.backup()](http://nickbalestra.github.io/hackbot/brain.html#section-9)
@@ -229,7 +229,7 @@ Hackbot runs in the browser, so gaining writing access to local file system in o
 
 See [annotated documentation of the brain](http://nickbalestra.github.io/hackbot/brain.html) for more details
 
-####Scripts
+#### Scripts
 Similar to brain, I had to find a way for Hackbot to know what scripts to load. In order to achieve this, two things has been slightly changed. First the load() method for the robot:
 
 {% highlight javascript %}
@@ -247,32 +247,32 @@ define({
 
 See [annotated documentation of the scripts](http://nickbalestra.github.io/hackbot/scripts.html) for more details
 
-####Adapter
+#### Adapter
 For the adapter few things were different compared to other Hubot adapters. First of all the chat-builder API automatically generate dummy messages for the sake of the challenge. That’s why the Hackbot adapter come with a private helper [clean()](http://nickbalestra.github.io/hackbot/adapter.html#section-11) in order to remove dummy content from the fetched data. Another important private helper added to the Hackbot adapter is [normalize()](http://nickbalestra.github.io/hackbot/adapter.html#section-13). As the adapter pull data from the chat-builder API at regular intervals, the normalize() helper implements some kind of temporary cache to be sure that the same message is not sent twice to the robot and its listeners.
 
 See [annotated documentation of the adapter](http://nickbalestra.github.io/hackbot/adapter.html) for more details.
 
 ***
 
-###Scripts
+### Scripts
 To test and use Hackbot I’ve developed few scripts, some have been ported from Hubot while others have been developed from scratch. Treat them as examples to learn and understand how to program Hackbot. Below is an high level overview of some of them.
 
-####Hackbot-log.js
+#### Hackbot-log.js
 This little script log every user message on screen, using the print method.
 
-####Hackbot-users.js
+#### Hackbot-users.js
 This script take advantage of the robot brain storing all the users messages. This allow for retrieveing both the user list and the message history for a single user. To use it type:
 
 > **< Hackbot chat users >** — list all users who chatted in here<br>
 > **< Hackbot hackbot chat history [name] >** — show all messages from [name] — case sensitive<br>
 > **< Hackbot chat history me >** — show all my messages
 
-####Hackbot-ambush.js
+#### Hackbot-ambush.js
 This script can be used to leave a message to somebody that is not online now and deliver it once the received is back (when he/she writes something in the chat). This script have been ported from a Hubot script. To use it type:
 
 > **< Hackbot ambush [name] : message >** — leave a message for [name]
 
-####Hackbot-hackreactor.js
+#### Hackbot-hackreactor.js
 This script uses 3rd part APIs. Those APIs have been created using [kimonolabs](https://www.kimonolabs.com/) and they fetch the following data from hackreactor.com:
 
 - Next program dates.
@@ -298,10 +298,10 @@ For more details check the full documentation:
 
 ***
 
-###Conclusion and Future
+### Conclusion and Future
 Building Hackbot is been an extremely funny, challenging and very rewarding exercise for me. Although I didn’t keep it alive enough in order to find pair programming mates (I had two responses, one via twitter and one via email), I believe that hackbot could be used and be beneficials to others as it end up being a nice open ended exercise that you can always grow with: scripts can do anything you can immagine so sky is the limit. I therefore see it as a perfect companion to the chat-builder challange for anyone learning javaScript or preparing for the HR admission.
 
-###Documentation and code
+### Documentation and code
 Hackbot uses inline comments formatted accordingly to [docco.js](http://jashkenas.github.io/docco/).
 Please check the whole [Hackbot documentation](http://nickbalestra.github.io/hackbot/) to learn more.
 Feel free to [fork Hackbot and send a pull-request on Github](https://github.com/nickbalestra/hackbot).

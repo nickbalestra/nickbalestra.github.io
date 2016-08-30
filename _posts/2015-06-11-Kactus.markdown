@@ -4,7 +4,7 @@ date: 2015-06-11
 description: A theme for Jekyll
 ---
 
-##[Cactus](http://cactusformac.com/) is a fast, easy and free static site generator, kinda like Jekyll but made to run on your mac. It features a good, simple and modern template. I really like Cactus default simple theme and I wanted to port it to Jekyll. The result is [Kactus](https://github.com/nickbalestra/kactus).
+## [Cactus](http://cactusformac.com/) is a fast, easy and free static site generator, kinda like Jekyll but made to run on your mac. It features a good, simple and modern template. I really like Cactus default simple theme and I wanted to port it to Jekyll. The result is [Kactus](https://github.com/nickbalestra/kactus).
 
 * * *
 

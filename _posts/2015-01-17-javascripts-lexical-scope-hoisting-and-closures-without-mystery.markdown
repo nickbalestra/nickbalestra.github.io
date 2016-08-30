@@ -4,7 +4,7 @@ date: 2015-01-17
 description: Understanding the Javascript language mechanics
 ---
 
-##Although javascript falls under the category of ‘dynamic’ or ‘interpreted’ languages it is actually a compiled language. I’m no compiler-guy, so I won’t even try to go deeper into details, but is important to know this to better understand some of the logic governing the language.
+## Although javascript falls under the category of ‘dynamic’ or ‘interpreted’ languages it is actually a compiled language. I’m no compiler-guy, so I won’t even try to go deeper into details, but is important to know this to better understand some of the logic governing the language.
 
 ***
 
@@ -13,7 +13,7 @@ So, let me state it again: Javascript is a compiled language. Why this is so imp
 This article is part of a series I’m mainly writing for myself during my learning journey, as I’m steering myself from being a product designer with a passion for code into a software engineer with a passion for design. I picked JS to be my mother tongue for many reasons: some falls under [Axel Rauschmayer’s post](http://www.2ality.com/2014/07/javascript-survival-guide.html).
 Treat this post as a summary/note on [Kyle Simpson’s](https://twitter.com/getify) [book on scope & closures](http://shop.oreilly.com/product/0636920026327.do) and his [advanced JS workshop](https://frontendmasters.com/courses/advanced-javascript/), in that sense this post is not comprehensive and I strongly encourage you to dig both of Kyle original resources as the amount of details he shovels there are worth every second of your time and every penny of your money. My thanks goes to him, for his awesome book on scope and closures and his ability to explain complex concepts easily enough for me to get.
 
-##Scope meets compiler
+### Scope meets compiler
 
 So, I mentioned that javascript is a compiled language, but what does this mean? Shortly, just before execution, the source code is sent by the engine trough a compiler, in which, during an early phase called lexing (or tokenizing), scope get defined. This doesn’t just tell us what’s in a name, but also remember us that lexical scope is based on where variables and blocks of scope have been authored in the source code. In other words, lexical scope is defined by you during author time and frozen by the lexer during compilation. Let’s show this with the help of a little example:
 
@@ -23,7 +23,7 @@ var a = ‘something’;
 
 As the compiler encounter the variable declaration for *a* (var a) it asks scope to see if the variable a already exists for that particular scope. If so, it just ignore it and move forward, otherwise it asks scope to declare (create) *a* new variable named *a* for that scope.
 
-##Engine meets scope
+### Engine meets scope
 When engine executes the code that the compiler produced it will see our above example’s code to be something like:
 
 {% highlight javascript %}
@@ -50,7 +50,7 @@ At this point, we can all infer what scope is. Scope is where to look for things
 
 Think of scopes as strictly nested bubbles, not like Venn diagrams where the bubbles can cross boundaries. As a takeaway, write code in strict mode.
 
-##Function and Block level scope
+### Function and Block level scope
 
 What create a scope then? Although not completely true the common wisdom is that javascript has function-based scope only. Meaning that each declared function create its own scope. Let’s take the following example:
 
@@ -89,7 +89,7 @@ console.log( i ); // ReferenceError
 
 This is very useful not only for avoiding collisions and scope-pollution but also for closures as we’ll see later as *let* will do its binding on every iteration of the loop.
 
-##Hoisting
+### Hoisting
 First, let see hoisting in action
 
 {% highlight javascript %}
@@ -133,7 +133,7 @@ However, declarations made with let will *not* hoist to the entire scope of the 
 {% endhighlight %}
 
 
-##Closures
+### Closures
 In his book Kyle gives a very straightforward definition for what a closure is:
 
 > Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.

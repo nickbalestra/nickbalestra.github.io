@@ -4,7 +4,7 @@ date: 2015-06-08
 description: Immediately-Invoked Function Expression
 ---
 
-##**IIFE**, which stands for Immediately Invoked Function Expression, is a common JavaScript design pattern aimed to protect a module's scope from the environment in which it is placed.
+## **IIFE**, which stands for Immediately Invoked Function Expression, is a common JavaScript design pattern aimed to protect a module's scope from the environment in which it is placed.
 
 * * *
 

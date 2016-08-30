@@ -4,7 +4,7 @@ date: 2015-06-07
 description: When non-boolean values are coerced to booleans
 ---
 
-##JavaScript defines a list of specific values that are considered "falsy" because when coerced to a boolean, they become false.
+## JavaScript defines a list of specific values that are considered "falsy" because when coerced to a boolean, they become false.
 
 * * *
 

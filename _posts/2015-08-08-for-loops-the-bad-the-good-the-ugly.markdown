@@ -4,7 +4,7 @@ date: 2015-08-08
 description:  "Javascript's control flow for* statements"
 ---
 
-##A loop is a sequence of statements which is specified once but which may be carried out several times in succession. The code "inside" the loop is obeyed a specified number of times, or once for each of a collection of items, or until some condition is met, or indefinitely...meh.
+## A loop is a sequence of statements which is specified once but which may be carried out several times in succession. The code "inside" the loop is obeyed a specified number of times, or once for each of a collection of items, or until some condition is met, or indefinitely...meh.
 
 There are 2+1 ways to do for* loops in javaScript. While each has its pros, in the following paragraphs we'll see which one is the one we should try to stick with and why.
 * * *

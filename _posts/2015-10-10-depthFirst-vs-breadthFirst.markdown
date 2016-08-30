@@ -4,7 +4,7 @@ date: 2015-10-10
 description: 'Same algo, different datastructures: stacks/queues' 
 ---
 
-##Depth-first search (DFS) and Breadth-first search (BFS) are algorithms for traversing or searching tree or graph data structures.
+## Depth-first search (DFS) and Breadth-first search (BFS) are algorithms for traversing or searching tree or graph data structures.
 
 While both starts at the root, DFS explores as far as possible along each branch before backtracking while BFS explores the neighbor nodes first, before moving to the next level neighbors.
 

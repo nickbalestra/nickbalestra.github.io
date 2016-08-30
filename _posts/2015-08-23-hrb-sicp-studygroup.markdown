@@ -4,7 +4,7 @@ date: 2015-08-23
 description:  "Running the MIT/GNU Scheme environment on the command line on macOS"
 ---
 
-##The HRB SICP Study group stand for Hackreactor Remote Beta Structure and Interpretation of Computer Programs Study group.
+## The HRB SICP Study group stand for Hackreactor Remote Beta Structure and Interpretation of Computer Programs Study group.
 
 The group is intended to be a very long term study group.
 

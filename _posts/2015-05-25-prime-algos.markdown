@@ -4,7 +4,7 @@ date: 2015-05-25
 description: A short post on prime algorithms
 ---
 
-##In number theory, **integer factorization** is the decomposition of a composite number into a product of smaller integers. If these integers are further restricted to prime numbers, the process is called **prime factorization**.
+## In number theory, **integer factorization** is the decomposition of a composite number into a product of smaller integers. If these integers are further restricted to prime numbers, the process is called **prime factorization**.
 
 * * *
 Lets quickly walk through some basic integer factorization algorithms.

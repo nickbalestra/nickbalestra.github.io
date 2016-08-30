@@ -4,7 +4,7 @@ date: 2015-08-29
 description:  "Crafting javaScript Syntax without transpiling"
 ---
 
-##[Sweet.js](http://sweetjs.org/) allow to change the syntax of JavaScript via Scheme-inspired hygienic macros. Based on plain 'ol javascript, If compared to transpiling alternatives, it favors composition over inheritance.
+## [Sweet.js](http://sweetjs.org/) allow to change the syntax of JavaScript via Scheme-inspired hygienic macros. Based on plain 'ol javascript, If compared to transpiling alternatives, it favors composition over inheritance.
 
 Recently for a project I had the pleasure to work with the Mozilla sweet.js project. In this post I'll go through the basics of sweet.js's case based macros.
 

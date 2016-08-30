@@ -4,7 +4,7 @@ date: 2015-10-15
 description: Understanding the sugar covered class in ES6
 ---
 
-##JavaScript classes are introduced in ECMAScript 6 and are syntactical sugar over JavaScript's existing prototype-based inheritance.
+## JavaScript classes are introduced in ECMAScript 6 and are syntactical sugar over JavaScript's existing prototype-based inheritance.
 
 Note: The class syntax is not introducing a new object-oriented inheritance model to JavaScript, so what is happening behind all this new sugar? Let's digg how ES6 classes works compared to the pseudcoclassical subclass pattern we are used to work with within ES5.
 

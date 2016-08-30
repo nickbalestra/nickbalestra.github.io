@@ -4,7 +4,7 @@ date: 2015-11-1
 description: Setting up Webpack as your build tool.
 ---
 
-##[Webpack](https://webpack.github.io/) is a module bundler. It takes modules with dependencies and emits static assets representing those modules.
+## [Webpack](https://webpack.github.io/) is a module bundler. It takes modules with dependencies and emits static assets representing those modules.
 
 If you rely on a build tool with your development team (and you definitely should), most probably you are relying on Make, Grunt or Gulp. But when it come to bundling assets and dependencies for the browser, and you want to rely on javascript modules (either following the commonJS, AMD, or ES6 module pattern), simply concatenating JavaScript files won't be that easy anymore. Luckily we have tools that help us in this direction: [Browserify](http://browserify.org/), [Webpack](https://webpack.github.io/) and [JSPM](http://jspm.io/). In this post, we'll go over setting up Webpack for developing with react using [Babel](http://babeljs.io/) to transpile [ES6](http://www.ecma-international.org/ecma-262/6.0/) and [JSX](https://facebook.github.io/jsx/) code.
 

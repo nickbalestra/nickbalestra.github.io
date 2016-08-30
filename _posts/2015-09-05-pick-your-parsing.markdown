@@ -5,7 +5,7 @@ description:  "Why I went with Acorn over Esprima"
 ---
 
 
-##[Acorn](https://github.com/marijnh/acorn) is a tiny, fast JavaScript parser, written completely in JavaScript, it produces a well-documented, widely used [AST format](https://developer.mozilla.org/en-US/docs/SpiderMonkey/Parser_API) excactly as [Esprima](https://github.com/jquery/esprima) does. Acorn is really fast. Just like Esprima. Acorn is tiny. About half as big as Esprima, in lines of code.
+## [Acorn](https://github.com/marijnh/acorn) is a tiny, fast JavaScript parser, written completely in JavaScript, it produces a well-documented, widely used [AST format](https://developer.mozilla.org/en-US/docs/SpiderMonkey/Parser_API) excactly as [Esprima](https://github.com/jquery/esprima) does. Acorn is really fast. Just like Esprima. Acorn is tiny. About half as big as Esprima, in lines of code.
 
 Still, there's no good reason to pick Acorn over Esprima.
 So why did I pick it?

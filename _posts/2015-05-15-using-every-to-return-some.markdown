@@ -4,7 +4,7 @@ date: 2015-05-15
 description: Functional programming helpers
 ---
 
-##[Underscore](http://underscorejs.org/) is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects.
+## [Underscore](http://underscorejs.org/) is a JavaScript library that provides a whole mess of useful functional programming helpers without extending any built-in objects.
 
 Rewriting some of its core methods is a very fun and useful excercise to better understand it while getting more comfortable with some of the functional programming paradigms. One fun excercise worth trying is re-using functions as much as possible. For example, there is a very clever way to re-use every() inside of some().
 

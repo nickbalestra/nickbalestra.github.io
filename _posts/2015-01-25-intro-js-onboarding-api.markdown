@@ -5,7 +5,7 @@ description: My contribute for a better onboarding script
 ---
 
 
-##Intro.js aim to deliver better introductions for websites and features with a step-by-step guide for your projects. I got the inspiration for a little pull request after having read a great post by Jan König titled “[Batman Onboarding](https://medium.com/@einkoenig/batman-onboarding-999d19f0cab9)”.
+## Intro.js aim to deliver better introductions for websites and features with a step-by-step guide for your projects. I got the inspiration for a little pull request after having read a great post by Jan König titled “[Batman Onboarding](https://medium.com/@einkoenig/batman-onboarding-999d19f0cab9)”.
 
 ***
 In that article, Jan writes about what’s wrong with onboarding wizards, outlining four main issues:
@@ -29,18 +29,18 @@ and
 
 ***
 
-###How it works
+### How it works
 Batman will transform the intro.js steps defined in your markup into helpers (bringing them to the user in a “Pow / Ka-boom” style animation), that once clicked, will start the wizard from that specific point.
 [Check out the demo to see it in action](https://medium.com/@einkoenig/batman-onboarding-999d19f0cab9).
 
-####How to use it
+#### How to use it
 We just need to call intro.js via its new batman API. This could be done via a click event: (Batman works as a toggle)
 
 {% highlight javascript %}
 onclick="javascript:introJs().batman();"
 {% endhighlight %}
 
-####Under the hood
+#### Under the hood
 First an array containing the intro.js steps found on the page get created, together with an array of batman helpers (In case batman has been already fired).
 
 {% highlight javascript %}
@@ -83,7 +83,7 @@ Animations are handled purely via css.
 
 ***
 
-###Final words and links
+### Final words and links
 Take this as a proof of concept showing how some onboarding issues, as the ones outlined by Jan König in his post, could be addressed on a generic, off the shelf solution, like the popular intro.js.
 
 Links:

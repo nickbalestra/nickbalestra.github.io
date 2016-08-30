@@ -4,7 +4,7 @@ date: 2015-07-05
 description: Functional, Functional-shared, Prototypal and Pseudoclassical
 ---
 
-##Any construct that is capable of producing a fleet of similar instances conforming to some interface can be called a Class.
+## Any construct that is capable of producing a fleet of similar instances conforming to some interface can be called a Class.
 
 Without entering into the debate about the OOp aspects of the javaScript language specific to Classes, and if classes/instances truely exists in js, let's just rely on the above definition, and explore the different patterns available to us for defining Classes and instantiating them.
 

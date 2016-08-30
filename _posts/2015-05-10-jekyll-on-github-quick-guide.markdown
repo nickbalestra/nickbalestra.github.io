@@ -4,7 +4,7 @@ date: 2015-05-10
 description: Static site generator for Github pages
 ---
 
-##Jekyll is a simple static site generator, open source and written in Ruby by [Github](https://github.com/)'s co-founder [Tom Preston-Werner](https://twitter.com/mojombo).
+## Jekyll is a simple static site generator, open source and written in Ruby by [Github](https://github.com/)'s co-founder [Tom Preston-Werner](https://twitter.com/mojombo).
 
 ***
 Github fully support Jekyll, allowing for a great workflow and UX. This make the jekyll + github combo a good candidate for blogging. Some added benefits:

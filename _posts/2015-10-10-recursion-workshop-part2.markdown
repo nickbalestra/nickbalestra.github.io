@@ -9,7 +9,7 @@ This post is part of a series of posts in which I write about recursion. I'll Bo
 
 * * *
 
-##Tail-recursive processes in JavaScript
+## Tail-recursive processes in JavaScript
 
 This distinctition between function and process may be confusing if you came from a language like JavaScript, as JS is among those languages designed in a way that any recursive function will consume a growing amount of memory as the number of function calls grows, even when the process described may be iterative. As a consequence, JavaScript could describe iterative processes only by using 'looping constructs' like do/while and for.
 
