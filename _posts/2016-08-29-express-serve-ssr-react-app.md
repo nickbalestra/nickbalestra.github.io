@@ -12,7 +12,7 @@ While the following code with some minor adjustment would work fine for any [gen
 
 We’ll be looking at how to wire together and engineer such a middleware. It will offer a minimal configuration upon initialization (i.e. like enabling hot-module-load, setting the endpoint where the app will be served and allowing us to pass parameters to the react app).
 
-Why may you want something like this? Imagine you are working on a discretely complex app, and you need some kind of dev-tool in the form of a GUI driven app, simply hook the middleware in, hit the desired URL end there you go, of course, that’s one possible scenario…
+Why may you want something like this? Imagine you are working on a discretely complex app, and you need some kind of dev-tool in the form of a GUI driven app, simply hook the middleware in, hit the desired URL end there you go. Of course, that’s only one among many possible scenarios…
 
 The stack is based around express, react, jspm.
  
@@ -51,10 +51,10 @@ if (hml) require('chokidar-socket-emitter')({port: 5776}) // <—
 
 #### Configuring and using the middleware
 
-As we haven’t yet built out middleware let think at its interface, we want to be able to configure it with:
+As we haven’t yet start building the middleware let just focus at its interface, we want to be able to configure it with:
 
 - endpoint (where the app will be served, i.e.: /boom)
-- hml (enabling hot module loading on the client)
+- hml toggle (enabling hot module loading on the client)
 <br><br>
 Once configured we should be able to register the middleware using the express use() method. Server.js is now complete:<br><br>
 
@@ -82,7 +82,7 @@ import React from 'react'
 import App from '../app/app’
 {% endhighlight %}
 
-Earlier we stated that the middleware should offer a minimal configuration upon initialisation. Our module will then expose a function, taking as argument the options we need to initialise it, returning a function (the configured middleware, ready to be used).
+Earlier we stated that the middleware should offer a minimal configuration upon initialization. Our module will therefore expose a function, taking as argument the options we need to initialize it, returning a function (the configured middleware, ready to be used).
 
 {% highlight javascript %}
 module.exports = (options) => {
@@ -95,9 +95,9 @@ module.exports = (options) => {
 
 The logic for our middleware is pretty straightforward:
 
-1. 1. Check if the requested url is the same we configured
+1. 1. Check if the requested url match the configuration
 2. 2. Render the app server side
-3. 3. Respond by sending the page, with the rendered app and the required assets to mount the app client side.
+3. 3. Respond by sending the page, with the rendered app and the required assets to mount the app on the client
 <br><br>
 Check the requested URL:
 <br><br>
@@ -107,7 +107,7 @@ if (req.url === options.endPoint)
 
 Render the app server side:
 {% highlight javascript %}
-const ssrApp = render(<App  options={options}/>)
+const ssrApp = render(<App />)
 {% endhighlight %}
 
 Send the final rendered page and relative assets:
@@ -124,13 +124,13 @@ res.status(200).send(html)
 
 Two things going on here: 
 
-First, as we’ll be using JSPM for managing our bundling client-side, we’ll be relying on a injected bundle workflow, so passing down system.js and config.js will be enough. We’ll then be using System js to import our app. If you wonder about JSPM, here is [why I love JSPM](http://nick.balestra.ch/2016/why-i-love-JSPM/) and why you should give it a go.
+First, as we’ll be using JSPM for managing our bundling client-side, we’ll be relying on a injected bundle workflow, so passing down system.js and config.js will be enough(the bundle map will be injected in config, so that we don’t need to use another script to declare it). We’ll then be using System js to import our app. If you wonder about JSPM, here is [why I love JSPM](http://nick.balestra.ch/2016/why-i-love-JSPM/) and why you should give it a go.
 
-Second, you probably noticed that I’m using es6, in order to avoid a build phase, we transpire in memory via the [babel require hook](https://babeljs.io/docs/usage/require/)
+Second, you probably noticed that we are using es6, in order to avoid a build phase, we transpile in memory via the [babel require hook](https://babeljs.io/docs/usage/require/)
 
 #### Hot Module Loading
 
-As we did for the server we want to make sure we enable hot module loading programmatically. To do so, let’s rely on the hml    property passed with our optionHash earlier:
+As we did for the server we want to make sure we enable hot module loading programmatically. To do so, let’s rely on the hml toggle passed with our optionHash earlier:
 
 {% highlight javascript %}
 …
@@ -148,7 +148,7 @@ const hml = `
 
 This will set system.trace to true and append the promise of having imported the systems-hot-reloaded module to the global window object. We can then check against the resolution of that promise, and in the case of hml not being active (window.hml == undefined), the promise will still resolve correctly.
 
-Finally, we need to compose our middleware with the static middleware in order to allow our express serve to serve the proper static assets. The final result will be something like:
+Finally, we need to compose our middleware with the static middleware in order to allow our express server to serve the proper static assets. The final result will be something like:
 
 {% highlight javascript %}
 import express from 'express'
@@ -192,8 +192,26 @@ module.exports = (options) => {
 
 ### The React App
 
-I won’t discuss any specific about the react app, for the sake of the experiment I’ll simply rely on a hello-world kind of app, you can take it further from there. What is important here is to simply rely on JSPM for all the dependencies, and the bundling.
+I won’t discuss any specific about the react app, for the sake of the experiment I’ll simply rely on a hello-world kind of app, you can take it further from there. What is important here is to simply rely on JSPM for all the dependencies, and the bundling. 
+
+Finally, we can take advantage of the option we use to initialise the middleware to pass anything we may need to props one server side rendering the app:
+
+{% highlight javascript %}
+const ssrApp = render(<App  options={options}/>)
+{% endhighlight %}
 
 ***
 
-That’s it! You know have a generic middleware for express then can serve a react app, taking advantage of SSR and hot-module-loading workflow. Feel free to fork my [express-serve-app](https://github.com/nickbalestra/express-serve-app) repository
+That’s it! We now have a generic middleware for express then can serve a react app, taking advantage of SSR and hot-module-loading workflow. Feel free to fork my [express-serve-app](https://github.com/nickbalestra/express-serve-app) repository and to run just:
+
+{% highlight javascript %}
+$npm i
+$npm run dev // —> hot module loading ON
+$npm start //  —> hot module loading OFF
+{% endhighlight %}
+
+And go to:
+
+{% highlight javascript %}
+http://localhost/boom // —> Shakalaka!
+{% endhighlight %}
