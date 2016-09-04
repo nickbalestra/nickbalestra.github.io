@@ -1,7 +1,7 @@
 ---
 title: Demystifying Redux pt1
 date: 2016-09-4
-description: createStore basic internals
+description: by reimplementing a naif version of createStore
 ---
 
 ## [Redux](https://github.com/reactjs/redux) is a predictable state container for JavaScript apps. It borrow ideas from both the [flux architecture](https://facebook.github.io/flux/) and the [elm architecture](http://guide.elm-lang.org/architecture/). Shortly:
@@ -40,7 +40,7 @@ function createStore(reducer) {
 }
 {% endhighlight %}
 
-Now that we have a skeleton in place let implement the createStore APIs.
+Now that we have a skeleton in place lets implement the createStore APIs.
 
 #### getState()
 
