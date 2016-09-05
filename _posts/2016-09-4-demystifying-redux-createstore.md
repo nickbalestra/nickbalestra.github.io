@@ -185,6 +185,15 @@ store.dispatch({ type: 'INCREMENT' })
 store.dispatch({ type: 'DECREMENT' })
 // 1
 {% endhighlight %}
+
+Finally we want to be able to specify an initial state when instantiating our store. Simple: move the state definition from the body of the function to its signature:
+
+{% highlight javascript %}
+function createStore(reducer, state) {
+  ...
+}
+{% endhighlight %}
+
 ***
 
 If you want to play around, feel free to fork my [redux-playground repository](https://github.com/nickbalestra/redux-playground)
