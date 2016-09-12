@@ -197,3 +197,7 @@ function createStore(reducer, state) {
 ***
 
 If you want to play around, feel free to fork my [redux-playground repository](https://github.com/nickbalestra/redux-playground)
+
+#### Related post:
+
+- [Demystifying Redux pt2](http://nick.balestra.ch/2016/demystifying-redux-applymiddleware/)
