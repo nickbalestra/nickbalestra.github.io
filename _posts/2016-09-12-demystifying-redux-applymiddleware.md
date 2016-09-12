@@ -22,11 +22,11 @@ const dispatch = action => {
 }
 {% endhighlight %}
 
-The dispatch method has access to the state before and after state reduction happens. If you have some knowledge of [express.js](https://expressjs.com/) (& Co., like [Koa](http://koajs.com/) or [Hapi](http://hapijs.com/)) you might see where the middleware idea come from. In fact this is the only part of Redux, that you won’t find in the Elm architecture. Redux allows you via applyMiddleware to enhance the store.dispatch logic.
+The dispatch method has access to the state before and after state reduction happens. If you have some knowledge of [express.js](https://expressjs.com/) (& Co., like [Koa](http://koajs.com/) or [Hapi](http://hapijs.com/)) you might see where the middleware idea come from. In fact, this is the only part of Redux, that you won’t find in the Elm architecture. Redux allows you via applyMiddleware to enhance the store.dispatch logic.
 
 #### applyMiddleware API
 
-As we did with createStore, lets’ start from the API of applyMiddleware. We want applyMiddleware to take the middleware as argument. It should return a function that we could call on createStore, that will return a new createStore function, with the middleware applied. In a sense we want to configure how we create stores, by enhancing our createStore capabilities trough the middleware. Or simply put: hijack the dispatch method of createStore with an enhanced one, AKA: applying a middleware to our store.
+As we did with createStore, lets’ start from the API of applyMiddleware. We want applyMiddleware to take the middleware as the argument. It should return a function that we could call on createStore, that will return a new createStore function, with the middleware applied. In a sense, we want to configure how we create stores, by enhancing our createStore capabilities trough the middleware. Or simply put: hijack the dispatch method of createStore with an enhanced one, AKA: applying a middleware to our store.
 
 {% highlight javascript %}
 function applyMiddleware(middleware) {
@@ -99,7 +99,7 @@ Let’s just stop for a moment and reason about what we just did:
 
 **applyMiddleware = middleware -> createStore -> (reducer, initialState) => store**
 
-Before putting the pieces together, lets see how a middleware will looks like.
+Before putting the pieces together, lets see how a middleware will look like.
 
 ### Anatomy of a redux-middleware
 
@@ -172,13 +172,10 @@ store.dispatch({ type: 'DECREMENT' })
 
 ### Conclusion and extras
 
-The above implementation doesn’t allow us to apply multiple middlewares, if you wan to add that feature take a look at the beautiful : [compose](https://github.com/reactjs/redux/blob/master/src/compose.js) helper that comes with Redux.
+The above implementation doesn’t allow us to apply multiple middlewares if you want to add that feature take a look at the beautiful : [compose](https://github.com/reactjs/redux/blob/master/src/compose.js) helper that comes with Redux.
 
 If you want to play around with the code above, feel free to fork my redux-playground repository.
 
 #### Previous related post:
 
-- [Demystifying Redux pt2](http://nick.balestra.ch/2016/demystifying-redux-createstore/)
-
-
-
+- [Demystifying Redux pt1](http://nick.balestra.ch/2016/demystifying-redux-createstore/)
