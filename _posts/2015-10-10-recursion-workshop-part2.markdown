@@ -18,7 +18,7 @@ This is going to change with the new Ecmascript 6 specifications, where a so cal
 If you are familiar with functional libraries like lodash or underscore, you know how we can implement functions like each and reduce by relying on looping constructs.
 Following are two examples of a recursive implementation of each and reduce that take advantage of the upcoming ES6 tail-call optimization in order to express a liner iteration process.
 
-#####Tail-recursive each (linear iterative process in ES6)
+##### Tail-recursive each (linear iterative process in ES6)
 
 {% highlight javascript %}
 function each(list, iterator) {
@@ -30,7 +30,7 @@ function each(list, iterator) {
 }
 {% endhighlight %}
 
-#####Tail-recursive reduce (linear iterative process in ES6)
+##### Tail-recursive reduce (linear iterative process in ES6)
 
 {% highlight javascript %}
 function reduce(list, callback, accumulator) {
@@ -55,7 +55,7 @@ by calling a recursive function, thanks the tail-recursive implementation of the
 
 * * *
 
-####All the recursion workshop articles:
+#### All the recursion workshop articles:
 
 - [Recursion, part 1: Linear Recursion and Iteration](http://nick.balestra.ch/2015/recursion-workshop)
 - [Recursion, part 2: Tail-recursive processes in JS](http://nick.balestra.ch/2015/recursion-workshop-part2/)

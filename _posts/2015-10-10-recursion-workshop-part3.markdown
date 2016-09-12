@@ -64,7 +64,7 @@ Now that we saw different recursive processes we may start noticing some pattern
 
 * * *
 
-####All the recursion workshop articles:
+#### All the recursion workshop articles:
 
 - [Recursion, part 1: Linear Recursion and Iteration](http://nick.balestra.ch/2015/recursion-workshop)
 - [Recursion, part 2: Tail-recursive processes in JS](http://nick.balestra.ch/2015/recursion-workshop-part2/)
