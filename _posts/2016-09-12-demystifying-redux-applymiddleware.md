@@ -70,8 +70,8 @@ function applyMiddleware(middleware) {
       const dispatch = store.dispatch;
       const getState = store.getState;
   
-      const configuredMIddleware = middleware({ dispatch, getState }); // <-
-      const enhancedDispatch = configuredMIddleware(dispatch); // <-
+      const injectedMIddleware = middleware({ dispatch, getState }); // <-
+      const enhancedDispatch = injectedMIddleware(dispatch); // <-
     }
 }
 {% endhighlight %}
@@ -86,8 +86,8 @@ function applyMiddleware(middleware) {
        const dispatch = store.dispatch;
        const getState = store.getState;
     
-      const configuredMIddleware = middleware({ dispatch, getState });
-      const enhancedDispatch = configuredMIddleware(dispatch);
+      const injectedMIddleware = middleware({ dispatch, getState });
+      const enhancedDispatch = injectedMIddleware(dispatch);
       
       return Object.assign({}, store,{ dispatch:enhancedDispatch }); // <-
     }
