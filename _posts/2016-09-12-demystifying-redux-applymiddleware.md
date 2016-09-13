@@ -174,7 +174,7 @@ store.dispatch({ type: 'DECREMENT' })
 
 The above implementation doesn’t allow us to apply multiple middlewares if you want to add that feature take a look at the beautiful : [compose](https://github.com/reactjs/redux/blob/master/src/compose.js) helper that comes with Redux.
 
-If you want to play around with the code above, feel free to fork my redux-playground repository.
+If you want to play around with the code above, feel free to fork my [redux-playground repository](https://github.com/nickbalestra/redux-playground).
 
 #### Previous related post:
 
