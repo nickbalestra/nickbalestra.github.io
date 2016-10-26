@@ -8,7 +8,7 @@ description: A Simple, Scalable and Easy starting point
 
 Following [Christian Alfoni](https://twitter.com/christianalfoni)'s example with his [ultimate Webpack setup](https://github.com/christianalfoni/webpack-express-boilerplate), the following post to share with you a really awesome setup to start developing full stack web application using the E2 stack (Elm + Express).
 
-**Tl:dr:**
+**Tl:dr: [github.com/nickbalestra/E2](https://github.com/nickbalestra/E2)**
 
 {% highlight bash %}
 $ git clone https://github.com/nickbalestra/E2.git
