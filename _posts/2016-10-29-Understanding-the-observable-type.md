@@ -47,7 +47,7 @@ and create an observable using our helloWorldProducer as its datasource.
 const observableHelloWorld = new Observable(helloWorldProducer)
 {% endhighlight %}
 
-### The Oobserver
+### The observer
 
 Before proceding forward watching our new shiny observable in action, we still need to disect the observer. As mentioned earlier an observer is nothing more then an object with 3 methods: 'next', 'error' and 'complete'.
 
