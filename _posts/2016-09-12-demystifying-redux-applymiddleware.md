@@ -1,12 +1,12 @@
 ---
 title: Demystifying Redux pt2
 date: 2016-09-12
-description: by reimplementing a naif version of applyMiddleware
+description: by reimplementing a naive version of applyMiddleware
 ---
 
 ## [Redux](https://github.com/reactjs/redux) is a predictable state container for JavaScript apps. It borrow ideas from both the [flux architecture](https://facebook.github.io/flux/) and the [elm architecture](http://guide.elm-lang.org/architecture/).
 
-This article, is part of a series of posts aiming to explain the redux architecture and its internals by reimplementing parts of it (*Disclaimer: naif/not-optimized implementation ahead*). As we demystified createStore in the [previous post](http://nick.balestra.ch/2016/demystifying-redux-createstore/), this time we’ll take a look at : **applyMiddleware**
+This article, is part of a series of posts aiming to explain the redux architecture and its internals by reimplementing parts of it (*Disclaimer: naive/not-optimized implementation ahead*). As we demystified createStore in the [previous post](http://nick.balestra.ch/2016/demystifying-redux-createstore/), this time we’ll take a look at : **applyMiddleware**
 
 ***
 
@@ -30,7 +30,7 @@ As we did with createStore, lets’ start from the API of applyMiddleware. We wa
 
 {% highlight javascript %}
 function applyMiddleware(middleware) {
-  return createStore => 
+  return createStore =>
     (reducer, initialState) => {
      …
      // return enhanced store
@@ -51,7 +51,7 @@ In order to be able to hijack the dispatcher we first need to save  the original
 
 {% highlight javascript %}
 function applyMiddleware(middleware) {
-  return createStore => 
+  return createStore =>
     (reducer, initialState) => {
       const store = createStore(reducer, initialState); // <-
       const dispatch = store.dispatch; // <-
@@ -64,12 +64,12 @@ We can now inject those method into our middleware:
 
 {% highlight javascript %}
 function applyMiddleware(middleware) {
-  return createStore => 
+  return createStore =>
     (reducer, initialState) => {
       const store = createStore(reducer, initialState);
       const dispatch = store.dispatch;
       const getState = store.getState;
-  
+
       const injectedMIddleware = middleware({ dispatch, getState }); // <-
       const enhancedDispatch = injectedMIddleware(dispatch); // <-
     }
@@ -80,21 +80,21 @@ and finally we can return the new enhanced store with the hijacked dispatcher:
 
 {% highlight javascript %}
 function applyMiddleware(middleware) {
-  return createStore => 
+  return createStore =>
     (reducer, initialState) => {
        const store = createStore(reducer, initialState);
        const dispatch = store.dispatch;
        const getState = store.getState;
-    
+
       const injectedMIddleware = middleware({ dispatch, getState });
       const enhancedDispatch = injectedMIddleware(dispatch);
-      
+
       return Object.assign({}, store,{ dispatch:enhancedDispatch }); // <-
     }
 }
 {% endhighlight %}
 
-And that’s it! 
+And that’s it!
 Let’s just stop for a moment and reason about what we just did:
 
 **applyMiddleware = middleware -> createStore -> (reducer, initialState) => store**
@@ -111,24 +111,24 @@ This should return a function that we can compose with our dispatcher in a chain
 
 - Log the previous state before every action is dispatched
 - Log the action type being dispatched
-- Log the state after the action has been dispatched 
-<br /><br /> 
+- Log the state after the action has been dispatched
+<br /><br />
 {% highlight javascript %}
 function createLoggingMiddleware({ getState }) {
-  return dispatch => 
+  return dispatch =>
     action => {
       const previousState = getState();
       const dispatched = dispatch(action);
       const currentState = getState();
-     
+
       console.log(`Previous state: ${previousState}`);
       console.log(`Action dispatched: ${action.type}`);
       console.log(`Current state: ${currentState}`);
-      console.log("=======================")  
+      console.log("=======================")
 
-      return dispatched; 
+      return dispatched;
     };
-} 
+}
 {% endhighlight %}
 
 #### Putting the pieces together:
@@ -136,8 +136,8 @@ function createLoggingMiddleware({ getState }) {
 Lets import our [createStore together with our counter reducer from the previous post](http://nick.balestra.ch/2016/demystifying-redux-createstore), together with our freshly coded applyMiddleware and createLoggingMiddleware:
 
 {% highlight javascript %}
-import createStore from ‘./naif-redux/createStore’
-import applyMiddleware from ‘./naif-redux/applyMiddleware’
+import createStore from ‘./naive-redux/createStore’
+import applyMiddleware from ‘./naive-redux/applyMiddleware’
 import counter from ‘./reducers’
 import createLoggingMiddleware from ‘./middlewares/loggingMiddleware’
 {% endhighlight %}
@@ -147,8 +147,8 @@ We can now wire all the pieces together and see that even without subscribing to
 {% highlight javascript %}
 
 const createEnhancedStore = applyMiddleware(createLoggingMiddleware)(createStore);
-const store = createEnhancedStore(counter)   
-   
+const store = createEnhancedStore(counter)
+
 store.dispatch({ type: 'INCREMENT' })
 // Previous state: 0
 // Action dispatched: INCREMENT

@@ -1,14 +1,14 @@
 ---
 title: Demystifying Redux pt1
 date: 2016-09-4
-description: by reimplementing a naif version of createStore
+description: by reimplementing a naive version of createStore
 ---
 
 ## [Redux](https://github.com/reactjs/redux) is a predictable state container for JavaScript apps. It borrow ideas from both the [flux architecture](https://facebook.github.io/flux/) and the [elm architecture](http://guide.elm-lang.org/architecture/). Shortly:
 
 > **state = f(state, action)**
 
-This article, is part of a series of posts aiming to explain redux architecture and its internals by reimplementing parts of it (*Disclaimer: naif/not-optimized implementation ahead*). We’ll start from the core, main logic: **createStore**
+This article, is part of a series of posts aiming to explain redux architecture and its internals by reimplementing parts of it (*Disclaimer: naive/not-optimized implementation ahead*). We’ll start from the core, main logic: **createStore**
 
 ***
 
@@ -31,11 +31,11 @@ This give us enough information to start writing some code.
 {% highlight javascript %}
 function createStore(reducer) {
   let state // holding the state of the app
-  
+
   const getState = () => {}
   const dispatch = () => {}
   const subscribe = () => {}
-  
+
   return { getState, dispatch, subscribe} // API
 }
 {% endhighlight %}
@@ -90,7 +90,7 @@ let subscriptions = []
 const subscribe = listener => {
   subscriptions.push(listener)
   return {
-    dispose() { 
+    dispose() {
       subscriptions.splice(subscriptions.indexOf(listener),1)
     }
   }
@@ -120,7 +120,7 @@ dispatch({type: 'INIT'})
 
 ### Conclusions
 
-That’s it, you can now create a store, dispatch actions to mutate it and have all the subscribed clients be notified about any changes. This is the main overall architecture of redux. Simple and elegant. 
+That’s it, you can now create a store, dispatch actions to mutate it and have all the subscribed clients be notified about any changes. This is the main overall architecture of redux. Simple and elegant.
 
 Our final implementation of createStore:
 
@@ -145,7 +145,7 @@ function createStore(reducer) {
       }
     }
   }
-	
+
   dispatch({type: 'INIT'})
 
   return { getState, dispatch, subscribe}

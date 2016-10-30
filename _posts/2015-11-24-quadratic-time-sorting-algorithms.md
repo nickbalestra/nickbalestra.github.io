@@ -5,7 +5,7 @@ description: BubbleSort, SelectSort and InsertSort
 ---
 
 No need to rely on logarithmic time sorting algorithms If you are sorting small datasets.
-Instead, you are more then safe to fallback on a naif quadratic algorithm like insertSort or selectSort.
+Instead, you are more then safe to fallback on a naive quadratic algorithm like insertSort or selectSort.
 In this post, we'll walk through them.
 
 ***
@@ -50,7 +50,7 @@ If you wonder about swapping helpers, check-out the post on [JavaScript swap in-
 
 ### Select Sort
 
-The idea behind select sort is to repeatedly select the minimum value from the array pushing it to a new array, this way the newly created array will result in being sorted. 
+The idea behind select sort is to repeatedly select the minimum value from the array pushing it to a new array, this way the newly created array will result in being sorted.
 
 {% highlight javascript %}
 function selectSort(list) {
@@ -123,7 +123,7 @@ function insertSort(list) {
         insert = true;
         break;
       }
-    } 
+    }
     if (!insert) {
       sorted.push(list[i]);
     }
@@ -154,7 +154,7 @@ function insertSortInPlace(list) {
         insert = true;
         break;
       }
-    } 
+    }
     if (!insert) {
       swap(list, i, j);
     }
