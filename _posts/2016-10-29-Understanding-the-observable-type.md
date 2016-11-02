@@ -127,7 +127,7 @@ const intervalProducer = function(observer) {
 }
 {% endhighlight %}
 
-I guess you can now see why being able to unsubscribe from our observable is very important... Exactly, subscribing to an observable made with the produced we just defined, will keep pushing data to us, for ever, without us being able to stop it.
+I guess you can now see why being able to unsubscribe from our observable is very important... Exactly, subscribing to an observable made with a producer like the one we just defined, will keep pushing data to us, for ever, without us being able to stop it.
 
 To solve this, let's make sure that we return an unsubscribe function for that:
 
@@ -174,6 +174,44 @@ setTimeout(() => {
 {% endhighlight %}
 
 [Play with the above code on jsBin](https://jsbin.com/pafuqipeko/edit?js,console)
+
+***
+
+## Recap
+
+We saw how the Observable constructor initializes a new Observable object.
+
+As per the [tc39 proposal](https://tc39.github.io/proposal-observable/):
+
+> The subscriber argument must be a function object. It is called each time the subscribe method of the Observable object is invoked. The subscriber function is called with a wrapped observer object and may optionally return a function which will cancel the subscription.
+
+Finally the observer object wrap 3 functions: 'next', 'error', and 'complete'.
+
+If you prefer the `subscribe(fn, fn, fn)` signature like the one you'll find in RxJS we could easily map them accordingly:
+
+{% highlight javascript %}
+const helloWorldProducer = function(next, err=()=>{}, complete=()=>{}) {
+  const observer = (typeof next !== 'function') ?
+    next :
+    { next, err, complete }
+
+  observer.next('Hello')
+  observer.next('World')
+  observer.complete()
+}
+{% endhighlight %}
+
+Allowing us to subscribe by simply passing one or more callback:
+
+{% highlight javascript %}
+observableHelloWorld.subscribe(
+  (value) => console.log(value)
+)
+// -> "Hello"
+// -> "World"
+{% endhighlight %}
+
+[Play with the above code on jsBin](https://jsbin.com/rahedezoye/edit?js,console)
 
 ***
 
