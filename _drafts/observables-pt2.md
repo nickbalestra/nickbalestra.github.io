@@ -4,13 +4,13 @@ date: 2016-11-05
 description: by reimplementing part of the tc39 proposal
 ---
 
-## This post is part of a series in which I write about observables. In my [previous article](http://nick.balestra.ch/2016/Understanding-the-observable-type/) I went ahead and wrote an observable from scratch in order to fully understand it. This time I'll be exploring how to create observables from values, arrays, dom events and promises.
+## This post is part of a series in which I write about observables. In my previous article we went ahead [writing an observable from scratch](http://nick.balestra.ch/2016/Understanding-the-observable-type/) in order to fully understand it. This time I'll be exploring how to create observables from values, arrays, dom events and promises.
 
 ***
 
 ## Creating observables of...
 
-We saw how every time the producer emit values, those get pushed to the observer. For that we implemented a very basic producer that simply emit 2 strings ('Hello' and 'World') before signaling its completition. Here it is again:
+We saw how every time the producer emit values, those get pushed to the observer. For that we implemented a very basic producer that simply emit 2 strings ('Hello' and 'World') before signaling its completion. Here it is again:
 
 {% highlight javascript %}
 const helloWorldProducer = function(observer) {
@@ -26,32 +26,29 @@ const helloWorldProducer = function(observer) {
 const observableHelloWorld = new Observable(helloWorldProducer)
 {% endhighlight %}
 
-Wouldn't be nice if we could have an easier and quicker way to create Observables that will emit a stream of predefined values,without us having to worry about signalign completion or handling error?
+Wouldn't be nice if we could have an easier and quicker way to create Observables that will emit a stream of predefined values,without us having to worry about signalign completion and having to handle errors?
 
-Say hello to **Observable.of**!
+### Say hello to Observable.of()
 
-As the tc39 proposal suggest the API for [Observbale.of](https://tc39.github.io/proposal-observable/#observable-of) could look something like:
+As per the tc39 proposal, the signature for [Observbale.of](https://tc39.github.io/proposal-observable/#observable-of) will accept a list of items, returning a properly configured observable which will start emitting those value in sequence as soon as we subscribe to it.
 
-{% highlight javascript %}
-const observableHelloWorld = Observable.of('Hello', 'World')
-{% endhighlight %}
+The implementation of the Observable.of method will rely on the constructor we already wrote earlier hiding away some complexity in order to:
 
-The implementation for this method will mainly use the constructor we already wrote earlier hiding away some complexity in order to:
+**1 create a producer** (a subscriber function) in charge to:
 
-**1 create a producer** in charge to:
-
-- call observer.next for each of given values
+- call observer.next for each of the given values
 - signaling completion aftwerward and
 - being able to handle errors if any occurs.
 <br /><br />
-**2 create a new observable** with the given producer
+**2 create and return a new observable** with the given producer
 <br /><br />
+
 {% highlight javascript %}
 Observable.of = function(...values){
   // create a producer
   const producer = observer => {
     try {
-      // call observer.next for each of given values
+      // call observer.next for each of the given values
       values.forEach(value => observer.next(value))
       // signaling completion aftwerward
       observer.complete()
@@ -61,7 +58,7 @@ Observable.of = function(...values){
     }
   }
 
-  // create a new observable with the given producer
+  // create and return a new observable with the given producer
   return new Observable(producer)
 }
 {% endhighlight %}
@@ -86,11 +83,81 @@ observableHelloWorld.subscribe({
 )
 
 
+***
+
+## Creating observables from array
+
+In es6 rest parameters can be destructured, meaning that to create an observable from an array we could simply use Observbale.of passing an array to be destructured:
+
+ {% highlight javascript %}
+const words = ['Hello', 'world']
+const observableHelloWorld = Observable.of(...words)
+{% endhighlight %}
+
+Observable.fromArray is therefore nothing more then a variation of Observable.of especially designed to only accept arrays:
+
+{% highlight javascript %}
+Observable.fromArray = function(array){
+  // create a producer
+  const producer = observer => {
+    try {
+      // call observer.next for each value in the array
+      array.forEach(value => observer.next(value))
+      // signaling completion aftwerward
+      observer.complete()
+    } catch(err) {
+      // handle errors if any occurs
+      observer.error(err)
+    }
+  }
+
+  // create and return a new observable with the given producer
+  return new Observable(producer)
+}
+{% endhighlight %}
+
+[Play with the above code on jsBin](https://jsbin.com/lemoyikuko/1/edit?js,console
+)
+
+***
+
+## Creating observables from dom events
+
+Let's immagine we would like to be able to create an Observable from click events on a button without having to deal with hadding event handlers manually. All the logic will be again hidden away behind the Observable.fromEvent method in order to:
+
+**1 create a producer** (a subscriber function) in charge to:
+
+- creating and
+- call observer.next each of the given values
+- signaling completion aftwerward and
+- being able to handle errors if any occurs.
+<br /><br />
+**2 create and return a new observable** with the given producer
+<br /><br />
 
 
 
+***
 
+## Creating observables from promises
 
+***
+
+## Creating empty observables
+
+***
+
+## Creating interval observables
+
+***
+
+## Creating never??? observables
+
+***
+***
+***
+***
+***
 
 For each value we want
 
