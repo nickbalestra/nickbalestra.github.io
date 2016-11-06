@@ -224,7 +224,6 @@ Observable.fromPromise = function(promise){
       // handling errors
       .catch(reason => {
         observer.error(reason)
-        observer.complete()
       })
   }
 
