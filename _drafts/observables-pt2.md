@@ -4,7 +4,7 @@ date: 2016-11-05
 description: by reimplementing part of the tc39 proposal
 ---
 
-## This post is part of a series in which I write about observables. In my previous article we went ahead [writing an observable from scratch](http://nick.balestra.ch/2016/Understanding-the-observable-type/) in order to fully understand it. This time I'll be exploring how to create observables from values, arrays, dom events and promises.
+## In my previous post we went ahead [writing an observable from scratch](http://nick.balestra.ch/2016/Understanding-the-observable-type/) in order to fully understand it. This time we'll be exploring how to create observables from values, arrays, dom events and promises.
 
 ***
 
@@ -26,13 +26,13 @@ const helloWorldProducer = function(observer) {
 const observableHelloWorld = new Observable(helloWorldProducer)
 {% endhighlight %}
 
-Wouldn't be nice if we could have an easier and quicker way to create Observables that will emit a stream of predefined values,without us having to worry about signalign completion and having to handle errors?
+Wouldn't be nice if we could have an easier and quicker way to create such an Observable ?
 
 ### Say hello to Observable.of()
 
 As per the tc39 proposal, the signature for [Observbale.of](https://tc39.github.io/proposal-observable/#observable-of) will accept a list of items, returning a properly configured observable which will start emitting those value in sequence as soon as we subscribe to it.
 
-The implementation of the Observable.of method will rely on the constructor we already wrote earlier hiding away some complexity in order to:
+Our implementation of the Observable.of method will rely on the constructor we already wrote earlier, and will allow us to hide away some complexity in order to:
 
 **1 create a producer** (a subscriber function) in charge to:
 
@@ -114,6 +114,9 @@ Observable.fromArray = function(array){
   // create and return a new observable with the given producer
   return new Observable(producer)
 }
+
+const words = ['Hello', 'world']
+const observableHelloWorld = Observable.fromArray(words)
 {% endhighlight %}
 
 [Play with the above code on jsBin](https://jsbin.com/lemoyikuko/1/edit?js,console
@@ -123,19 +126,73 @@ Observable.fromArray = function(array){
 
 ## Creating observables from dom events
 
-Let's immagine we would like to be able to create an Observable from click events on a button without having to deal with hadding event handlers manually. All the logic will be again hidden away behind the Observable.fromEvent method in order to:
+Let's immagine we would like to be able to create an Observable that will emit a stream of click events, without having to deal with manually adding event listeners and handlers to do that. All the logic will be, again, hidden away behind the Observable.fromEvent method in order to:
 
 **1 create a producer** (a subscriber function) in charge to:
 
-- creating and
-- call observer.next each of the given values
-- signaling completion aftwerward and
-- being able to handle errors if any occurs.
+- create an eventHandler
+- add an eventlistener, so that:
+- observer.next will be called whenever an event will happen
+- handling errors when needed.
 <br /><br />
-**2 create and return a new observable** with the given producer
+**2 create and return a new observable** with the given producer so that upon subscribing it will
+<br /><br />
+**3 returns a function to unsusbcribe** (which will handle removing the eventListener)
 <br /><br />
 
+{% highlight javascript %}
+Observable.fromEvent = function(element, event){
+  const producer = observer => {
 
+    // create an eventHandler
+    const eventHandler = e => {
+      observer.next(e)
+    }
+
+    // adding the eventlistener
+    try {
+      element.addEventListener(event, eventHandler)
+    } catch(err) {
+      observer.error(err)
+    }
+
+    // return a function to unsusbcribe
+    return {
+      unsubscribe() {
+        element.removeEventListener(event, eventHandler)
+      }
+    }
+  }
+
+  //create and return a new observable
+  return new Observable(producer)
+}
+{% endhighlight %}
+
+Et voila, we can now simply use the proposed API to create an observableClick in a very simple and effictive way:
+
+{% highlight javascript %}
+const observableClick = Observable.fromEvent(document, 'click')
+{% endhighlight %}
+
+Allowing us to subscribe and unsubscribe from it:
+
+{% highlight javascript %}
+const click$ = observableClick.subscribe({
+  next(value) { console.log(`X: ${event.clientX}, Y: ${event.clientY}`) },
+  error(err) { console.log('Error: ', err) },
+  complete() { console.log('Done') }
+})
+
+// everytime we click we should see the co-ordinates of our mouse on the console:
+// "X: 242, Y: 88"
+
+// we can simply unsibscribe using:
+const click$ = observableClick.subscribe(observer)
+
+{% endhighlight %}
+
+[Play with the above code on jsBin](https://jsbin.com/dixejebece/edit?js,console,output)
 
 ***
 
