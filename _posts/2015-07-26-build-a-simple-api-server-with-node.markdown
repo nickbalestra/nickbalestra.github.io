@@ -157,6 +157,6 @@ curl -X POST 127.0.0.1:3000/ping
 
 ## Final thoughts and resources.
 
-Node is an awesome little beast that doesn't do much by itself but provide us with the right tools to build powerful backends. Much of the boiler plate I went through in the post can be avoided by relying on frameworks like [express.js](http://expressjs.com).Obviously, express come packed with much moar awesomeness then that, give it a spin if you have't already.
+Node is an awesome little beast that doesn't do much by itself but provide us with the right tools to build powerful backends. Much of the boiler plate I went through in the post can be avoided by relying on frameworks like [express.js](http://expressjs.com).Obviously, express come packed with much moar awesomeness then that, give it a spin if you haven't already.
 
 [Download this blog post code](https://gist.github.com/nickbalestra/5c904e9cbe218ec6649c)
