@@ -224,9 +224,13 @@ const sub = countTillThree$.subscribe({
 
 ***
 
-## Conclusion
+## Recap and Extras
 
-Although very naively, we just implemented a very basic stream library. I leave it up to the reader to implement it further, maybe taking some inspiration from the following libraries:
+Although very naively, we just implemented a very basic stream library. You can find the library on github:
+
+[Stream](https://github.com/nickbalestra/Stream) - A toy functional reactive stream library for JavaScript
+
+I leave it up to the reader to implement it further, maybe taking some inspiration from the following libraries:
 
 - [RxJS](https://github.com/Reactive-Extensions/RxJS/)
 - [xstream](https://github.com/staltz/xstream)
@@ -234,7 +238,16 @@ Although very naively, we just implemented a very basic stream library. I leave 
 
 ***
 
-Resources worth checking:
+#### All the articles of the "Understanding the observable type" series:
+
+
+1. [Implementing the Observable type from scratch](http://nick.balestra.ch/2016/Understanding-the-observable-type/)
+2. [Creating observables out of arrays, events and promises](http://nick.balestra.ch/2016/creating-observables/)
+3. [Composing observables streams](http://nick.balestra.ch/2016/composing-observables/)
+
+***
+
+Other resources worth checking:
 
 Many thanks go to [André Staltz](https://twitter.com/andrestaltz), [Jafar Husain](https://twitter.com/jhusain), [Ben Lesh](https://twitter.com/BenLesh) and all the great people that wrote great articles and produced great resources that are helping me better understand the topic. I'm still fresh on the subject, so I probably misunderstood something or got some things wrong, if so, please do let me know.
 
