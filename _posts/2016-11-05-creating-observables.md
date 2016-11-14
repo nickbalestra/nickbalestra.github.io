@@ -326,3 +326,10 @@ Further must-read resources that I highly recommend:
 - [Learning Observable By Building Observable](https://medium.com/@benlesh/learning-observable-by-building-observable-d5da57405d87)
 - [RxJS Beyond the Basics: Creating Observables from scratch](https://egghead.io/courses/rxjs-beyond-the-basics-creating-observables-from-scratch)
 
+***
+
+#### All the articles of the "Understanding the observable type" series:
+
+1. [Implementing the Observable type from scratch](http://nick.balestra.ch/2016/Understanding-the-observable-type/)
+2. [Creating observables out of arrays, events and promises](http://nick.balestra.ch/2016/creating-observables/)
+3. [Composing observables streams](http://nick.balestra.ch/2016/composing-observables/)
