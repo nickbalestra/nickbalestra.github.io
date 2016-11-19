@@ -42,7 +42,7 @@ Observable.prototype.map = function(transformation){
 
   // Hijack it so that it will apply the transformation to its outputs
   const newProducer = function(observer){
-    originalProducer({
+    return originalProducer({
       next (value) {observer.next(transformation(value))},
       error (err) {observer.error(err)},
       complete () {observer.complete()}
@@ -129,7 +129,7 @@ Observable.prototype.filter = function(predicate){
 
   // Hijack it so that it will push only the value passing the predicate test
   const newProducer = function(observer){
-    originalProducer({
+    return originalProducer({
       next (value) {
         if (predicate(value) === true) {
           observer.next(value)
