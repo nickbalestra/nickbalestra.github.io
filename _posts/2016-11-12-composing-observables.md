@@ -201,7 +201,7 @@ Observable.prototype.takeUntil = function(predicate){
 }
 {% endhighlight %}
 
-We can now easily create an observable that will emit an incremental value every second until 3 is emitted.
+We can now easily create an observable that will emit an incremental value every second until the value 3 is emitted.
 
 {% highlight javascript %}
 const isGreaterThenThree = (num) => num > 3 === true
