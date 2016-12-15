@@ -145,7 +145,7 @@ Observable.prototype.filter = function(predicate){
 }
 {% endhighlight %}
 
-Let's immagine we have an observable interval and we want to filter it so that only even numbers are produced:
+Let's immagine we have an observable interval and we want to filter it so that only even numbers get produced:
 
 {% highlight javascript %}
 const isEven = (num) => num % 2 === 0
