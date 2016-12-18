@@ -238,7 +238,7 @@ I leave it up to the reader to implement it further, maybe taking some inspirati
 
 ***
 
-#### All the articles of the "Understanding the observable type" series:
+#### All the articles of this "Understanding the observable type" serie:
 
 
 1. [Implementing the Observable type from scratch](http://nick.balestra.ch/2016/Understanding-the-observable-type/)
