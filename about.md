@@ -3,7 +3,7 @@ title: About
 permalink: about/
 profile: true
 ---
-I am a Software Engineer with strong UI design skills and over 10 years of experience with web technologies and UI development. I enjoy thinking about UX as much as solving difficult technical problems. 
+Software engineer. [@opentable](http://www.opentable.com). FRP. Learning me a haskell. [@funjsldn](https://twitter.com/funjsldn) co-organizer. @cyclejs community contributor.
 
 Opinions are my own. Code snippets are open source.
 
