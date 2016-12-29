@@ -3,7 +3,7 @@ title: About
 permalink: about/
 profile: true
 ---
-Software engineer. [@opentable](http://www.opentable.com). FRP. Learning me a haskell. [@funjsldn](https://twitter.com/funjsldn) co-organizer. [@cyclejs](https://cycle.js.org) community contributor.
+Software engineer. [@opentable](http://www.opentable.com). FRP. Learning me a Haskell. [@funjsldn](https://twitter.com/funjsldn) co-organizer. [@cyclejs](https://cycle.js.org) community contributor.
 
 Opinions are my own. Code snippets are open source.
 
