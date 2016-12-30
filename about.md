@@ -5,7 +5,7 @@ profile: true
 ---
 Software engineer. [@opentable](http://www.opentable.com). FRP. Learning me a Haskell. [@funjsldn](https://twitter.com/funjsldn) co-organizer. [@cyclejs](https://cycle.js.org) community contributor.
 
-Opinions are my own. Code snippets are open source.
+Opinions are my own.
 
 Follow me on [Github](https://github.com/nickbalestra) and [Twitter](https://twitter.com/nickbalestra)<br>
 Connect on [Linkedin](https://linkedin.com/in/nickbalestra)<br>
