@@ -3,12 +3,12 @@ title: About
 permalink: about/
 profile: true
 ---
-Software engineer. [@opentable](http://www.opentable.com). FRP. Learning me a Haskell. [@funjsldn](https://twitter.com/funjsldn) co-organizer. [@cyclejs](https://cycle.js.org) community contributor.
+I am a Software Engineer who enjoy thinking about UX as much as solving difficult technical problems.
 
-Opinions are my own.
+Opinions are my own. Code snippets are open source.
 
 Follow me on [Github](https://github.com/nickbalestra) and [Twitter](https://twitter.com/nickbalestra)<br>
-Connect on [Linkedin](https://linkedin.com/in/nickbalestra)<br>
+Connect on [Linkedin](https://linkedin.com/in/nickbalestra) and [Facebook](https://facebook.com/nickbalestra)<br>
 Write me an [email](mailto:nick@balestra.ch).
 ***
 
