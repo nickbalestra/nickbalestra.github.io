@@ -3,8 +3,11 @@ title: About
 permalink: about/
 profile: true
 ---
-I am a Software Engineer who enjoy thinking about UX as much as solving difficult technical problems.
-
+Software Engineer.<br />
+London.<br />
+Currently at [OpenTable](http://www.opentable.com/), writing Node and JavaScript applications at scale.<br />
+[Cycle.js](http://cycle.js.org/) community contributor.<br />
+[FunctionalJS London](http://funjs.co.uk) co-organizer.<br />
 Opinions are my own. Code snippets are open source.
 
 Follow me on [Github](https://github.com/nickbalestra) and [Twitter](https://twitter.com/nickbalestra)<br>
