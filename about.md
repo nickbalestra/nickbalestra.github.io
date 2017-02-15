@@ -3,11 +3,9 @@ title: About
 permalink: about/
 profile: true
 ---
-Software Engineer.<br />
-London.<br />
-Currently at [OpenTable](http://www.opentable.com/), writing Node and JavaScript applications at scale.<br />
-[Cycle.js](http://cycle.js.org/) community contributor.<br />
-[FunctionalJS London](http://funjs.co.uk) co-organizer.<br />
+Software Engineer [@OpenTable](http://www.opentable.com/).<br />
+Co-author of [create-cycle-app](https://github.com/cyclejs-community/create-cycle-app) and [redux-cycles](https://github.com/cyclejs-community/redux-cycles).<br />
+[@cyclejslondon](https://www.meetup.com/cycle-js-london-meetup/) & [@funjsldn](http://funjs.co.uk/) co-organizer.<br />
 Opinions are my own. Code snippets are open source.
 
 Follow me on [Github](https://github.com/nickbalestra) and [Twitter](https://twitter.com/nickbalestra)<br>
