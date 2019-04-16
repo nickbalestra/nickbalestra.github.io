@@ -38,15 +38,16 @@ server.listen(port, ip);
 
 ### A router module
 
-So, we now have a new instance of http.Server listening for requests on 127.0.0.1:3000. Every time a 'request' event triggers, the router will be called and the request object passed to it. The router should checks the url of the request against a list of registered routes (a.k.a our public API endpoints) and route the request to the relative endpoint handler, or, in case such a route wasn't registered, send back a 404 response. Here the code for the router and it routes hash:
+So, we now have a new instance of http.Server listening for requests on 127.0.0.1:3000. Every time a 'request' event triggers, the router will be called and the request object passed to it. The router should check the url of the request against a list of registered routes (a.k.a our public API endpoints) and, if that route is registered and supports the request type, route the request to the relative endpoint handler. Otherwise, send back a 404 response. Here the code for the router and it routes hash:
 
 {% highlight javascript %}
 var url = require('url');
+var utils = require('./utils');
 
 // The routes hash maps registered endpoint URLs
 // with their relative handler modules.
 var routes = {
-  '/endpoint' : require('./endpointHandler')
+  '/ping' : require('./endPointHandlers/ping')
 };
 
 // The router module check the url of the request
@@ -55,13 +56,14 @@ var routes = {
 // isn't a valid registered route a 404
 // reponse will be sent back instead.
 module.exports = function(request, response) {
-
   var routeHandler = routes[url.parse(request.url).pathname];
-
-  if (routeHandler){
-    routeHandler.requestHandler(request, response);
+  var requestHandler = routeHandler ? routeHandler[request.method] : null;
+  if (routeHandler && requestHandler) {
+    requestHandler(request, response);
+  } else if (!routeHandler) {
+    utils.respond(response, 'Endpoint not supported', 404);
   } else {
-    // TODO: respond with a 404
+    utils.respond(response, 'Request method not supported', 404);
   }
 };
 {% endhighlight %}
@@ -76,7 +78,6 @@ At a very besic level we don't need much, is enough to have:
 
 **respond()** to build and send the http response.<br>
 **fetchData()** to grab the data passed within each request (we won't take advantage of it throughout this post, but is definitely a must have).<br>
-**actionDispatcher()** to check for requests methods supported inside each endpointHandler and dispatch the request accordingly.
 
 Inside the utils file we can also define some headers to be used within our responses, allowing us to define CORS headers and any other header property we may need. As we are at it, and we are building an API server let's add json as the content type of our headers:
 
@@ -104,40 +105,26 @@ exports.fetchData = function(request, callback){
     callback(JSON.parse(data));
   });
 };
-
-exports.actionDispatcher = function(actionsHash){
-  return function(request, response) {
-    var action = actionsHash[request.method];
-    if (action) {
-      action(request, response);
-    } else {
-      exports.respond(response, '', 404);
-    }
-  }
-};
 {% endhighlight %}
 
 ### The endPoint handlers
 
 Now we should have everything we need to easily create the endPointHandlers with the logic and definition for each endpoint of our API. For our example server we said that we want to have a unique endpoint ('/ping') that will respond only to GET requests.
 
-Let's require our freshly backed utils, to support us handling both the requests and responses as well as the actions hash like a boss. The actions hash is where we will define the logic for each http method we may want to support/allow for the given endpoint. Here the final ping endpoint handler definition:
+Let's require our freshly backed utils, to support us handling both the requests and responses as well. The actions hash is where we will define the logic for each http method we may want to support/allow for the given endpoint. Here the final ping endpoint handler definition:
 
 {% highlight javascript %}
 var utils = require('../utils');
 
-var actions = {
-   'GET': function(request, response){
-     utils.respond(response, 'Pong');
-   }
-   // 'POST': function(request, response){},
-   // 'PUT': function(request, response){},
-   // 'DELETE': function(request, response){},
+module.exports = {
+  'GET': function(request, response){
+    utils.respond(response, 'Pong');
+  }
+  // 'POST': function(request, response){},
+  // 'PUT': function(request, response){},
+  // 'DELETE': function(request, response){},
   // 'OPTIONS': function(request, response){}
-};
-
-exports.requestHandler = utils.actionDispatcher(actions);
-{% endhighlight %}
+};{% endhighlight %}
 
 ### File Structure and running
 
@@ -170,6 +157,6 @@ curl -X POST 127.0.0.1:3000/ping
 
 ## Final thoughts and resources.
 
-Node is an awesome little beast that doesn't do much by itself but provide us with the right tools to build powerful backends. Much of the boiler plate I went through in the post can be avoided by relying on frameworks like [express.js](http://expressjs.com).Obviously, express come packed with much moar awesomeness then that, give it a spin if you have't already.
+Node is an awesome little beast that doesn't do much by itself but provide us with the right tools to build powerful backends. Much of the boiler plate I went through in the post can be avoided by relying on frameworks like [express.js](http://expressjs.com).Obviously, express come packed with much moar awesomeness then that, give it a spin if you haven't already.
 
 [Download this blog post code](https://gist.github.com/nickbalestra/5c904e9cbe218ec6649c)
