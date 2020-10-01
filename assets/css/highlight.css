@@ -19,6 +19,8 @@
   border-radius: 4px;
   overflow: hidden;
   font-family: 'Menlo', 'Monaco', Courier, monospace;
+  font-weight:Normal;
+  text-decoration:none;
 
 }
 
@@ -109,7 +111,9 @@
   text-align: right;
   width: 12px;
   left: -4px;
-  white-space: nowrap; }
+  white-space: nowrap;
+  font-weight:Normal;
+  text-decoration:none;}
 
   .highlight .lineno {
     color: #B7CADA;
